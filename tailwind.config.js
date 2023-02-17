@@ -11,6 +11,9 @@ module.exports = {
         lightBlue: "#4DB5F0",
         white: "#fefefe",
       },
+      backgroundImage: {
+        "top-form": "url('../public/assets/icons/top_form.svg')",
+      },
     },
     fontFamily: {
       poppins: ["Poppins"],
