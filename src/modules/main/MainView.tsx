@@ -1,3 +1,5 @@
+import { PageLayoutView } from "../page_layout/PageLayoutView";
+
 export const MainView = () => {
-  return <>Main View</>;
+  return <PageLayoutView>main view</PageLayoutView>;
 };

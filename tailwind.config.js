@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       colors: {
         lightBlue: "#4DB5F0",
+        white: "#fefefe",
       },
     },
     fontFamily: {
@@ -16,6 +17,7 @@ module.exports = {
     },
     fontSize: {
       xs: ["12px"],
+      sm: ["15px"],
     },
   },
   variants: {
