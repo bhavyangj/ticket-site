@@ -13,12 +13,9 @@ module.exports = {
         light: "#59899D",
         lighter: "#ADBECC",
       },
-      backdropBlur: {
-        xs: "2px",
-      },
     },
     fontFamily: {
-      body: ["Open Sans", "Helvetica"],
+      poppins: ["Poppins"],
     },
   },
   variants: {
