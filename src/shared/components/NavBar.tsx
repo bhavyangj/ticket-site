@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { NavBarElement } from "../types";
 
-const containerClass = " flex";
+const containerClass = "flex";
 const itemClass =
   "px-10 py-3 font-poppins font-medium text-xs hover:bg-lightBlue/[.1] rounded-sm";
 const selectedItemClass = "border-b-2 border-lightBlue rounded-sm";
