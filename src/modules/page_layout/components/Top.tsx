@@ -1,4 +1,5 @@
 import { staticFiles } from "../../../shared";
+import { Logo } from "../../../shared/components/Logo";
 import { NavBar } from "../../../shared/components/NavBar";
 import { NavBarElement } from "../../../shared/types";
 
@@ -45,8 +46,8 @@ const IconButton: React.FC<{ icon: string; name?: string }> = ({
 
 export const Top = () => (
   <div className="flex justify-between px-[5vw] py-8">
-    <div className="border border-black flex justify-center items-center">
-      logo
+    <div className="flex justify-center items-center">
+      <Logo />
     </div>
     <div className="">
       <div className="flex justify-end font-poppins text-sm">
