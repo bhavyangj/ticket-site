@@ -5,7 +5,7 @@ import { Top } from "./components/Top";
 export const PageLayoutView: React.FC<{ children: ReactNode }> = ({
   children,
 }) => (
-  <div className="min-h-screen bg-white bg-top-form bg-no-repeat bg-right-top">
+  <div className="flex flex-col min-h-screen bg-white bg-top-form bg-no-repeat bg-right-top">
     <Top />
     {children}
     <Footer />
