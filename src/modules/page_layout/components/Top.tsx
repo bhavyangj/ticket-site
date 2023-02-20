@@ -45,7 +45,7 @@ const IconButton: React.FC<{ icon: string; name?: string }> = ({
 );
 
 export const Top = () => (
-  <div className="flex justify-between px-[5vw] py-8">
+  <div className="flex justify-between px-[5vw] pt-8">
     <div className="flex justify-center items-center">
       <Logo />
     </div>

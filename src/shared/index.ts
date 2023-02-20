@@ -9,5 +9,6 @@ export const staticFiles = {
   },
   images: {
     logo: "/assets/icons/logo.svg",
+    cover_bg: "/images/cover_background.png",
   },
 };
