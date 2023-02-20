@@ -1,6 +1,9 @@
-import { createBrowserRouter } from "react-router-dom";
-import { AuthLayout } from "../modules/authentication/AuthLayout";
+import { createBrowserRouter, Outlet } from "react-router-dom";
 import { LogInView } from "../modules/authentication/LogInView";
+import {
+  PageLayoutView,
+  CoverTypes,
+} from "../modules/page_layout/PageLayoutView";
 import { SignUpView } from "../modules/authentication/SignUpView";
 import { LandingView } from "../modules/landing/LandingView";
 import { MainView } from "../modules/main/MainView";
@@ -19,7 +22,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/auth",
-    element: <AuthLayout />,
+    element: (
+      <PageLayoutView cover={CoverTypes.NORMAL}>
+        <Outlet />
+      </PageLayoutView>
+    ),
     errorElement: <NotFound />,
     children: [
       {
