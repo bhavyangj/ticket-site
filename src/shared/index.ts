@@ -6,6 +6,8 @@ export const staticFiles = {
     sign_up: "/assets/icons/sign_up.svg",
     facebook: "/assets/icons/facebook.svg",
     instagram: "/assets/icons/instagram.svg",
+    google: "/assets/icons/google.svg",
+    naver: "/assets/icons/naver.svg",
   },
   images: {
     logo: "/assets/icons/logo.svg",

@@ -9,7 +9,9 @@ module.exports = {
     extend: {
       colors: {
         lightBlue: "#4DB5F0",
+        blue: "#4979D1",
         white: "#fefefe",
+        gray: "#C9C5C5",
       },
       backgroundImage: {
         "top-form": "url('../public/assets/icons/top_form.svg')",
