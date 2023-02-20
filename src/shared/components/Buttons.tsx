@@ -12,6 +12,18 @@ export const GhostButton: React.FC<{
   </button>
 );
 
+export const MainButton: React.FC<{
+  text: string;
+  onClick: () => void;
+}> = ({ text, onClick }) => (
+  <button
+    className="font-poppins font-medium text-white bg-blue w-[300px] py-2"
+    onClick={() => onClick()}
+  >
+    {text}
+  </button>
+);
+
 export const GoogleButton: React.FC<{ text: string; onClick: () => void }> = ({
   text,
   onClick,
