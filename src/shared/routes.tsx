@@ -9,6 +9,7 @@ import { LandingView } from "../modules/landing/LandingView";
 import { MainView } from "../modules/main/MainView";
 import { NotFound } from "./components/NotFound";
 import { ForgotPasswordView } from "../modules/authentication/ForgotPasswordView";
+import { CreatePassowrdView } from "../modules/authentication/CreatePasswordView";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ export const router = createBrowserRouter([
       {
         path: "forgot-password",
         element: <ForgotPasswordView />,
+      },
+      {
+        path: "create-password",
+        element: <CreatePassowrdView />,
       },
     ],
   },

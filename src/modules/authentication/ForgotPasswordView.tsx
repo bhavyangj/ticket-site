@@ -1,9 +1,4 @@
-import {
-  GhostButton,
-  GoogleButton,
-  MainButton,
-  NaverButton,
-} from "../../shared/components/Buttons";
+import { MainButton } from "../../shared/components/Buttons";
 import { MainInput } from "../../shared/components/Inputs";
 import { SpaceY } from "../../shared/components/Utils";
 
@@ -16,7 +11,7 @@ export const ForgotPasswordView = () => {
       <span className="font-poppins text-sm">
         Lost your password? Please enter your email address. You will receive a
         link to create a new password via email
-      </span>{" "}
+      </span>
       <SpaceY /> <SpaceY /> <SpaceY />
       <MainInput placeholder="Email" onChange={(value) => console.log(value)} />
       <SpaceY />
