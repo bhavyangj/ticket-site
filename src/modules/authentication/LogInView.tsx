@@ -65,7 +65,7 @@ export const LogInView = () => {
       <hr className="border border-gray rounded w-[300px]" />
       <SpaceY /> <SpaceY />
       <a
-        onClick={() => navigate("/auth/forgot-password")}
+        onClick={() => navigate("/user/forgot-password")}
         className="cursor-pointer font-poppins text-blue text-sm w-[300px] text-end"
       >
         Forgot Password?

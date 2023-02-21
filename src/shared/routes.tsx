@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
     errorElement: <NotFound />,
   },
   {
-    path: "/auth",
+    path: "/user",
     element: (
       <PageLayoutView cover={CoverTypes.NORMAL}>
         <Outlet />

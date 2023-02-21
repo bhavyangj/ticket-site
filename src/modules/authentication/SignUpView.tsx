@@ -15,7 +15,7 @@ export const SignUpView = () => {
       <SpaceY /> <SpaceY />
       <GhostButton
         text="Create an account"
-        onClick={() => navigate("/auth/register")}
+        onClick={() => navigate("/user/register")}
       />
       <SpaceY /> <SpaceY />
       <div className="w-[250px] flex justify-between items-center">
