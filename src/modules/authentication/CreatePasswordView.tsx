@@ -2,7 +2,7 @@ import { MainButton } from "../../shared/components/Buttons";
 import { MainInput } from "../../shared/components/Inputs";
 import { SpaceY } from "../../shared/components/Utils";
 
-export const CreatePassowrdView = () => {
+export const CreatePasswordView = () => {
   return (
     <div className="min-h-[600px] flex flex-col items-center pt-[5vh] pb-[20vh]">
       <SpaceY />

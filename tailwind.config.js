@@ -12,6 +12,7 @@ module.exports = {
         blue: "#4979D1",
         white: "#fefefe",
         gray: "#C9C5C5",
+        red: "red",
       },
       backgroundImage: {
         "top-form": "url('../public/assets/icons/top_form.svg')",

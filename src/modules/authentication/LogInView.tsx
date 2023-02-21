@@ -1,3 +1,5 @@
+import { Controller, useForm } from "react-hook-form";
+import { classValidatorResolver } from "@hookform/resolvers/class-validator";
 import { useNavigate } from "react-router-dom";
 import {
   GoogleButton,
@@ -6,20 +8,59 @@ import {
 } from "../../shared/components/Buttons";
 import { MainInput } from "../../shared/components/Inputs";
 import { SpaceY } from "../../shared/components/Utils";
+import { LoginValidator } from "./utils/validations";
+
+const resolver = classValidatorResolver(LoginValidator);
 
 export const LogInView = () => {
   const navigate = useNavigate();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    resolver,
+  });
+
+  const onSubmit = (data: { email: string; password: string }) => {
+    console.log(data);
+  };
+
+  console.log(errors);
   return (
     <div className="min-h-[600px] flex flex-col items-center pt-[5vh] pb-[20vh]">
       <SpaceY />
       <span className="font-poppins font-medium text-2xl">Login</span>
       <SpaceY /> <SpaceY />
-      <MainInput placeholder="Email" onChange={(value) => console.log(value)} />
+      <Controller
+        name="email"
+        rules={{ required: true }}
+        control={control}
+        render={({ field }) => (
+          <MainInput
+            error={errors.email?.message}
+            placeholder="Email"
+            onChange={(text) => field.onChange(text)}
+          />
+        )}
+      />
       <SpaceY />
-      <MainInput
-        isPassword
-        placeholder="Password"
-        onChange={(value) => console.log(value)}
+      <Controller
+        name="password"
+        rules={{ required: true }}
+        control={control}
+        render={({ field }) => (
+          <MainInput
+            error={errors.password?.message}
+            isPassword
+            placeholder="Password"
+            onChange={(text) => field.onChange(text)}
+          />
+        )}
       />
       <SpaceY /> <SpaceY />
       <hr className="border border-gray rounded w-[300px]" />
@@ -31,7 +72,7 @@ export const LogInView = () => {
         Forgot Password?
       </a>
       <SpaceY /> <SpaceY />
-      <MainButton text="Login" onClick={() => console.log("login")} />
+      <MainButton text="Login" onClick={handleSubmit(onSubmit)} />
       <SpaceY />
       <SpaceY />
       <GoogleButton text="Google Login" onClick={() => {}} />
