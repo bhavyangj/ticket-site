@@ -1,6 +1,5 @@
 import { useState } from "react";
 import ReactPhoneInput, { Country } from "react-phone-number-input";
-import { ErrorOption, UseFormClearErrors } from "react-hook-form";
 import { phoneUtils } from "../utils";
 
 export const MainInput: React.FC<{
@@ -23,14 +22,12 @@ export const MainInput: React.FC<{
 );
 
 export const PhoneInput: React.FC<{
-  onChange: (val: string) => void;
+  onChange: (val: string | undefined) => void;
   error?: string;
-  setError?: (name: "phone", error: ErrorOption) => void;
-  clearError?: UseFormClearErrors<{
-    phone: string;
-  }>;
+  setError?: () => void;
+  clearError?: () => void;
 }> = ({ onChange, error, setError, clearError }) => {
-  const [number, setNumber] = useState();
+  const [number, setNumber] = useState<string | undefined>();
   const [code, setCode] = useState<Country>("US");
 
   return (
@@ -46,21 +43,16 @@ export const PhoneInput: React.FC<{
         placeholder="Phone"
         value={number}
         onChange={(val) => {
-          // @ts-ignore
           onChange(val);
-          // @ts-ignore
           setNumber(val);
-
-          if (!val) return;
-
-          if (clearError) {
-            clearError("phone");
+          if (!val) {
+            return clearError && clearError();
           }
 
-          if (!phoneUtils.isValidNumber(val, code) && setError) {
-            setError("phone", {
-              message: "Invalid phone number",
-            });
+          if (!phoneUtils.isValidNumber(val || "", code)) {
+            setError && setError();
+          } else {
+            clearError && clearError();
           }
         }}
       />
