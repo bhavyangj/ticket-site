@@ -72,7 +72,11 @@ export const LogInView = () => {
         Forgot Password?
       </a>
       <SpaceY /> <SpaceY />
-      <MainButton text="Login" onClick={handleSubmit(onSubmit)} />
+      <MainButton
+        disabled={Boolean(Object.entries(errors).length)}
+        text="Login"
+        onClick={handleSubmit(onSubmit)}
+      />
       <SpaceY />
       <SpaceY />
       <GoogleButton text="Google Login" onClick={() => {}} />
