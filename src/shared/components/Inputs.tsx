@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactPhoneInput, { Country } from "react-phone-number-input";
 import { phoneUtils } from "../utils";
 
@@ -60,5 +60,30 @@ export const PhoneInput: React.FC<{
         <span className="font-poppins text-xs text-red w-[300px]">{error}</span>
       )}
     </>
+  );
+};
+
+export const CheckBox: React.FC<{
+  onChange: (val: boolean) => void;
+  containerClass?: string;
+  defaultValue?: boolean;
+}> = ({ containerClass, onChange, defaultValue }) => {
+  const [checked, setChecked] = useState(defaultValue || false);
+
+  useEffect(() => {
+    onChange(checked);
+  }, [checked]);
+
+  if (containerClass)
+    <div className={containerClass}>
+      <input type="checkbox" className="border border-gray " />
+    </div>;
+  return (
+    <input
+      checked={checked}
+      type="checkbox"
+      onClick={() => setChecked((prev) => !prev)}
+      className="border border-gray "
+    />
   );
 };

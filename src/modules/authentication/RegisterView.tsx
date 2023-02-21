@@ -1,6 +1,10 @@
 import { MainButton } from "../../shared/components/Buttons";
 import { classValidatorResolver } from "@hookform/resolvers/class-validator";
-import { MainInput, PhoneInput } from "../../shared/components/Inputs";
+import {
+  CheckBox,
+  MainInput,
+  PhoneInput,
+} from "../../shared/components/Inputs";
 import { SpaceY } from "../../shared/components/Utils";
 import { Controller, useForm } from "react-hook-form";
 import { RegisterValidator } from "./utils/validations";
@@ -29,6 +33,8 @@ export const RegisterView = () => {
   });
   const [phoneNumber, setPhoneNumber] = useState<string>();
 
+  const [termsAndConditions, setTermsAndConditions] = useState(false);
+
   const onSubmit = (data: {
     firstName: string;
     lastName: string;
@@ -38,6 +44,14 @@ export const RegisterView = () => {
     confirmPassword: string;
     phone: string;
   }) => {
+    if (data.email !== data.confirmEmail)
+      return setError("confirmEmail", {
+        message: "Email does not match",
+      });
+    if (data.password !== data.confirmPassword)
+      return setError("confirmPassword", {
+        message: "Password does not match",
+      });
     console.log(data, phoneNumber);
   };
 
@@ -144,8 +158,22 @@ export const RegisterView = () => {
         }}
       />
       <SpaceY />
+      <SpaceY />
+      <div className="flex justify-between items-center w-[300px]">
+        <CheckBox
+          defaultValue={termsAndConditions}
+          onChange={(val) => setTermsAndConditions(val)}
+          containerClass="w-2/12"
+        />
+        <div className="font-poppins text-xs w-10/12">
+          * Creating an account means you're okay with our Terms of Service and
+          Privacy Statement.
+        </div>
+      </div>
+      <SpaceY />
+      <SpaceY />
       <MainButton
-        disabled={Boolean(Object.entries(errors).length)}
+        disabled={Boolean(Object.entries(errors).length) || !termsAndConditions}
         text="Sign up"
         onClick={handleSubmit(onSubmit)}
       />
