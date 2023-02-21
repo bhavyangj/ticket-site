@@ -7,3 +7,8 @@ export class LoginValidator {
   @MinLength(6)
   password!: string;
 }
+
+export class ForgotPasswordValidator {
+  @IsEmail({}, { message: "Invalid email address" })
+  email!: string;
+}

@@ -30,7 +30,6 @@ export const LogInView = () => {
     console.log(data);
   };
 
-  console.log(errors);
   return (
     <div className="min-h-[600px] flex flex-col items-center pt-[5vh] pb-[20vh]">
       <SpaceY />
