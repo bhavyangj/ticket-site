@@ -1,5 +1,5 @@
+import { useNavigate } from "react-router-dom";
 import {
-  GhostButton,
   GoogleButton,
   MainButton,
   NaverButton,
@@ -8,6 +8,7 @@ import { MainInput } from "../../shared/components/Inputs";
 import { SpaceY } from "../../shared/components/Utils";
 
 export const LogInView = () => {
+  const navigate = useNavigate();
   return (
     <div className="min-h-[600px] flex flex-col items-center pt-[5vh] pb-[20vh]">
       <SpaceY />
@@ -23,7 +24,10 @@ export const LogInView = () => {
       <SpaceY /> <SpaceY />
       <hr className="border border-gray rounded w-[300px]" />
       <SpaceY /> <SpaceY />
-      <a href="" className="font-poppins text-blue text-sm w-[300px] text-end">
+      <a
+        onClick={() => navigate("/auth/forgot-password")}
+        className="cursor-pointer font-poppins text-blue text-sm w-[300px] text-end"
+      >
         Forgot Password?
       </a>
       <SpaceY /> <SpaceY />
