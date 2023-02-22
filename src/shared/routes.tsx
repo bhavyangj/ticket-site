@@ -14,6 +14,7 @@ import { RegisterView } from "../modules/authentication/RegisterView";
 import { MyAccountView } from "../modules/authentication/MyAccountView";
 import { EditAccountView } from "../modules/authentication/EditAccountView";
 import { SuccessActionView } from "../modules/authentication/SuccessActionView";
+import { DeleteAccountView } from "../modules/authentication/DeleteAccountView";
 
 export const router = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ export const router = createBrowserRouter([
         element: (
           <SuccessActionView msg="Your account has been deleted successfully. " />
         ),
+      },
+      {
+        path: "delete-user",
+        element: <DeleteAccountView />,
       },
     ],
   },
