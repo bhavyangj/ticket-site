@@ -12,6 +12,8 @@ import { ForgotPasswordView } from "../modules/authentication/ForgotPasswordView
 import { CreatePasswordView } from "../modules/authentication/CreatePasswordView";
 import { RegisterView } from "../modules/authentication/RegisterView";
 import { MyAccountView } from "../modules/authentication/MyAccountView";
+import { EditAccountView } from "../modules/authentication/EditAccountView";
+import { SuccessActionView } from "../modules/authentication/SuccessActionView";
 
 export const router = createBrowserRouter([
   {
@@ -56,6 +58,22 @@ export const router = createBrowserRouter([
       {
         path: "my-account",
         element: <MyAccountView />,
+      },
+      {
+        path: "edit-account",
+        element: <EditAccountView />,
+      },
+      {
+        path: "update-success",
+        element: (
+          <SuccessActionView msg="Your account has been updated successfully." />
+        ),
+      },
+      {
+        path: "delete-success",
+        element: (
+          <SuccessActionView msg="Your account has been deleted successfully. " />
+        ),
       },
     ],
   },
