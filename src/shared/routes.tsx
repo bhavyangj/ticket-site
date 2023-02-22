@@ -11,6 +11,7 @@ import { NotFound } from "./components/NotFound";
 import { ForgotPasswordView } from "../modules/authentication/ForgotPasswordView";
 import { CreatePasswordView } from "../modules/authentication/CreatePasswordView";
 import { RegisterView } from "../modules/authentication/RegisterView";
+import { MyAccountView } from "../modules/authentication/MyAccountView";
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
       {
         path: "register",
         element: <RegisterView />,
+      },
+      {
+        path: "my-account",
+        element: <MyAccountView />,
       },
     ],
   },
