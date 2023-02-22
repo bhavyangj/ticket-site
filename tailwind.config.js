@@ -12,6 +12,7 @@ module.exports = {
         blue: "#4979D1",
         white: "#fefefe",
         gray: "#C9C5C5",
+        dark: "#14183E",
         red: "red",
       },
       backgroundImage: {
@@ -20,6 +21,7 @@ module.exports = {
     },
     fontFamily: {
       poppins: ["Poppins"],
+      volkhov: ["Volkhov"],
     },
     fontSize: {
       xs: ["12px"],

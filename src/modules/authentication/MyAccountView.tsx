@@ -16,7 +16,9 @@ export const MyAccountView = () => {
   return (
     <div className="min-h-[600px] flex flex-col items-center pt-[5vh] pb-[20vh]">
       <SpaceY />
-      <span className="font-poppins font-medium text-2xl">My Account</span>
+      <span className="font-volkhov font-bold text-dark text-2xl">
+        My Account
+      </span>
       <SpaceY /> <SpaceY />
       <div className="w-[70vw] max-w-[900px]">
         <Card

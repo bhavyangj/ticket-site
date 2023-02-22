@@ -58,7 +58,9 @@ export const RegisterView = () => {
   return (
     <div className="min-h-[600px] flex flex-col items-center pt-[5vh] pb-[20vh]">
       <SpaceY />
-      <span className="font-poppins font-medium text-2xl">Register</span>
+      <span className="font-volkhov font-bold text-dark text-2xl">
+        Register
+      </span>
       <SpaceY /> <SpaceY />
       <span className="font-poppins text-sm">
         After creating an account, you'll be able to track your schedule and

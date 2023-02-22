@@ -27,7 +27,9 @@ export const ForgotPasswordView = () => {
   return (
     <div className="min-h-[600px] flex flex-col items-center pt-[5vh] pb-[20vh]">
       <SpaceY />
-      <span className="font-poppins font-medium text-2xl">Forgot Password</span>
+      <span className="font-volkhov font-bold text-dark text-2xl">
+        Forgot Password
+      </span>
       <SpaceY /> <SpaceY />
       <span className="font-poppins text-sm">
         Lost your password? Please enter your email address. You will receive a

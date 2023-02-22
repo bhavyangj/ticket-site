@@ -6,7 +6,7 @@ export const CreatePasswordView = () => {
   return (
     <div className="min-h-[600px] flex flex-col items-center pt-[5vh] pb-[20vh]">
       <SpaceY />
-      <span className="font-poppins font-medium text-2xl">
+      <span className="font-volkhov font-bold text-dark text-2xl">
         Create a new password
       </span>
       <SpaceY /> <SpaceY />
