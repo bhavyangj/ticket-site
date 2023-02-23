@@ -1,6 +1,6 @@
 import { MainButton } from "../../shared/components/Buttons";
-import { Card } from "../../shared/components/Card";
 import { SpaceY } from "../../shared/components/Utils";
+import { AccountCard } from "./components/AccountCard";
 
 const fakeProfile = {
   picture: "/fake/fake_profile_user.png",
@@ -21,21 +21,10 @@ export const MyAccountView = () => {
       </span>
       <SpaceY /> <SpaceY />
       <div className="w-[70vw] max-w-[900px]">
-        <Card
-          header={
-            <div className="flex justify-between items-center w-full">
-              <span className="text-blue font-medium">My Profile</span>
-              <a href="" className="text-gray underline">
-                Edit Profile
-              </a>
-            </div>
-          }
-        >
-          <div className="flex w-full">
-            <div className="flex flex-col items-center w-2/12">
-              <img width="50" src={fakeProfile.picture} alt="user avatar" />
-            </div>
-            <div className="flex flex-col items-center w-5/12">
+        <AccountCard
+          col1={<img width="50" src={fakeProfile.picture} alt="user avatar" />}
+          col2={
+            <>
               <div className={bodyRowClass}>
                 <span>Name:</span>
                 <span>{fakeProfile.name}</span>
@@ -50,8 +39,10 @@ export const MyAccountView = () => {
                 <span>Phone:</span>
                 <span>{fakeProfile.phone}</span>
               </div>
-            </div>
-            <div className="flex flex-col items-center w-5/12">
+            </>
+          }
+          col3={
+            <>
               <div className={bodyRowClass}>
                 <span>Korean Name:</span>
                 <span>{fakeProfile.koreanName}</span>
@@ -61,9 +52,9 @@ export const MyAccountView = () => {
                 <span>Country:</span>
                 <span>{fakeProfile.country}</span>
               </div>
-            </div>
-          </div>
-        </Card>
+            </>
+          }
+        />
         <SpaceY />
         <SpaceY />
         <SpaceY />
