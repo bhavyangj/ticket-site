@@ -1,4 +1,10 @@
-import { IsEmail, IsPhoneNumber, IsString, MinLength } from "class-validator";
+import {
+  IsEmail,
+  IsOptional,
+  IsString,
+  MinLength,
+  ValidateIf,
+} from "class-validator";
 
 export class LoginValidator {
   @IsEmail({}, { message: "Invalid email address" })
@@ -34,8 +40,8 @@ export class RegisterValidator {
   @MinLength(6)
   confirmPassword!: string;
 
-  @IsString()
-  phone!: string;
+  // @IsString()
+  // phone!: string;
 }
 
 export class CreatePasswordValidator {
@@ -44,4 +50,19 @@ export class CreatePasswordValidator {
 
   @MinLength(6)
   confirmPassword!: string;
+}
+
+export class EditAccountValidator {
+  @IsOptional()
+  @ValidateIf((o) => o.password.length)
+  @MinLength(6)
+  password!: string;
+
+  @IsOptional()
+  @ValidateIf((o) => o.password.length)
+  @MinLength(6)
+  confirmPassword!: string;
+
+  // @IsString()
+  // phone!: string;
 }

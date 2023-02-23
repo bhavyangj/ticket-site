@@ -7,18 +7,28 @@ export const MainInput: React.FC<{
   onChange: (val: string) => void;
   isPassword?: boolean;
   error?: string;
-}> = ({ placeholder, onChange, isPassword, error }) => (
-  <>
+  containerClassName?: string;
+  value: string;
+}> = ({
+  placeholder,
+  onChange,
+  isPassword,
+  error,
+  containerClassName = "w-[300px]",
+  value,
+}) => (
+  <div className={containerClassName}>
     <input
+      value={value}
       type={isPassword ? "password" : "text"}
-      className="font-poppins px-4 border border-gray w-[300px] py-2"
+      className="font-poppins px-4 border border-gray w-full py-2"
       placeholder={placeholder}
       onChange={(e) => onChange(e.target.value)}
     />
     {error && (
-      <span className="font-poppins text-xs text-red  w-[300px]">{error}</span>
+      <span className="font-poppins text-xs w-full text-red ">{error}</span>
     )}
-  </>
+  </div>
 );
 
 export const PhoneInput: React.FC<{
@@ -26,12 +36,20 @@ export const PhoneInput: React.FC<{
   error?: string;
   setError?: () => void;
   clearError?: () => void;
-}> = ({ onChange, error, setError, clearError }) => {
-  const [number, setNumber] = useState<string | undefined>();
+  containerClassName?: string;
+  number: string | undefined;
+}> = ({
+  onChange,
+  error,
+  setError,
+  clearError,
+  containerClassName = "w-[300px]",
+  number,
+}) => {
   const [code, setCode] = useState<Country>("US");
 
   return (
-    <>
+    <div className={containerClassName}>
       <ReactPhoneInput
         defaultCountry={code}
         onCountryChange={(val) => {
@@ -39,12 +57,11 @@ export const PhoneInput: React.FC<{
             setCode(val);
           }
         }}
-        className="font-poppins px-4 border border-gray w-[300px] py-2"
+        className="font-poppins px-4 border border-gray w-full py-2"
         placeholder="Phone"
         value={number}
         onChange={(val) => {
           onChange(val);
-          setNumber(val);
           if (!val) {
             return clearError && clearError();
           }
@@ -57,9 +74,9 @@ export const PhoneInput: React.FC<{
         }}
       />
       {error && (
-        <span className="font-poppins text-xs text-red w-[300px]">{error}</span>
+        <span className="font-poppins text-xs text-red w-full">{error}</span>
       )}
-    </>
+    </div>
   );
 };
 

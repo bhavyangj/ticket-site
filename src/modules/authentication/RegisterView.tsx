@@ -73,6 +73,7 @@ export const RegisterView = () => {
         control={control}
         render={({ field }) => (
           <MainInput
+            value={field.value}
             error={errors.firstName?.message}
             placeholder="First Name *"
             onChange={(text) => field.onChange(text)}
@@ -86,6 +87,7 @@ export const RegisterView = () => {
         control={control}
         render={({ field }) => (
           <MainInput
+            value={field.value}
             error={errors.lastName?.message}
             placeholder="Last Name *"
             onChange={(text) => field.onChange(text)}
@@ -99,6 +101,7 @@ export const RegisterView = () => {
         control={control}
         render={({ field }) => (
           <MainInput
+            value={field.value}
             error={errors.email?.message}
             placeholder="Email *"
             onChange={(text) => field.onChange(text)}
@@ -112,6 +115,7 @@ export const RegisterView = () => {
         control={control}
         render={({ field }) => (
           <MainInput
+            value={field.value}
             error={errors.confirmEmail?.message}
             placeholder="Retype Email *"
             onChange={(text) => field.onChange(text)}
@@ -125,6 +129,7 @@ export const RegisterView = () => {
         control={control}
         render={({ field }) => (
           <MainInput
+            value={field.value}
             error={errors.password?.message}
             isPassword
             placeholder="Password *"
@@ -139,6 +144,7 @@ export const RegisterView = () => {
         control={control}
         render={({ field }) => (
           <MainInput
+            value={field.value}
             error={errors.confirmPassword?.message}
             isPassword
             placeholder="Retype password *"
@@ -148,6 +154,7 @@ export const RegisterView = () => {
       />
       <SpaceY />
       <PhoneInput
+        number={phoneNumber}
         error={errors.phone?.message}
         setError={() =>
           setError("phone", {

@@ -41,6 +41,7 @@ export const LogInView = () => {
         control={control}
         render={({ field }) => (
           <MainInput
+            value={field.value}
             error={errors.email?.message}
             placeholder="Email"
             onChange={(text) => field.onChange(text)}
@@ -54,6 +55,7 @@ export const LogInView = () => {
         control={control}
         render={({ field }) => (
           <MainInput
+            value={field.value}
             error={errors.password?.message}
             isPassword
             placeholder="Password"

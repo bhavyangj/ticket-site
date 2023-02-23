@@ -48,6 +48,7 @@ export const CreatePasswordView = () => {
             error={errors.password?.message}
             isPassword
             placeholder="Create a new password"
+            value={field.value}
             onChange={(value) => field.onChange(value)}
           />
         )}
@@ -60,6 +61,7 @@ export const CreatePasswordView = () => {
         render={({ field }) => (
           <MainInput
             error={errors.confirmPassword?.message}
+            value={field.value}
             isPassword
             placeholder="Re-enter a new password"
             onChange={(value) => field.onChange(value)}
