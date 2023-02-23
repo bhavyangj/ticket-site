@@ -3,7 +3,7 @@ import { NavBarElement } from "../types";
 
 const containerClass = "flex";
 const itemClass =
-  "px-10 py-4 font-poppins font-medium text-xs hover:bg-lightBlue/[.1] rounded-sm";
+  "px-8 py-2 font-poppins font-bold text-xs hover:bg-lightBlue/[.1] rounded-sm text-black";
 const selectedItemClass = "border-b-2 border-lightBlue rounded-sm";
 
 export const NavBar: React.FC<{ elements: NavBarElement[] }> = ({

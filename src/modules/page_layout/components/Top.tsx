@@ -25,12 +25,16 @@ const pageLayoutNavBar: NavBarElement[] = [
     path: "/main",
   },
   {
+    name: "여행정보",
+    path: "/",
+  },
+  {
     name: "About Us",
     path: "/main",
   },
   {
     name: "Contact Us",
-    path: "/main",
+    path: "/contact",
   },
 ];
 

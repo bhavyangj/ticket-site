@@ -15,6 +15,7 @@ module.exports = {
         darkGray: "#5D5D5F",
         dark: "#14183E",
         red: "red",
+        black: "#2A353D",
       },
       backgroundImage: {
         "top-form": "url('../public/assets/icons/top_form.svg')",
@@ -25,8 +26,8 @@ module.exports = {
       volkhov: ["Volkhov"],
     },
     fontSize: {
-      xs: ["12px"],
-      sm: ["15px"],
+      xs: ["10px"],
+      sm: ["13px"],
       xl: ["20px"],
       "2xl": ["40px"],
       "3xl": ["60px"],
