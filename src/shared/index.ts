@@ -8,9 +8,11 @@ export const staticFiles = {
     instagram: "/assets/icons/instagram.svg",
     google: "/assets/icons/google.svg",
     naver: "/assets/icons/naver.svg",
+    messages_bubble: "/assets/icons/messages_bubble.svg",
   },
   images: {
     logo: "/assets/icons/logo.svg",
     cover_bg: "/images/cover_background.png",
+    contact_location: "/images/contact_location.png",
   },
 };

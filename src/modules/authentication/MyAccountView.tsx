@@ -31,7 +31,7 @@ export const MyAccountView = () => {
             </div>
           }
         >
-          <div className="flex">
+          <div className="flex w-full">
             <div className="flex flex-col items-center w-2/12">
               <img width="50" src={fakeProfile.picture} alt="user avatar" />
             </div>
