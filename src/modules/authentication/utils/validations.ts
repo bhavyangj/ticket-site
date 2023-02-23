@@ -37,3 +37,11 @@ export class RegisterValidator {
   @IsString()
   phone!: string;
 }
+
+export class CreatePasswordValidator {
+  @MinLength(6)
+  password!: string;
+
+  @MinLength(6)
+  confirmPassword!: string;
+}
