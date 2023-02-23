@@ -49,11 +49,11 @@ const IconButton: React.FC<{ icon: string; name?: string }> = ({
 );
 
 export const Top = () => (
-  <div className="flex justify-between px-[5vw] pt-8">
+  <div className="flex justify-between items-center px-[5vw]">
     <div className="flex justify-center items-center">
       <Logo />
     </div>
-    <div className="">
+    <div className="pt-8">
       <div className="flex justify-end font-poppins text-sm">
         <IconButton icon={staticFiles.icons.cart} name="Cart" />
         <IconButton icon={staticFiles.icons.lock} name="Login" />
