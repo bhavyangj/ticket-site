@@ -16,6 +16,7 @@ import { EditAccountView } from "../modules/authentication/EditAccountView";
 import { SuccessActionView } from "../modules/authentication/SuccessActionView";
 import { DeleteAccountView } from "../modules/authentication/DeleteAccountView";
 import { ContactView } from "../modules/contact/ContactView";
+import { AboutView } from "../modules/about/AboutView";
 
 export const router = createBrowserRouter([
   {
@@ -88,6 +89,14 @@ export const router = createBrowserRouter([
     element: (
       <PageLayoutView cover={CoverTypes.NORMAL}>
         <ContactView />
+      </PageLayoutView>
+    ),
+  },
+  {
+    path: "/about",
+    element: (
+      <PageLayoutView cover={CoverTypes.NORMAL}>
+        <AboutView />
       </PageLayoutView>
     ),
   },

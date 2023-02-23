@@ -15,7 +15,6 @@ module.exports = {
         darkGray: "#5D5D5F",
         dark: "#14183E",
         red: "red",
-        black: "#2A353D",
       },
       backgroundImage: {
         "top-form": "url('../public/assets/icons/top_form.svg')",

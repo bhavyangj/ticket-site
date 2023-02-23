@@ -9,6 +9,12 @@ export const staticFiles = {
     google: "/assets/icons/google.svg",
     naver: "/assets/icons/naver.svg",
     messages_bubble: "/assets/icons/messages_bubble.svg",
+    shopping_bag: "/assets/icons/shopping_bag.svg",
+    dollar_circle: "/assets/icons/dollar_circle.svg",
+    call: "assets/icons/call.svg",
+    thumbs_up: "assets/icons/thumbs_up.svg",
+    coffee: "assets/icons/coffee.svg",
+    translation: "assets/icons/translation.svg",
   },
   images: {
     logo: "/assets/icons/logo.svg",

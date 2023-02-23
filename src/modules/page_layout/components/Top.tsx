@@ -30,7 +30,7 @@ const pageLayoutNavBar: NavBarElement[] = [
   },
   {
     name: "About Us",
-    path: "/main",
+    path: "/about",
   },
   {
     name: "Contact Us",
