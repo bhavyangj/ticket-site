@@ -2,18 +2,18 @@ import { staticFiles } from "../../shared";
 import { SpaceY } from "../../shared/components/Utils";
 
 export const ContactView = () => {
-  const rowSectionClass = "flex w-full justify-between px-[10vw]";
+  const rowSectionClass = "flex w-full px-[10vw]";
   const infoContainerClass =
     "font-poppins text-darkGray flex flex-col mb-5 h-1/2";
   return (
     <div className="min-h-[600px] flex flex-col items-center pt-[5vh] pb-[20vh]">
       <SpaceY />
       <div className={rowSectionClass}>
-        <div className="flex grow width-1/3" />
-        <span className="flex grow width-1/3 justify-center font-volkhov font-bold text-dark text-2xl">
+        <div className="flex w-1/3" />
+        <span className="flex w-1/3 justify-center font-volkhov font-bold text-dark text-2xl">
           Contact Us
         </span>
-        <div className="flex grow flex-col width-1/3 items-end">
+        <div className="flex w-1/3 flex-col items-end">
           <img
             width="40"
             src={staticFiles.icons.messages_bubble}
@@ -23,14 +23,14 @@ export const ContactView = () => {
           <span className="font-poppins text-xs text-darkGray mt-2">
             카톡 상담원 채팅
           </span>
-          <span className="font-poppins text-xs text-darkGray mt-2">
+          <span className="font-poppins text-xs text-darkGray mt-1">
             (월-일요일 오전 9:00 ~ 오후 6:00)
           </span>
         </div>
       </div>
       <SpaceY /> <SpaceY />
       <div className={rowSectionClass}>
-        <div className="flex flex-col grow width-1/2">
+        <div className="flex flex-col grow w-1/2">
           <div className={infoContainerClass}>
             <span className="font-medium">Contact:</span>
             <span>service@tamice.com</span>
@@ -40,7 +40,7 @@ export const ContactView = () => {
             <span>151 West 46th Street, Suite 1002, New York, NY 10036</span>
           </div>
         </div>
-        <div className="flex flex-col grow width-1/2">
+        <div className="flex flex-col grow w-1/2">
           <div className={infoContainerClass}>
             <span className="font-medium">NY Office:</span>
             <span>뉴욕 본사: 646-684-4848</span>
@@ -67,10 +67,10 @@ export const ContactView = () => {
       <SpaceY />
       <SpaceY />
       <div className={rowSectionClass}>
-        <div className="flex flex-col grow width-1/2">
+        <div className="flex flex-col grow w-1/2 px-10">
           <img src={staticFiles.images.contact_location} />
         </div>
-        <div className="flex flex-col grow width-1/2 px-20">
+        <div className="flex flex-col grow w-1/2">
           <span className="font-volkhov text-dark font-bold text-xl">
             타미스 오피스 찾아 오시는 길
           </span>
