@@ -6,36 +6,24 @@ const FooterCol: React.FC<{ children: React.ReactNode; hidden?: boolean }> = ({
   hidden,
 }) => {
   const hiddenColClass =
-    "grow hidden lg:flex flex-col justify-center px-[20px]";
-  const colClass = "grow flex flex-col justify-center px-[20px]";
+    "w-2/5 grow hidden lg:flex flex-col justify-center px-[20px]";
+  const colClass = "w-2/5 grow flex flex-col justify-center px-[20px]";
   return <div className={hidden ? hiddenColClass : colClass}>{children}</div>;
 };
 
-const DestinationCard: React.FC<{
-  backgroundClassImage: "1" | "2" | "3";
-  destination: string;
-}> = ({ backgroundClassImage, destination }) => {
-  const baseClass =
-    "mt-2 mr-2 bg-cover bg-no-repeat min-w-[130px] min-h-[70px]";
-  const bgClassImage = {
-    "1": `${baseClass} bg-[url('../public/images/footer_1.png')]`,
-    "2": `${baseClass} bg-[url('../public/images/footer_2.png')]`,
-    "3": `${baseClass} bg-[url('../public/images/footer_3.png')]`,
-  };
-  return (
-    <div className={bgClassImage[backgroundClassImage]}>
-      <div className="bg-[rgba(0,0,0,.6)] flex justify-center items-center w-[100%] h-[100%]">
-        <div className="text-xs font-poppins text-white font-medium">
-          {destination}
-        </div>
-      </div>
-    </div>
-  );
-};
+const fakeDestinationsLink = [
+  "Return Policy",
+  "Bullet list goes here",
+  "Linked Text Goes here",
+  "Linked Text Goes here",
+  "Linked Text Goes here",
+  "Linked Text Goes here",
+  "Linked Text Goes here",
+];
 
 export const Footer = () => (
   <div className="h-[350px]">
-    <div className="px-[100px] flex justify-between bg-[#262424] h-[80%]">
+    <div className="px-[100px] flex justify-between bg-[#262424] h-[80%] ">
       <FooterCol>
         <div>
           <Logo whiteText />
@@ -48,27 +36,15 @@ export const Footer = () => (
         </div>
       </FooterCol>
       <FooterCol hidden>
-        <span className="font-poppins font-medium text-sm text-white">
+        <span className="font-poppins font-medium text-sm text-white mb-5">
           TOP DESTINATIONS
         </span>
-        <div className="flex flex-wrap">
-          <DestinationCard
-            destination="Big Apple Pass"
-            backgroundClassImage="1"
-          />
-          <DestinationCard destination="Scenes" backgroundClassImage="2" />
-          <DestinationCard
-            destination="Musicals/Shows"
-            backgroundClassImage="3"
-          />
-          <DestinationCard
-            destination="Musseum/Galleries"
-            backgroundClassImage="2"
-          />
-          <DestinationCard
-            destination="Rides/Cruises"
-            backgroundClassImage="3"
-          />
+        <div className="flex flex-col">
+          {fakeDestinationsLink.map((item) => (
+            <div className="font poppins text-xs text-white hover:underline hover:cursor-pointer">
+              • {item}
+            </div>
+          ))}
         </div>
       </FooterCol>
       <FooterCol>
@@ -95,7 +71,7 @@ export const Footer = () => (
             <img src={staticFiles.icons.facebook} alt="fb" />
           </button>
           <button className="ml-2" onClick={() => {}}>
-            <img src={staticFiles.icons.instagram} alt="ig" />{" "}
+            <img src={staticFiles.icons.instagram} alt="ig" />
           </button>
         </div>
       </FooterCol>

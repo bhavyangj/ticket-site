@@ -62,7 +62,7 @@ export const AboutView = () => {
     <div className="min-h-[600px] flex flex-col items-center pt-[5vh] pb-[20vh]">
       <SpaceY />
       <div className={rowSectionClass}>
-        <span className="flex grow width-1/3 justify-center font-volkhov font-bold text-dark text-2xl">
+        <span className="flex grow justify-center font-volkhov font-bold text-dark text-2xl">
           Why Tour With Us?
         </span>
       </div>
@@ -84,7 +84,7 @@ export const AboutView = () => {
       <SpaceY />
       <SpaceY />
       <div className={rowSectionClass}>
-        <span className="flex grow width-1/3 justify-center font-volkhov font-bold text-dark text-2xl">
+        <span className="flex grow justify-center font-volkhov font-bold text-dark text-2xl">
           Customer Service
         </span>
       </div>
