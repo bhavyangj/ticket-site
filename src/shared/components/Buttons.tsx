@@ -23,11 +23,10 @@ export const MainButton: React.FC<{
   text: string;
   onClick: () => void;
   disabled?: boolean;
-}> = ({ text, onClick, disabled }) => {
-  const className =
-    "font-poppins font-medium text-white bg-blue w-[300px] py-2";
-  const disabledClass =
-    "font-poppins font-medium text-white bg-blue w-[300px] py-2 cursor-not-allowed";
+  containerClassName?: string;
+}> = ({ text, onClick, disabled, containerClassName = "w-[300px]" }) => {
+  const className = `font-poppins font-medium text-white bg-blue py-2 ${containerClassName}`;
+  const disabledClass = `font-poppins font-medium text-white bg-blue py-2 cursor-not-allowed ${containerClassName}`;
   return (
     <button
       className={disabled ? disabledClass : className}
