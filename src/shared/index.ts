@@ -20,5 +20,6 @@ export const staticFiles = {
     logo: "/assets/icons/logo.svg",
     cover_bg: "/images/cover_background.png",
     contact_location: "/images/contact_location.png",
+    cover_bg_complete: "/images/cover_background_complete.png",
   },
 };

@@ -21,7 +21,11 @@ import { AboutView } from "../modules/about/AboutView";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandingView />,
+    element: (
+      <PageLayoutView cover={CoverTypes.INFO}>
+        <LandingView />
+      </PageLayoutView>
+    ),
     errorElement: <NotFound />,
   },
   {

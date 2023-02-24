@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { Cover } from "../../shared/components/Cover";
+import { InfoCover } from "../../shared/components/InfoCover";
 import { Footer } from "./components/Footer";
 import { Top } from "./components/Top";
 
@@ -16,6 +17,7 @@ export const PageLayoutView: React.FC<{
   <div className="flex flex-col min-h-screen bg-white bg-top-form bg-no-repeat bg-right-top">
     <Top />
     {cover === CoverTypes.NORMAL && <Cover />}
+    {cover === CoverTypes.INFO && <InfoCover />}
     {children}
     <Footer />
   </div>

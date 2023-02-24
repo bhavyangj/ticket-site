@@ -18,7 +18,9 @@ export const NavBar: React.FC<{ elements: NavBarElement[] }> = ({
         <button
           key={el.name}
           className={`${itemClass} ${
-            el.path.includes(location.pathname) ? selectedItemClass : ""
+            location.pathname !== "/" && el.path.includes(location.pathname)
+              ? selectedItemClass
+              : ""
           }`}
           onClick={() => navigate(el.path)}
         >
