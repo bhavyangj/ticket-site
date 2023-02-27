@@ -15,6 +15,7 @@ export const staticFiles = {
     thumbs_up: "assets/icons/thumbs_up.svg",
     coffee: "assets/icons/coffee.svg",
     translation: "assets/icons/translation.svg",
+    location: "/assets/icons/location.svg",
   },
   images: {
     logo: "/assets/icons/logo.svg",
