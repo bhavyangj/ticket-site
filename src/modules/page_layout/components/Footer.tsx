@@ -73,6 +73,9 @@ export const Footer = () => (
           <button className="ml-2" onClick={() => {}}>
             <img src={staticFiles.icons.instagram} alt="ig" />
           </button>
+          <button className="ml-2" onClick={() => {}}>
+            <img src={staticFiles.icons.blog} alt="blog" />
+          </button>
         </div>
       </FooterCol>
     </div>

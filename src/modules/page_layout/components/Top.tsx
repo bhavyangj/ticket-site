@@ -7,7 +7,7 @@ import { NavBarElement } from "../../../shared/types";
 const pageLayoutNavBar: NavBarElement[] = [
   {
     name: "Home",
-    path: "/",
+    path: "/main",
   },
   {
     name: "Package Tour",
@@ -15,7 +15,7 @@ const pageLayoutNavBar: NavBarElement[] = [
   },
   {
     name: "City Tour",
-    path: "/",
+    path: "/main",
   },
   {
     name: "Guide Tour",
@@ -27,7 +27,7 @@ const pageLayoutNavBar: NavBarElement[] = [
   },
   {
     name: "여행정보",
-    path: "/",
+    path: "/main",
   },
   {
     name: "About Us",
