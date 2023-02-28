@@ -30,7 +30,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/main",
-    element: <MainView />,
+    element: (
+      <PageLayoutView cover={CoverTypes.INFO}>
+        <MainView />
+      </PageLayoutView>
+    ),
     errorElement: <NotFound />,
   },
   {

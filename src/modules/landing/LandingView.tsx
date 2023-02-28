@@ -1,4 +1,5 @@
 import {
+  CardTypes,
   LocationCard,
   LocationCardProps,
 } from "../../shared/components/LocationCard";
@@ -9,16 +10,19 @@ const fakeLocations: LocationCardProps[] = [
     city: "New york",
     image: "/fake/destination1.png",
     location: "Golden gate bridge",
+    type: CardTypes.CITY_LOCATION,
   },
   {
     city: "San Francisco",
     image: "/fake/destination2.png",
     location: "Hollywood",
+    type: CardTypes.CITY_LOCATION,
   },
   {
     city: "Los Angeles",
     image: "/fake/destination3.png",
     location: "Oahu",
+    type: CardTypes.CITY_LOCATION,
   },
 ];
 
@@ -32,7 +36,7 @@ export const LandingView = () => {
         Destinations
       </span>
       <SpaceY /> <SpaceY />
-      <div className="flex flex-wrap justify-between w-full px-[10vw] gap-y-10 gap-x-5">
+      <div className="flex flex-wrap justify-evenly w-full px-[10vw] gap-y-10 gap-x-5">
         {fakeLocations.map((item) => (
           <LocationCard {...item} />
         ))}
