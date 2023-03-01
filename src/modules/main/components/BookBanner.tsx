@@ -3,10 +3,10 @@ import { staticFiles } from "../../../shared";
 export const BookBanner = () => {
   return (
     <div className="w-full flex flex-col my-20">
-      <div className="w-full font-poppins">Easy and Fast</div>
+      <div className="w-full font-poppins text-darkGray">Easy and Fast</div>
       <div className="flex">
         <div className="w-1/2 flex flex-col">
-          <span className="font-volkhov font-bold text-2xl">
+          <span className="font-volkhov font-bold text-2xl text-dark">
             Book your next trip in 3 easy steps
           </span>
           {activities.map((item) => (
