@@ -7,7 +7,7 @@ export const Card: React.FC<{
 }> = ({ header, footer, children }) => {
   const lineClass = "border border-gray rounded w-full my-3";
   return (
-    <div className="border border-gray flex flex-col justify-between items-center p-5 bg-white font-poppins text-sm">
+    <div className="flex flex-col justify-between items-center p-5 bg-white font-poppins text-sm">
       {header && (
         <>
           {header}
