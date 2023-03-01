@@ -1,6 +1,6 @@
 import { staticFiles } from "../../shared";
 import { SpaceY } from "../../shared/components/Utils";
-import { ServiceCard, ServiceCardProps } from "./components.tsx/ServiceCard";
+import { ServiceCard, ServiceCardProps } from "./components/ServiceCard";
 
 const firstRowServices: ServiceCardProps[] = [
   {

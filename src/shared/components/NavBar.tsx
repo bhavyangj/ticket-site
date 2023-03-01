@@ -20,8 +20,6 @@ export const NavBar: React.FC<{ elements: NavBarElement[] }> = ({
   const navigate = useNavigate();
   const location = useLocation();
 
-  console.log(location.pathname);
-
   return (
     <div className={containerClass}>
       {elements.map((el) => (
@@ -37,7 +35,7 @@ export const NavBar: React.FC<{ elements: NavBarElement[] }> = ({
               } ${dropdownContainer}`}
             >
               <button> {el.name}</button>
-              <ul className="absolute hidden group-hover:flex group-hover:flex-col bg-[#2A353D] top-[110%] z-[100] font-poppins text-white w-full">
+              <ul className="absolute hidden group-hover:flex group-hover:flex-col bg-[#2A353D] top-[100%] z-[100] font-poppins text-white w-full">
                 {el.dropdownElements.map((de) => (
                   <li
                     className="px-5 py-4 hover:bg-lightBlue/[.1] cursor-pointer"
