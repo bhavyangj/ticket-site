@@ -40,8 +40,11 @@ export const Footer = () => (
           TOP DESTINATIONS
         </span>
         <div className="flex flex-col">
-          {fakeDestinationsLink.map((item) => (
-            <div className="font poppins text-xs text-white hover:underline hover:cursor-pointer">
+          {fakeDestinationsLink.map((item, idx) => (
+            <div
+              key={item + idx}
+              className="font poppins text-xs text-white hover:underline hover:cursor-pointer"
+            >
               • {item}
             </div>
           ))}
