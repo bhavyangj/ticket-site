@@ -108,4 +108,26 @@ export const router = createBrowserRouter([
       </PageLayoutView>
     ),
   },
+  {
+    path: "/package-tour",
+    element: (
+      <PageLayoutView cover={CoverTypes.NORMAL}>
+        <Outlet />
+      </PageLayoutView>
+    ),
+    children: [
+      {
+        path: "ny-ba-pass",
+        element: <>ny ba pass</>,
+      },
+      {
+        path: "ny-city-pass",
+        element: <>ny city pass</>,
+      },
+      {
+        path: "ny-explore-pass",
+        element: <>ny explore pass</>,
+      },
+    ],
+  },
 ]);

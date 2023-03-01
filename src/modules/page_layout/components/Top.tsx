@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { staticFiles } from "../../../shared";
 import { Logo } from "../../../shared/components/Logo";
-import { NavBar } from "../../../shared/components/NavBar";
-import { NavBarElement } from "../../../shared/types";
+import { NavBar, NavBarElement } from "../../../shared/components/NavBar";
 
 const pageLayoutNavBar: NavBarElement[] = [
   {
@@ -11,7 +10,12 @@ const pageLayoutNavBar: NavBarElement[] = [
   },
   {
     name: "Package Tour",
-    path: "/main",
+    path: "/package-tour",
+    dropdownElements: [
+      { name: "NY Big Apple Pass", subPath: "ny-ba-pass" },
+      { name: "NY City Pass", subPath: "ny-city-pass" },
+      { name: "NY City Explore Pass", subPath: "ny-explore-pass" },
+    ],
   },
   {
     name: "City Tour",
