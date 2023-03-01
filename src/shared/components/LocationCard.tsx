@@ -5,6 +5,7 @@ export enum CardTypes {
   ONLY_LOCATION,
   PLACE_PRICE,
   SHOW,
+  COMMUNITY,
 }
 
 export type LocationCardProps = {
@@ -16,6 +17,7 @@ export type LocationCardProps = {
   oldPrice?: number;
   newPrice?: number;
   showName?: string;
+  communityText?: string;
 };
 
 export const LocationCard: React.FC<LocationCardProps> = ({
@@ -27,6 +29,7 @@ export const LocationCard: React.FC<LocationCardProps> = ({
   oldPrice,
   newPrice,
   showName,
+  communityText,
 }) => {
   const width = large ? "grow max-w-[700px] min-w-[400px]" : "w-[260px]";
 
@@ -76,6 +79,22 @@ export const LocationCard: React.FC<LocationCardProps> = ({
           <img width={17} src={staticFiles.icons.location} />
           <span className="font-poppins text-darkGray ml-3">{location}</span>
         </div>
+      </div>
+    );
+
+  if (type === CardTypes.COMMUNITY)
+    return (
+      <div
+        className={`rounded-xl flex flex-col h-[350px] ${width} drop-shadow-xl bg-white overflow-hidden`}
+      >
+        <img className="max-h-[250px] object-cover" src={image} />
+        <div className="px-5 flex h-full items-center">
+          <img width={17} src={staticFiles.icons.location} />
+          <span className="font-poppins text-darkGray ml-3">{location}</span>
+        </div>
+        <span className="font-poppins text-darkGray px-5 pb-2">
+          {communityText}
+        </span>
       </div>
     );
 

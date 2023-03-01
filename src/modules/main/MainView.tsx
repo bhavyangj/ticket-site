@@ -4,6 +4,7 @@ import {
   LocationCardProps,
 } from "../../shared/components/LocationCard";
 import { SpaceY } from "../../shared/components/Utils";
+import { BookBanner } from "./components/BookBanner";
 
 const newYorkLocations: LocationCardProps[] = [
   {
@@ -128,9 +129,30 @@ const toursFakeData: LocationCardProps[] = [
   },
 ];
 
+const communitiesFakeData: LocationCardProps[] = [
+  {
+    image: "/fake/destination1.png",
+    location: "Katalk",
+    type: CardTypes.COMMUNITY,
+    communityText: "Lorem ipsum, or lipsum as it is sometimes",
+  },
+  {
+    image: "/fake/destination2.png",
+    location: "Katalk",
+    type: CardTypes.COMMUNITY,
+    communityText: "Lorem ipsum, or lipsum as it is sometimes",
+  },
+  {
+    image: "/fake/destination3.png",
+    location: "Instagram",
+    type: CardTypes.COMMUNITY,
+    communityText: "Lorem ipsum, or lipsum as it is sometimes",
+  },
+];
+
 export const MainView = () => {
   return (
-    <div className="min-h-[600px] flex flex-col items-center pt-[5vh] pb-[20vh]">
+    <div className="min-h-[600px] flex flex-col items-center pt-[5vh] pb-[20vh] px-[10vw]">
       <SpaceY /> <SpaceY />
       <span className="font-poppins font-medium text-dark">New York</span>
       <SpaceY />
@@ -138,11 +160,12 @@ export const MainView = () => {
         Must See in New York
       </span>
       <SpaceY /> <SpaceY />
-      <div className="flex flex-wrap justify-between w-full px-[10vw] gap-y-10 gap-x-5">
+      <div className="flex flex-wrap justify-between w-full gap-y-10 gap-x-5">
         {newYorkLocations.map((item) => (
           <LocationCard {...item} />
         ))}
       </div>
+      <BookBanner />
       {/* ATTRACTIONS SECTION */}
       <SpaceY /> <SpaceY />
       <span className="font-poppins font-medium text-dark">
@@ -153,7 +176,7 @@ export const MainView = () => {
         Attractions
       </span>
       <SpaceY /> <SpaceY />
-      <div className="flex flex-wrap justify-between w-full px-[10vw] gap-y-10 gap-x-5">
+      <div className="flex flex-wrap justify-between w-full gap-y-10 gap-x-5">
         {attractionsFakeData.map((item) => (
           <LocationCard {...item} />
         ))}
@@ -166,7 +189,7 @@ export const MainView = () => {
         Musicals/Shows
       </span>
       <SpaceY /> <SpaceY />
-      <div className="flex flex-wrap justify-between w-full px-[10vw] gap-y-10 gap-x-5">
+      <div className="flex flex-wrap justify-between w-full gap-y-10 gap-x-5">
         {showsFakeData.map((item) => (
           <LocationCard {...item} />
         ))}
@@ -177,8 +200,21 @@ export const MainView = () => {
       <SpaceY />
       <span className="font-volkhov font-bold text-dark text-2xl">Tour</span>
       <SpaceY /> <SpaceY />
-      <div className="flex flex-wrap justify-between w-full px-[10vw] gap-y-10 gap-x-5">
+      <div className="flex flex-wrap justify-between w-full gap-y-10 gap-x-5">
         {toursFakeData.map((item) => (
+          <LocationCard {...item} />
+        ))}
+      </div>
+      {/* TAMICE COMMUNITY SECTION */}
+      <SpaceY /> <SpaceY />
+      <span className="font-poppins font-medium text-dark">Let’s Connect</span>
+      <SpaceY />
+      <span className="font-volkhov font-bold text-dark text-2xl">
+        Tamice Community
+      </span>
+      <SpaceY /> <SpaceY />
+      <div className="flex flex-wrap justify-center w-full gap-y-10 gap-x-5">
+        {communitiesFakeData.map((item) => (
           <LocationCard {...item} />
         ))}
       </div>
