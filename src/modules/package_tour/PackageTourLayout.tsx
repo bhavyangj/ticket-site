@@ -10,21 +10,23 @@ export const PackageTourLayout: React.FC<{
 }> = ({ children, sectionDescription, sectionTitle }) => {
   return (
     <div className="flex flex-col items-center ">
-      <div className="py-[5vh] bg-white flex w-full px-[10vw] justify-center pt-[5vh]">
+      <div className="py-[5vh] flex w-full justify-center pt-[5vh]">
         {services.map((s) => (
           <ServiceCard key={JSON.stringify(s)} {...s} />
         ))}
       </div>
       <SpaceY />
-      <div className="bg-[#F2F2F2] px-[5vw] w-full min-h-[600px] pb-[20vh] flex flex-col pt-[10vh]">
-        <span className="font-poppins font-medium text-xl flex gap-x-4 mb-10">
-          <img src={staticFiles.icons.heart} width="20" />
-          {sectionTitle}
-        </span>
-        <span className="font-poppins flex gap-x-4 mb-16">
-          {sectionDescription}
-        </span>
-        {children}
+      <div className="bg-[#F2F2F2] w-[99vw] min-h-[600px] pb-[20vh] pt-[10vh] flex justify-center">
+        <div className="flex flex-col px-[5vw] max-w-[1250px] w-full">
+          <span className="font-poppins font-medium text-xl flex gap-x-4 mb-10">
+            <img src={staticFiles.icons.heart} width="20" />
+            {sectionTitle}
+          </span>
+          <span className="font-poppins flex gap-x-4 mb-16">
+            {sectionDescription}
+          </span>
+          {children}
+        </div>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import { MainButton } from "./Buttons";
 import { SpaceY } from "./Utils";
 
 export const InfoCover = () => (
-  <div className="max-h-[400px] flex justify-between px-[5vw] max-w-[1250px]">
+  <div className="max-h-[400px] flex justify-between px-[5vw] max-w-[1300px]">
     <div className="flex flex-col justify-between w-7/12">
       <div className="flex flex-col w-full">
         <span className="font-poppins font-medium text-[#DF6951]">

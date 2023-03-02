@@ -18,7 +18,7 @@ export const PageLayoutView: React.FC<{
     <Top />
     {cover === CoverTypes.NORMAL && <Cover />}
     {cover === CoverTypes.INFO && <InfoCover />}
-    <div className="px-[5vw] max-w-[1250px] w-full">{children}</div>
+    <div className="px-[5vw] max-w-[1300px] w-full">{children}</div>
     <Footer />
   </div>
 );

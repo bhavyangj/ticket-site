@@ -9,7 +9,7 @@ export type NavBarElement = {
 
 const containerClass = "flex";
 const itemClass =
-  "px-8 py-2 font-poppins font-bold text-xs hover:bg-lightBlue/[.1] rounded-sm text-dark flex justify-center items-center";
+  "px-8 py-2 font-poppins font-bold text-xs hover:bg-lightBlue/[.1] rounded-sm text-dark flex justify-center items-center whitespace-nowrap";
 const selectedItemClass = "border-b-2 border-lightBlue rounded-sm";
 
 const dropdownContainer = "group relative inline-block";

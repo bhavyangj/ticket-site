@@ -23,7 +23,7 @@ const fakeDestinationsLink = [
 
 export const Footer = () => (
   <div className="h-[350px] w-full bg-[#262424] flex flex-col items-center">
-    <div className="flex justify-between px-[5vw] max-w-[1250px] h-[80%]">
+    <div className="flex justify-between px-[5vw] max-w-[1300px] h-[80%]">
       <FooterCol>
         <div>
           <Logo whiteText />
