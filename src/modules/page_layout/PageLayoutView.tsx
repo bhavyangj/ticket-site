@@ -14,11 +14,11 @@ export const PageLayoutView: React.FC<{
   children: ReactNode;
   cover?: CoverTypes;
 }> = ({ children, cover }) => (
-  <div className="flex flex-col min-h-screen bg-white bg-top-form bg-no-repeat bg-right-top">
+  <div className="flex flex-col items-center min-h-screen bg-white bg-top-form bg-no-repeat bg-right-top">
     <Top />
     {cover === CoverTypes.NORMAL && <Cover />}
     {cover === CoverTypes.INFO && <InfoCover />}
-    {children}
+    <div className="px-[5vw] max-w-[1250px] w-full">{children}</div>
     <Footer />
   </div>
 );

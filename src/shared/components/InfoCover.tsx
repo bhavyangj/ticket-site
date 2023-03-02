@@ -3,8 +3,8 @@ import { MainButton } from "./Buttons";
 import { SpaceY } from "./Utils";
 
 export const InfoCover = () => (
-  <div className="h-[40vw] max-h-[350px] flex justify-between">
-    <div className="flex flex-col justify-between max-w-7/12 w-7/12 px-10 ">
+  <div className="max-h-[400px] flex justify-between px-[5vw] max-w-[1250px]">
+    <div className="flex flex-col justify-between w-7/12">
       <div className="flex flex-col w-full">
         <span className="font-poppins font-medium text-[#DF6951]">
           Best Destinations around the world
@@ -29,7 +29,7 @@ export const InfoCover = () => (
         </div>
       </div>
     </div>
-    <div className="flex max-w-5/12 w-5/12 items-end justify-end">
+    <div className="flex w-5/12 items-end justify-end">
       <img
         className="max-h-[330px] min-h-[200px]"
         src={staticFiles.images.cover_bg_complete}

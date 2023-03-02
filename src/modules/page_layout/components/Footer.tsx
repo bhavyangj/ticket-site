@@ -6,8 +6,8 @@ const FooterCol: React.FC<{ children: React.ReactNode; hidden?: boolean }> = ({
   hidden,
 }) => {
   const hiddenColClass =
-    "w-2/5 grow hidden lg:flex flex-col justify-center px-[20px]";
-  const colClass = "w-2/5 grow flex flex-col justify-center px-[20px]";
+    "w-1/2 grow hidden lg:flex flex-col justify-center px-[20px]";
+  const colClass = "w-1/2 grow flex flex-col justify-center px-[20px]";
   return <div className={hidden ? hiddenColClass : colClass}>{children}</div>;
 };
 
@@ -22,8 +22,8 @@ const fakeDestinationsLink = [
 ];
 
 export const Footer = () => (
-  <div className="h-[350px]">
-    <div className="px-[100px] flex justify-between bg-[#262424] h-[80%] ">
+  <div className="h-[350px] w-full bg-[#262424] flex flex-col items-center">
+    <div className="flex justify-between px-[5vw] max-w-[1250px] h-[80%]">
       <FooterCol>
         <div>
           <Logo whiteText />
@@ -82,7 +82,7 @@ export const Footer = () => (
         </div>
       </FooterCol>
     </div>
-    <div className="flex justify-center items-center h-[20%] bg-black">
+    <div className="flex justify-center items-center h-[20%] bg-black w-full">
       <span className="font-poppins text-[#A4A5A8] font-normal text -sm">
         COPYRIGHT 2022 TAMICE INC, ALL RIGHT RESERVED
       </span>

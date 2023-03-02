@@ -2,7 +2,7 @@ import { staticFiles } from "../../shared";
 import { SpaceY } from "../../shared/components/Utils";
 
 export const ContactView = () => {
-  const rowSectionClass = "flex w-full px-[10vw]";
+  const rowSectionClass = "flex w-full";
   const infoContainerClass =
     "font-poppins text-darkGray flex flex-col mb-5 h-1/2";
   return (

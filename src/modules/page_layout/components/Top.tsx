@@ -61,7 +61,7 @@ const IconButton: React.FC<{ icon: string; route: string; name?: string }> = ({
 };
 
 export const Top = () => (
-  <div className="flex justify-between items-center px-[5vw]">
+  <div className="flex justify-between items-center px-[5vw] max-w-[1250px]">
     <div className="flex justify-center items-center">
       <Logo />
     </div>
