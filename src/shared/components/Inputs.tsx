@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ReactPhoneInput, { Country } from "react-phone-number-input";
+import { staticFiles } from "..";
 import { phoneUtils } from "../utils";
 
 export const MainInput: React.FC<{
@@ -102,5 +103,41 @@ export const CheckBox: React.FC<{
       onClick={() => setChecked((prev) => !prev)}
       className="border border-gray "
     />
+  );
+};
+
+export const SelectInput: React.FC<{
+  containerClassName?: string;
+  options: string[];
+}> = ({ containerClassName = "w-full", options }) => {
+  const [selected, setSelected] = useState(options[0]);
+  const [open, setOpen] = useState(true);
+
+  const dropdownClass =
+    "flex flex-col bg-white top-[100%] z-[100] font-poppins w-full";
+
+  return (
+    <div className={containerClassName}>
+      <div
+        className={`relative bg-white border border-gray px-5 py-3 flex justify-between w-full`}
+        onClick={() => setOpen((prev) => !prev)}
+      >
+        {selected}
+        <img src={staticFiles.icons.down_arrow} />
+      </div>
+      {open && (
+        <ul className={dropdownClass}>
+          {options.map((el) => (
+            <li
+              key={el}
+              className="px-5 py-4 hover:bg-lightBlue/[.1] hover:border hover:border-gray border border-white cursor-pointer"
+              onClick={() => setSelected(el)}
+            >
+              {el}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };

@@ -25,7 +25,7 @@ export const NavBar: React.FC<{ elements: NavBarElement[] }> = ({
       {elements.map((el) => (
         <Fragment key={el.name}>
           {el.dropdownElements ? (
-            <div
+            <button
               className={`${itemClass} ${
                 location.pathname !== "/" &&
                 (el.path.includes(location.pathname) ||
@@ -34,7 +34,7 @@ export const NavBar: React.FC<{ elements: NavBarElement[] }> = ({
                   : ""
               } ${dropdownContainer}`}
             >
-              <button> {el.name}</button>
+              {el.name}
               <ul className="absolute hidden group-hover:flex group-hover:flex-col bg-[#2A353D] top-[100%] z-[100] font-poppins text-white w-full">
                 {el.dropdownElements.map((de) => (
                   <li
@@ -46,7 +46,7 @@ export const NavBar: React.FC<{ elements: NavBarElement[] }> = ({
                   </li>
                 ))}
               </ul>
-            </div>
+            </button>
           ) : (
             <button
               className={`${itemClass} ${
