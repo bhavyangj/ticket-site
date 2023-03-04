@@ -1,8 +1,8 @@
-import { staticFiles } from "../../../shared";
-import { MainButton } from "../../../shared/components/Buttons";
-import { SpaceY } from "../../../shared/components/Utils";
+import { staticFiles } from "..";
+import { MainButton } from "./Buttons";
+import { SpaceY } from "./Utils";
 
-export type PackageTourCardProps = {
+export type ProductCardProps = {
   name: string;
   image: string;
   isPremium: boolean;
@@ -18,7 +18,7 @@ export type PackageTourCardProps = {
   childNote: string;
 };
 
-export const PackageTourCard: React.FC<PackageTourCardProps> = ({
+export const ProductCard: React.FC<ProductCardProps> = ({
   adultPrice,
   adultSitePrice,
   availabilityEnd,

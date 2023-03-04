@@ -1,10 +1,10 @@
 import { PackageBuyDetail } from "./components/PackageBuyDetail";
 import {
-  PackageTourCard,
-  PackageTourCardProps,
-} from "./components/PackageTourCard";
+  ProductCard,
+  ProductCardProps,
+} from "../../shared/components/ProductCard";
 
-const fakeCards: PackageTourCardProps[] = [
+const fakeCards: ProductCardProps[] = [
   {
     name: "엠파이어 스테이트 빌딩 전망대",
     availabilityStart: "Jan 16",
@@ -77,7 +77,7 @@ export const NYExploreView = () => {
     <div className="flex w-full gap-x-3">
       <div className="w-2/3 flex flex-col gap-y-4">
         {fakeCards.map((item) => (
-          <PackageTourCard key={item.name} {...item} />
+          <ProductCard key={item.name} {...item} />
         ))}
       </div>
       <div className="w-1/3 font-poppins">
