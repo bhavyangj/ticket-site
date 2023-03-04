@@ -114,30 +114,33 @@ export const SelectInput: React.FC<{
   const [open, setOpen] = useState(true);
 
   const dropdownClass =
-    "flex flex-col bg-white top-[100%] z-[100] font-poppins w-full";
+    "flex flex-col bg-white absolute top-[100%] z-[100] font-poppins w-full border border-gray border-t-0";
 
   return (
     <div className={containerClassName}>
       <div
-        className={`relative bg-white border border-gray px-5 py-3 flex justify-between w-full`}
+        className={`relative bg-white justify-between w-full cursor-pointer`}
         onClick={() => setOpen((prev) => !prev)}
       >
-        {selected}
-        <img src={staticFiles.icons.down_arrow} />
+        <div className="flex justify-between px-5 py-3 border border-gray">
+          {selected}
+          <img src={staticFiles.icons.down_arrow} />
+        </div>
+
+        {open && (
+          <ul className={dropdownClass}>
+            {options.map((el) => (
+              <li
+                key={el}
+                className="px-5 py-4 hover:bg-lightBlue/[.1] hover:border hover:border-gray border border-white cursor-pointer"
+                onClick={() => setSelected(el)}
+              >
+                {el}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
-      {open && (
-        <ul className={dropdownClass}>
-          {options.map((el) => (
-            <li
-              key={el}
-              className="px-5 py-4 hover:bg-lightBlue/[.1] hover:border hover:border-gray border border-white cursor-pointer"
-              onClick={() => setSelected(el)}
-            >
-              {el}
-            </li>
-          ))}
-        </ul>
-      )}
     </div>
   );
 };
