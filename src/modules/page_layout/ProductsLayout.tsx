@@ -3,7 +3,7 @@ import { staticFiles } from "../../shared";
 import { SpaceY } from "../../shared/components/Utils";
 import { ServiceCard, ServiceCardProps } from "../about/components/ServiceCard";
 
-export const PackageTourLayout: React.FC<{
+export const ProductsLayout: React.FC<{
   children: ReactNode;
   sectionTitle: string;
   sectionDescription: string;

@@ -18,8 +18,14 @@ const pageLayoutNavBar: NavBarElement[] = [
     ],
   },
   {
-    name: "City Tour",
-    path: "/main",
+    name: "City Attractions",
+    path: "/city-attractions",
+    dropdownElements: [
+      { name: "Observation(Scenics)", subPath: "observations" },
+      { name: "Museum/Gallery", subPath: "museum-gallery" },
+      { name: "Rides/Cruises", subPath: "rides-cruises" },
+      { name: "Activities", subPath: "activities" },
+    ],
   },
   {
     name: "Guide Tour",

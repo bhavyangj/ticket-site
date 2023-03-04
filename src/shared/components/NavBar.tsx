@@ -39,7 +39,7 @@ export const NavBar: React.FC<{ elements: NavBarElement[] }> = ({
                 {el.dropdownElements.map((de) => (
                   <li
                     key={de.subPath}
-                    className="px-5 py-4 hover:bg-lightBlue/[.1] cursor-pointer"
+                    className="px-5 py-4 hover:bg-lightBlue/[.1] cursor-pointer flex"
                     onClick={() => navigate(el.path + "/" + de.subPath)}
                   >
                     {de.name}
