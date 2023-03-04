@@ -19,6 +19,8 @@ import { ContactView } from "../modules/contact/ContactView";
 import { AboutView } from "../modules/about/AboutView";
 import { PackageTourLayout } from "../modules/package_tour/PackageTourLayout";
 import { BigApplePassView } from "../modules/package_tour/BigApplePassView";
+import { NYExploreView } from "../modules/package_tour/NYExploreView";
+import { NYCityPassView } from "../modules/package_tour/NYCityPassView";
 
 export const router = createBrowserRouter([
   {
@@ -136,7 +138,7 @@ export const router = createBrowserRouter([
             sectionDescription="Text Goes here"
             sectionTitle="NY City Pass"
           >
-            ny city pass
+            <NYCityPassView />
           </PackageTourLayout>
         ),
       },
@@ -147,7 +149,7 @@ export const router = createBrowserRouter([
             sectionDescription="The NEW YORK CityPass is a pass that combines admission tickets to 5 New York attractions."
             sectionTitle="NY Explore"
           >
-            ny explore pass
+            <NYExploreView />
           </PackageTourLayout>
         ),
       },
