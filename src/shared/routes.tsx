@@ -22,6 +22,7 @@ import { BigApplePassView } from "../modules/package_tour/BigApplePassView";
 import { NYExploreView } from "../modules/package_tour/NYExploreView";
 import { NYCityPassView } from "../modules/package_tour/NYCityPassView";
 import { ObservationsView } from "../modules/city_attractions/ObservationsView";
+import { RidesAndCruisesView } from "../modules/city_attractions/RidesAndCruisesView";
 
 export const router = createBrowserRouter([
   {
@@ -172,6 +173,17 @@ export const router = createBrowserRouter([
             sectionTitle="Scenics"
           >
             <ObservationsView />
+          </ProductsLayout>
+        ),
+      },
+      {
+        path: "rides-cruises",
+        element: (
+          <ProductsLayout
+            sectionDescription="Text Goes here - Scenic, Rids/Cruises, Museum/Gallery page contents/layout are the same"
+            sectionTitle="Rides/Cruises"
+          >
+            <RidesAndCruisesView />
           </ProductsLayout>
         ),
       },
