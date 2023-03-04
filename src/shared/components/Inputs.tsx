@@ -111,7 +111,7 @@ export const SelectInput: React.FC<{
   options: string[];
 }> = ({ containerClassName = "w-full", options }) => {
   const [selected, setSelected] = useState(options[0]);
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const dropdownClass =
     "flex flex-col bg-white absolute top-[100%] z-[100] font-poppins w-full border border-gray border-t-0";
