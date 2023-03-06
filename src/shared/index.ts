@@ -40,5 +40,6 @@ export const staticFiles = {
     cover_bg: "/images/cover_background.png",
     contact_location: "/images/contact_location.png",
     cover_bg_complete: "/images/cover_background_complete.png",
+    cover_show: "/images/cover_show.png",
   },
 };

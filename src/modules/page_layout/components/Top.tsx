@@ -39,7 +39,7 @@ const pageLayoutNavBar: NavBarElement[] = [
   },
   {
     name: "Musicals & Shows",
-    path: "/main",
+    path: "/musicals-and-shows",
   },
   {
     name: "여행정보",
