@@ -189,4 +189,37 @@ export const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/guide-tour",
+    element: (
+      <PageLayoutView cover={CoverTypes.NORMAL}>
+        <Outlet />
+      </PageLayoutView>
+    ),
+    children: [
+      {
+        path: "manhattan-day",
+        element: (
+          <ProductsLayout
+            sectionDescription="Text Goes here - Scenic, Rids/Cruises, Museum/Gallery page contents/layout are the same"
+            sectionTitle="Manhattan day"
+          >
+            <ObservationsView /> {/* THIS VIEW MUST TO BE ManhattanDayView */}
+          </ProductsLayout>
+        ),
+      },
+      {
+        path: "manhattan-night",
+        element: (
+          <ProductsLayout
+            sectionDescription="Text Goes here - Scenic, Rids/Cruises, Museum/Gallery page contents/layout are the same"
+            sectionTitle="Manhattan night"
+          >
+            <RidesAndCruisesView />{" "}
+            {/* THIS VIEW MUST TO BE ManhattanNightView */}
+          </ProductsLayout>
+        ),
+      },
+    ],
+  },
 ]);

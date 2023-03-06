@@ -29,7 +29,13 @@ const pageLayoutNavBar: NavBarElement[] = [
   },
   {
     name: "Guide Tour",
-    path: "/main",
+    path: "/guide-tour",
+    dropdownElements: [
+      { name: "Manhattan Day Tour", subPath: "manhattan-day" },
+      { name: "Manhattan Night Tour", subPath: "manhattan-night" },
+      { name: "Doson Tour", subPath: "doson" },
+      { name: "UN Tour", subPath: "un" },
+    ],
   },
   {
     name: "Musicals & Shows",

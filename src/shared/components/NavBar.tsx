@@ -35,7 +35,7 @@ export const NavBar: React.FC<{ elements: NavBarElement[] }> = ({
               } ${dropdownContainer}`}
             >
               {el.name}
-              <ul className="absolute hidden group-hover:flex group-hover:flex-col bg-[#2A353D] top-[100%] z-[100] font-poppins text-white w-full">
+              <ul className="absolute hidden group-hover:flex group-hover:flex-col bg-[#2A353D] top-[100%] z-[100] font-poppins text-white min-w-full">
                 {el.dropdownElements.map((de) => (
                   <li
                     key={de.subPath}
