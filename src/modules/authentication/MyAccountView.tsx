@@ -1,9 +1,10 @@
+import { PUBLIC_URL } from "../../shared";
 import { MainButton } from "../../shared/components/Buttons";
 import { SpaceY } from "../../shared/components/Utils";
 import { AccountCard } from "./components/AccountCard";
 
 const fakeProfile = {
-  picture: "/fake/fake_profile_user.png",
+  picture: `${PUBLIC_URL}/fake/fake_profile_user.png`,
   name: "David Lee",
   email: "xxx@gmail.com",
   phone: "1-777-777-777",

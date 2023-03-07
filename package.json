@@ -1,6 +1,7 @@
 {
   "name": "ticket-site",
   "version": "0.1.0",
+  "homepage": "https://thernlovendev.github.io/ticket-site",
   "private": true,
   "dependencies": {
     "@hookform/resolvers": "2.9.11",
@@ -21,8 +22,10 @@
     "web-vitals": "2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build && mv build server",
+    "build": "react-scripts build",
     "server": "npm run build && cd server && npm start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -46,6 +49,7 @@
     ]
   },
   "devDependencies": {
-    "@types/google-libphonenumber": "7.4.23"
+    "@types/google-libphonenumber": "7.4.23",
+    "gh-pages": "^5.0.0"
   }
 }

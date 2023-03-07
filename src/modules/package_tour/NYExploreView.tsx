@@ -3,6 +3,7 @@ import {
   ProductCard,
   ProductCardProps,
 } from "../../shared/components/ProductCard";
+import { PUBLIC_URL } from "../../shared";
 
 const fakeCards: ProductCardProps[] = [
   {
@@ -15,7 +16,7 @@ const fakeCards: ProductCardProps[] = [
     childPrice: 41,
     childSitePrice: 55,
     childNote: "만 4 세-12 세 기준, 만 3 세 이하 무료",
-    image: "/fake/destination4.png",
+    image: `${PUBLIC_URL}/fake/destination4.png`,
     isPremium: false,
   },
   {
@@ -28,7 +29,7 @@ const fakeCards: ProductCardProps[] = [
     childPrice: 41,
     childSitePrice: 55,
     childNote: "만 4 세-12 세 기준, 만 3 세 이하 무료",
-    image: "/fake/destination4.png",
+    image: `${PUBLIC_URL}/fake/destination4.png`,
     isPremium: false,
   },
   {
@@ -41,7 +42,7 @@ const fakeCards: ProductCardProps[] = [
     childPrice: 41,
     childSitePrice: 55,
     childNote: "만 4 세-12 세 기준, 만 3 세 이하 무료",
-    image: "/fake/destination4.png",
+    image: `${PUBLIC_URL}/fake/destination4.png`,
     isPremium: false,
   },
   {
@@ -54,7 +55,7 @@ const fakeCards: ProductCardProps[] = [
     childPrice: 41,
     childSitePrice: 55,
     childNote: "만 4 세-12 세 기준, 만 3 세 이하 무료",
-    image: "/fake/destination4.png",
+    image: `${PUBLIC_URL}/fake/destination4.png`,
     isPremium: false,
   },
   {
@@ -67,7 +68,7 @@ const fakeCards: ProductCardProps[] = [
     childPrice: 41,
     childSitePrice: 55,
     childNote: "만 4 세-12 세 기준, 만 3 세 이하 무료",
-    image: "/fake/destination4.png",
+    image: `${PUBLIC_URL}/fake/destination4.png`,
     isPremium: false,
   },
 ];

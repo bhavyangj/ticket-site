@@ -1,3 +1,4 @@
+import { PUBLIC_URL } from "../../shared";
 import {
   CardTypes,
   LocationCard,
@@ -8,33 +9,33 @@ import { BookBanner } from "./components/BookBanner";
 
 const newYorkLocations: LocationCardProps[] = [
   {
-    image: "/fake/destination1.png",
+    image: `${PUBLIC_URL}/fake/destination1.png`,
     location: "Big Apple Pass",
     large: true,
     type: CardTypes.ONLY_LOCATION,
   },
   {
-    image: "/fake/destination3.png",
+    image: `${PUBLIC_URL}/fake/destination3.png`,
     location: "Scenics",
     type: CardTypes.ONLY_LOCATION,
   },
   {
-    image: "/fake/destination1.png",
+    image: `${PUBLIC_URL}/fake/destination1.png`,
     location: "Musicals",
     type: CardTypes.ONLY_LOCATION,
   },
   {
-    image: "/fake/destination2.png",
+    image: `${PUBLIC_URL}/fake/destination2.png`,
     location: "Museum/Gallery",
     type: CardTypes.ONLY_LOCATION,
   },
   {
-    image: "/fake/destination3.png",
+    image: `${PUBLIC_URL}/fake/destination3.png`,
     location: "Rides/Cruises",
     type: CardTypes.ONLY_LOCATION,
   },
   {
-    image: "/fake/destination2.png",
+    image: `${PUBLIC_URL}/fake/destination2.png`,
     location: "Activities",
     type: CardTypes.ONLY_LOCATION,
   },
@@ -42,7 +43,7 @@ const newYorkLocations: LocationCardProps[] = [
 
 const attractionsFakeData: LocationCardProps[] = [
   {
-    image: "/fake/destination1.png",
+    image: `${PUBLIC_URL}/fake/destination1.png`,
     location: "Statue of Liberty",
 
     type: CardTypes.PLACE_PRICE,
@@ -50,7 +51,7 @@ const attractionsFakeData: LocationCardProps[] = [
     newPrice: 30,
   },
   {
-    image: "/fake/destination2.png",
+    image: `${PUBLIC_URL}/fake/destination2.png`,
     location: "Statue of Liberty",
 
     type: CardTypes.PLACE_PRICE,
@@ -58,7 +59,7 @@ const attractionsFakeData: LocationCardProps[] = [
     newPrice: 30,
   },
   {
-    image: "/fake/destination3.png",
+    image: `${PUBLIC_URL}/fake/destination3.png`,
     location: "Statue of Liberty",
 
     type: CardTypes.PLACE_PRICE,
@@ -66,7 +67,7 @@ const attractionsFakeData: LocationCardProps[] = [
     newPrice: 30,
   },
   {
-    image: "/fake/destination1.png",
+    image: `${PUBLIC_URL}/fake/destination1.png`,
     location: "Statue of Liberty",
 
     type: CardTypes.PLACE_PRICE,
@@ -77,25 +78,25 @@ const attractionsFakeData: LocationCardProps[] = [
 
 const showsFakeData: LocationCardProps[] = [
   {
-    image: "/fake/destination1.png",
+    image: `${PUBLIC_URL}/fake/destination1.png`,
     location: "Statue of Liberty",
     type: CardTypes.SHOW,
     showName: "The Gazillion Bubble Show",
   },
   {
-    image: "/fake/destination2.png",
+    image: `${PUBLIC_URL}/fake/destination2.png`,
     location: "Statue of Liberty",
     type: CardTypes.SHOW,
     showName: "The Lion King",
   },
   {
-    image: "/fake/destination3.png",
+    image: `${PUBLIC_URL}/fake/destination3.png`,
     location: "Statue of Liberty",
     type: CardTypes.SHOW,
     showName: "The Lion King",
   },
   {
-    image: "/fake/destination1.png",
+    image: `${PUBLIC_URL}/fake/destination1.png`,
     location: "Statue of Liberty",
     type: CardTypes.SHOW,
     showName: "The Lion King",
@@ -104,25 +105,25 @@ const showsFakeData: LocationCardProps[] = [
 
 const toursFakeData: LocationCardProps[] = [
   {
-    image: "/fake/destination1.png",
+    image: `${PUBLIC_URL}/fake/destination1.png`,
     location: "가질리온 버블쇼",
     type: CardTypes.SHOW,
     showName: "The Gazillion Bubble Show",
   },
   {
-    image: "/fake/destination2.png",
+    image: `${PUBLIC_URL}/fake/destination2.png`,
     location: "라이온킹",
     type: CardTypes.SHOW,
     showName: "The Lion King",
   },
   {
-    image: "/fake/destination3.png",
+    image: `${PUBLIC_URL}/fake/destination3.png`,
     location: "블루맨 그룹",
     type: CardTypes.SHOW,
     showName: "The Lion King",
   },
   {
-    image: "/fake/destination1.png",
+    image: `${PUBLIC_URL}/fake/destination1.png`,
     location: "Statue of Liberty",
     type: CardTypes.SHOW,
     showName: "The Lion King",
@@ -131,19 +132,19 @@ const toursFakeData: LocationCardProps[] = [
 
 const communitiesFakeData: LocationCardProps[] = [
   {
-    image: "/fake/destination1.png",
+    image: `${PUBLIC_URL}/fake/destination1.png`,
     location: "Katalk",
     type: CardTypes.COMMUNITY,
     communityText: "Lorem ipsum, or lipsum as it is sometimes",
   },
   {
-    image: "/fake/destination2.png",
+    image: `${PUBLIC_URL}/fake/destination2.png`,
     location: "Katalk",
     type: CardTypes.COMMUNITY,
     communityText: "Lorem ipsum, or lipsum as it is sometimes",
   },
   {
-    image: "/fake/destination3.png",
+    image: `${PUBLIC_URL}/fake/destination3.png`,
     location: "Instagram",
     type: CardTypes.COMMUNITY,
     communityText: "Lorem ipsum, or lipsum as it is sometimes",

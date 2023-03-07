@@ -1,3 +1,4 @@
+import { PUBLIC_URL } from "../../shared";
 import { ShowCard, ShowCardProps } from "./components/ShowCard";
 
 const fakeCards: ShowCardProps[] = [
@@ -9,7 +10,7 @@ const fakeCards: ShowCardProps[] = [
 
     description:
       "뉴욕의 명소 브로드웨이. - 연일 매진행렬을 이어오는 가장 인기 있는 뮤지컬",
-    image: "/fake/show1.png",
+    image: `${PUBLIC_URL}/fake/show1.png`,
     priceStart: 115,
   },
   {
@@ -20,7 +21,7 @@ const fakeCards: ShowCardProps[] = [
 
     description:
       "뉴욕의 명소 브로드웨이. - 연일 매진행렬을 이어오는 가장 인기 있는 뮤지컬",
-    image: "/fake/show2.png",
+    image: `${PUBLIC_URL}/fake/show2.png`,
     priceStart: 59,
   },
   {
@@ -31,7 +32,7 @@ const fakeCards: ShowCardProps[] = [
 
     description:
       "뉴욕의 명소 브로드웨이. - 연일 매진행렬을 이어오는 가장 인기 있는 뮤지컬",
-    image: "/fake/show3.png",
+    image: `${PUBLIC_URL}/fake/show3.png`,
     priceStart: 119,
   },
   {
@@ -41,7 +42,7 @@ const fakeCards: ShowCardProps[] = [
     availability: "Sale through Aug 13",
     description:
       "뉴욕의 명소 브로드웨이. - 연일 매진행렬을 이어오는 가장 인기 있는 뮤지컬",
-    image: "/fake/show4.png",
+    image: `${PUBLIC_URL}/fake/show4.png`,
     priceStart: 166.5,
   },
 
@@ -52,7 +53,7 @@ const fakeCards: ShowCardProps[] = [
     availability: "Sale through Aug 13",
     description:
       "뉴욕의 명소 브로드웨이. - 연일 매진행렬을 이어오는 가장 인기 있는 뮤지컬",
-    image: "/fake/show5.png",
+    image: `${PUBLIC_URL}/fake/show5.png`,
     priceStart: 187.5,
   },
 ];

@@ -1,6 +1,7 @@
 import { classValidatorResolver } from "@hookform/resolvers/class-validator";
 import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
+import { PUBLIC_URL } from "../../shared";
 import { MainButton } from "../../shared/components/Buttons";
 import { MainInput, PhoneInput } from "../../shared/components/Inputs";
 import { SpaceY } from "../../shared/components/Utils";
@@ -8,7 +9,7 @@ import { AccountCard } from "./components/AccountCard";
 import { EditAccountValidator } from "./utils/validations";
 
 const fakeProfile = {
-  picture: "/fake/fake_profile_user.png",
+  picture: `${PUBLIC_URL}/fake/fake_profile_user.png`,
   name: "David Lee",
   email: "xxx@gmail.com",
   phone: "1-777-777-777",

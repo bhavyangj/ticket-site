@@ -1,3 +1,4 @@
+import { PUBLIC_URL } from "../../shared";
 import {
   CardTypes,
   LocationCard,
@@ -8,19 +9,19 @@ import { SpaceY } from "../../shared/components/Utils";
 const fakeLocations: LocationCardProps[] = [
   {
     city: "New york",
-    image: "/fake/destination1.png",
+    image: `${PUBLIC_URL}/fake/destination1.png`,
     location: "Golden gate bridge",
     type: CardTypes.CITY_LOCATION,
   },
   {
     city: "San Francisco",
-    image: "/fake/destination2.png",
+    image: `${PUBLIC_URL}/fake/destination2.png`,
     location: "Hollywood",
     type: CardTypes.CITY_LOCATION,
   },
   {
     city: "Los Angeles",
-    image: "/fake/destination3.png",
+    image: `${PUBLIC_URL}/fake/destination3.png`,
     location: "Oahu",
     type: CardTypes.CITY_LOCATION,
   },

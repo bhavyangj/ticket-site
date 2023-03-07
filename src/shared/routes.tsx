@@ -1,4 +1,4 @@
-import { createBrowserRouter, Outlet } from "react-router-dom";
+import { createHashRouter, Outlet } from "react-router-dom";
 import { LogInView } from "../modules/authentication/LogInView";
 import {
   PageLayoutView,
@@ -27,7 +27,7 @@ import { MusicalsAndShowsView } from "../modules/musicals_and_shows/MusicalsAndS
 import { ProductDetailView } from "../modules/product_detail/ProductDetailView";
 import { ShowDetailView } from "../modules/product_detail/ShowDetailView";
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
   {
     path: "/",
     element: (
