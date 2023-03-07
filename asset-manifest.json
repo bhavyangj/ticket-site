@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ticket-site/static/css/main.91fd380b.css",
-    "main.js": "/ticket-site/static/js/main.fa586b13.js",
+    "main.css": "/ticket-site/static/css/main.e1ad0ed0.css",
+    "main.js": "/ticket-site/static/js/main.0970703e.js",
     "static/media/Poppins-ExtraLight.ttf": "/ticket-site/static/media/Poppins-ExtraLight.333cb30c20e31999802a.ttf",
     "static/media/Poppins-Light.ttf": "/ticket-site/static/media/Poppins-Light.7641a0f76ca9ef6c252c.ttf",
     "static/media/Poppins-Bold.ttf": "/ticket-site/static/media/Poppins-Bold.cdb29a5d7ccf57ff05a3.ttf",
@@ -10,11 +10,11 @@
     "static/media/Volkhov-Bold.ttf": "/ticket-site/static/media/Volkhov-Bold.872ac2887d716687fa50.ttf",
     "index.html": "/ticket-site/index.html",
     "static/media/top_form.svg": "/ticket-site/static/media/top_form.bb5bb9cd11e70b3f761b.svg",
-    "main.91fd380b.css.map": "/ticket-site/static/css/main.91fd380b.css.map",
-    "main.fa586b13.js.map": "/ticket-site/static/js/main.fa586b13.js.map"
+    "main.e1ad0ed0.css.map": "/ticket-site/static/css/main.e1ad0ed0.css.map",
+    "main.0970703e.js.map": "/ticket-site/static/js/main.0970703e.js.map"
   },
   "entrypoints": [
-    "static/css/main.91fd380b.css",
-    "static/js/main.fa586b13.js"
+    "static/css/main.e1ad0ed0.css",
+    "static/js/main.0970703e.js"
   ]
 }
