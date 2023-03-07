@@ -24,6 +24,8 @@ import { NYCityPassView } from "../modules/package_tour/NYCityPassView";
 import { ObservationsView } from "../modules/city_attractions/ObservationsView";
 import { RidesAndCruisesView } from "../modules/city_attractions/RidesAndCruisesView";
 import { MusicalsAndShowsView } from "../modules/musicals_and_shows/MusicalsAndShowsView";
+import { ProductDetailView } from "../modules/product_detail/ProductDetailView";
+import { ShowDetailView } from "../modules/product_detail/ShowDetailView";
 
 export const router = createBrowserRouter([
   {
@@ -233,6 +235,22 @@ export const router = createBrowserRouter([
         >
           <MusicalsAndShowsView />
         </ProductsLayout>
+      </PageLayoutView>
+    ),
+  },
+  {
+    path: "/product-detail/:id",
+    element: (
+      <PageLayoutView cover={CoverTypes.NONE}>
+        <ProductDetailView />
+      </PageLayoutView>
+    ),
+  },
+  {
+    path: "/show-detail/:id",
+    element: (
+      <PageLayoutView cover={CoverTypes.NONE}>
+        <ShowDetailView />
       </PageLayoutView>
     ),
   },

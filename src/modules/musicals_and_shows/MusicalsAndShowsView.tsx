@@ -2,6 +2,7 @@ import { ShowCard, ShowCardProps } from "./components/ShowCard";
 
 const fakeCards: ShowCardProps[] = [
   {
+    id: "test",
     title: "The Lion King",
     subTitle: "[라이온 킹]",
     availability: "Sale through Aug 13",
@@ -12,6 +13,7 @@ const fakeCards: ShowCardProps[] = [
     priceStart: 115,
   },
   {
+    id: "test",
     title: "Chicago",
     subTitle: "[시카고]",
     availability: "Sale through Aug 13",
@@ -22,6 +24,7 @@ const fakeCards: ShowCardProps[] = [
     priceStart: 59,
   },
   {
+    id: "test",
     title: "Moulin Rouge! The Musical",
     subTitle: "[물랑루즈]",
     availability: "Sale through Aug 13",
@@ -32,6 +35,7 @@ const fakeCards: ShowCardProps[] = [
     priceStart: 119,
   },
   {
+    id: "test",
     title: "The Book Of Mormon ",
     subTitle: "[몰몬의 책]",
     availability: "Sale through Aug 13",
@@ -42,6 +46,7 @@ const fakeCards: ShowCardProps[] = [
   },
 
   {
+    id: "test",
     title: "Aladdin",
     subTitle: "[알라딘]",
     availability: "Sale through Aug 13",

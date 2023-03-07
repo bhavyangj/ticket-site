@@ -6,9 +6,9 @@ import {
 
 const fakeCards: ProductCardProps[] = [
   {
+    id: "test",
     name: "엠파이어 스테이트 빌딩 전망대",
-    availabilityStart: "Jan 16",
-    availabilityEnd: "Dec 16",
+    availability: "Jan 16 to Dec 16",
 
     adultPrice: 48,
     adultSitePrice: 60,
@@ -19,9 +19,9 @@ const fakeCards: ProductCardProps[] = [
     isPremium: false,
   },
   {
+    id: "test",
     name: "탑 오브 더 락 전망대",
-    availabilityStart: "Jan 16",
-    availabilityEnd: "Dec 16",
+    availability: "Jan 16 to Dec 16",
 
     adultPrice: 48,
     adultSitePrice: 60,
@@ -32,9 +32,9 @@ const fakeCards: ProductCardProps[] = [
     isPremium: false,
   },
   {
+    id: "test",
     name: "자유의 여신상 스카이라인 데이크루즈",
-    availabilityStart: "Jan 16",
-    availabilityEnd: "Dec 16",
+    availability: "Jan 16 to Dec 16",
 
     adultPrice: 48,
     adultSitePrice: 60,
@@ -45,9 +45,9 @@ const fakeCards: ProductCardProps[] = [
     isPremium: false,
   },
   {
+    id: "test",
     name: "모마 현대 미술관",
-    availabilityStart: "Jan 16",
-    availabilityEnd: "Dec 16",
+    availability: "Jan 16 to Dec 16",
 
     adultPrice: 48,
     adultSitePrice: 60,
@@ -58,9 +58,9 @@ const fakeCards: ProductCardProps[] = [
     isPremium: false,
   },
   {
+    id: "test",
     name: "모마 도슨트 투어",
-    availabilityStart: "Jan 16",
-    availabilityEnd: "Dec 16",
+    availability: "Jan 16 to Dec 16",
 
     adultPrice: 48,
     adultSitePrice: 60,
