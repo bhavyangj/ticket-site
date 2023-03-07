@@ -23,6 +23,7 @@ import { NYExploreView } from "../modules/package_tour/NYExploreView";
 import { NYCityPassView } from "../modules/package_tour/NYCityPassView";
 import { ObservationsView } from "../modules/city_attractions/ObservationsView";
 import { RidesAndCruisesView } from "../modules/city_attractions/RidesAndCruisesView";
+import { MusicalsAndShowsView } from "../modules/musicals_and_shows/MusicalsAndShowsView";
 
 export const router = createBrowserRouter([
   {
@@ -221,5 +222,18 @@ export const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: "/musicals-and-shows",
+    element: (
+      <PageLayoutView cover={CoverTypes.SHOWS}>
+        <ProductsLayout
+          sectionDescription="뉴욕 빅애플패스(New York Big Apple Pass)는 뉴욕을 방문하는 여행객들과 로컬들이 즐겨 찾는 관광명소 TOP 37을 자유롭게 선택하여 최대 64%까지 할인받을 수 있는 뉴욕 여행의 필수템이에요! 여행 경비를 절반으로 값싸게. 명소마다 일일이 티켓을 구매하는 번거로움이 한방에 해결하고 더 많은 뉴욕의 구석구석을 방문하며 스마트한 뉴욕 여행을 즐겨보세요."
+          sectionTitle="Broadway Musicals / Shows"
+        >
+          <MusicalsAndShowsView />
+        </ProductsLayout>
+      </PageLayoutView>
+    ),
   },
 ]);

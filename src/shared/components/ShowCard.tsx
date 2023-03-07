@@ -2,7 +2,7 @@ import { staticFiles } from "..";
 import { MainButton } from "./Buttons";
 import { SpaceY } from "./Utils";
 
-export type ProductCardProps = {
+export type ShowCardProps = {
   name: string;
   image: string;
   isPremium: boolean;
@@ -18,7 +18,7 @@ export type ProductCardProps = {
   childNote: string;
 };
 
-export const ProductCard: React.FC<ProductCardProps> = ({
+export const ShowCard: React.FC<ShowCardProps> = ({
   adultPrice,
   adultSitePrice,
   availabilityEnd,

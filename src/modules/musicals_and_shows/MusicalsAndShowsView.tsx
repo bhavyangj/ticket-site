@@ -1,9 +1,6 @@
-import {
-  ProductCard,
-  ProductCardProps,
-} from "../../shared/components/ProductCard";
+import { ShowCard, ShowCardProps } from "../../shared/components/ShowCard";
 
-const fakeCards: ProductCardProps[] = [
+const fakeCards: ShowCardProps[] = [
   {
     name: "엠파이어 스테이트 빌딩 전망대",
     availabilityStart: "Jan 16",
@@ -14,7 +11,7 @@ const fakeCards: ProductCardProps[] = [
     childPrice: 41,
     childSitePrice: 55,
     childNote: "만 4 세-12 세 기준, 만 3 세 이하 무료",
-    image: "/fake/destination4.png",
+    image: "/fake/show1.png",
     isPremium: false,
   },
   {
@@ -27,7 +24,7 @@ const fakeCards: ProductCardProps[] = [
     childPrice: 41,
     childSitePrice: 55,
     childNote: "만 4 세-12 세 기준, 만 3 세 이하 무료",
-    image: "/fake/destination4.png",
+    image: "/fake/show2.png",
     isPremium: false,
   },
   {
@@ -40,7 +37,7 @@ const fakeCards: ProductCardProps[] = [
     childPrice: 41,
     childSitePrice: 55,
     childNote: "만 4 세-12 세 기준, 만 3 세 이하 무료",
-    image: "/fake/destination4.png",
+    image: "/fake/show3.png",
     isPremium: false,
   },
   {
@@ -53,7 +50,7 @@ const fakeCards: ProductCardProps[] = [
     childPrice: 41,
     childSitePrice: 55,
     childNote: "만 4 세-12 세 기준, 만 3 세 이하 무료",
-    image: "/fake/destination4.png",
+    image: "/fake/show4.png",
     isPremium: false,
   },
   {
@@ -66,17 +63,17 @@ const fakeCards: ProductCardProps[] = [
     childPrice: 41,
     childSitePrice: 55,
     childNote: "만 4 세-12 세 기준, 만 3 세 이하 무료",
-    image: "/fake/destination4.png",
+    image: "/fake/show5.png",
     isPremium: false,
   },
 ];
 
-export const RidesAndCruisesView = () => {
+export const MusicalsAndShowsView = () => {
   return (
     <div className="flex w-full gap-x-3 justify-center">
       <div className="flex flex-col gap-y-4 w-full max-w-[700px]">
         {fakeCards.map((item) => (
-          <ProductCard key={item.name} {...item} />
+          <ShowCard key={item.name} {...item} />
         ))}
       </div>
     </div>
