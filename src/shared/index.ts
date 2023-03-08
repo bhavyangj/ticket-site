@@ -37,6 +37,8 @@ export const staticFiles = {
     card_baby: `${PUBLIC_URL}/assets/icons/card_baby.svg`,
     card_adult: `${PUBLIC_URL}/assets/icons/card_adult.svg`,
     down_arrow: `${PUBLIC_URL}/assets/icons/down_arrow.svg`,
+    left_arrow: `${PUBLIC_URL}/assets/icons/left_arrow.svg`,
+    right_arrow: `${PUBLIC_URL}/assets/icons/right_arrow.svg`,
   },
   images: {
     logo: `${PUBLIC_URL}/assets/icons/logo.svg`,
