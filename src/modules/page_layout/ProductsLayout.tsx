@@ -17,7 +17,7 @@ export const ProductsLayout: React.FC<{
       </div>
       <SpaceY />
       <div className="bg-[#F2F2F2] w-[99vw] min-h-[600px] pb-[20vh] pt-[10vh] flex justify-center">
-        <div className="flex flex-col px-[5vw] max-w-[1250px] w-full">
+        <div className="flex flex-col px-[5vw] max-w-[1300px] w-full">
           <span className="font-poppins font-medium text-xl flex gap-x-4 mb-10">
             <img src={staticFiles.icons.heart} width="20" />
             {sectionTitle}

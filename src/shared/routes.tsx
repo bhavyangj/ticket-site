@@ -26,6 +26,7 @@ import { RidesAndCruisesView } from "../modules/city_attractions/RidesAndCruises
 import { MusicalsAndShowsView } from "../modules/musicals_and_shows/MusicalsAndShowsView";
 import { ProductDetailView } from "../modules/product_detail/ProductDetailView";
 import { ShowDetailView } from "../modules/product_detail/ShowDetailView";
+import { ProductDetailLayout } from "../modules/page_layout/ProductDetailLayout";
 
 export const router = createHashRouter([
   {
@@ -242,9 +243,21 @@ export const router = createHashRouter([
     path: "/product-detail/:id",
     element: (
       <PageLayoutView cover={CoverTypes.NONE}>
-        <ProductDetailView />
+        <ProductDetailLayout>
+          <Outlet />
+        </ProductDetailLayout>
       </PageLayoutView>
     ),
+    children: [
+      {
+        path: "detail",
+        element: <ProductDetailView />,
+      },
+      {
+        path: "price",
+        element: <>price</>,
+      },
+    ],
   },
   {
     path: "/show-detail/:id",
