@@ -85,7 +85,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
         </div>
         <MainButton
           text="VIEW DETAILS"
-          onClick={() => navigate(`/product-detail/${id}/detail`)}
+          onClick={() => navigate(`/product-detail/${id}`)}
           containerClassName="w-full text-xs"
         />
       </div>

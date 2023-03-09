@@ -39,6 +39,12 @@ export const staticFiles = {
     down_arrow: `${PUBLIC_URL}/assets/icons/down_arrow.svg`,
     left_arrow: `${PUBLIC_URL}/assets/icons/left_arrow.svg`,
     right_arrow: `${PUBLIC_URL}/assets/icons/right_arrow.svg`,
+    paper: `${PUBLIC_URL}/assets/icons/paper.svg`,
+    shop: `${PUBLIC_URL}/assets/icons/shop.svg`,
+    clock: `${PUBLIC_URL}/assets/icons/clock.svg`,
+    info: `${PUBLIC_URL}/assets/icons/info.svg`,
+    refund: `${PUBLIC_URL}/assets/icons/refund.svg`,
+    faq: `${PUBLIC_URL}/assets/icons/faq.svg`,
   },
   images: {
     logo: `${PUBLIC_URL}/assets/icons/logo.svg`,

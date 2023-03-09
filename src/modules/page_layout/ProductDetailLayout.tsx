@@ -2,25 +2,43 @@ import Carousel from "better-react-carousel";
 import { ReactNode } from "react";
 import { staticFiles } from "../../shared";
 import {
-  NavBarElement,
+  HashNavBarElement,
   ProductDetailNavBar,
 } from "../../shared/components/NavBar";
-import { SpaceY } from "../../shared/components/Utils";
 
-const navbarElements: Omit<NavBarElement, "dropdownElements">[] = [
+const navbarElements: HashNavBarElement[] = [
   {
     name: "Detail",
-    path: "/detail",
+    hash: "detail",
   },
   {
     name: "Price",
-    path: "/price",
+    hash: "price",
+  },
+  {
+    name: "How to",
+    hash: "how-to",
+  },
+  {
+    name: "Refund",
+    hash: "refund",
+  },
+  {
+    name: "FAQ",
+    hash: "faq",
   },
 ];
 
 export const ProductDetailLayout: React.FC<{
   children: ReactNode;
 }> = ({ children }) => {
+  const fakeImages = [
+    "https://picsum.photos/800/600?random=1",
+    "https://picsum.photos/800/600?random=2",
+    "https://picsum.photos/800/600?random=3",
+    "https://picsum.photos/800/600?random=4",
+  ];
+
   return (
     <div className="flex flex-col items-center">
       <div className="flex w-full">
@@ -40,63 +58,25 @@ export const ProductDetailLayout: React.FC<{
             </div>
           }
         >
-          <Carousel.Item>
-            <div className="min-h-full flex justify-center">
-              <img
-                className="object-contain"
-                src="https://picsum.photos/800/600?random=1"
-              />
-            </div>
-          </Carousel.Item>
-          <Carousel.Item>
-            <div className="min-h-full flex justify-center">
-              <img
-                className="object-contain"
-                src="https://picsum.photos/800/600?random=2"
-              />
-            </div>
-          </Carousel.Item>
-          <Carousel.Item>
-            <div className="min-h-full flex justify-center">
-              <img
-                className="object-contain"
-                src="https://picsum.photos/800/600?random=3"
-              />
-            </div>
-          </Carousel.Item>
-          <Carousel.Item>
-            <div className="min-h-full flex justify-center">
-              <img
-                className="object-contain"
-                src="https://picsum.photos/800/600?random=4"
-              />
-            </div>
-          </Carousel.Item>
+          {fakeImages.map((img) => (
+            <Carousel.Item key={img}>
+              <div className="min-h-full flex justify-center">
+                <img className="object-contain" src={img} />
+              </div>
+            </Carousel.Item>
+          ))}
         </Carousel>
         <div className="w-1/4 hidden lg:flex border-[3px] border-transparent flex-col gap-y-1">
-          <img
-            className="object-contain"
-            src="https://picsum.photos/800/600?random=1"
-          />
+          <img className="object-contain h-1/2" src={fakeImages[0]} />
 
-          <img
-            className="object-contain"
-            src="https://picsum.photos/800/600?random=2"
-          />
+          <img className="object-contain h-1/2" src={fakeImages[1]} />
         </div>
         <div className="w-1/4 hidden lg:flex border-[3px] border-transparent flex-col gap-y-1">
-          <img
-            className="object-contain"
-            src="https://picsum.photos/800/600?random=3"
-          />
+          <img className="object-contain h-1/2" src={fakeImages[2]} />
 
-          <img
-            className="object-contain"
-            src="https://picsum.photos/800/600?random=4"
-          />
+          <img className="object-contain h-1/2" src={fakeImages[3]} />
         </div>
       </div>
-      <SpaceY />
       <div className="bg-[#F2F2F2] w-[99vw] min-h-[100px] flex justify-center">
         <div className="flex flex-col px-[5vw] max-w-[1300px] w-full">
           <ProductDetailNavBar elements={navbarElements} />
