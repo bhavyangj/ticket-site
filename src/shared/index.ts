@@ -52,5 +52,6 @@ export const staticFiles = {
     contact_location: `${PUBLIC_URL}/images/contact_location.png`,
     cover_bg_complete: `${PUBLIC_URL}/images/cover_background_complete.png`,
     cover_show: `${PUBLIC_URL}/images/cover_show.png`,
+    product_detail_traveler: `${PUBLIC_URL}/images/product_detail_traveler.png`,
   },
 };

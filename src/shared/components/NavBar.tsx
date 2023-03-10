@@ -87,9 +87,8 @@ export const ProductDetailNavBar: React.FC<{
         <Fragment key={el.name}>
           <HashLink
             className={`${productNavbarItemClass} ${
-              location.pathname !== "/" &&
-              (el.hash?.includes(location.hash) ||
-                location.hash.includes(el.hash as string))
+              (location.hash && el.hash?.includes(location.hash)) ||
+              location.hash.includes(el.hash as string)
                 ? productNavbarSelectedItemClass
                 : ""
             }`}
