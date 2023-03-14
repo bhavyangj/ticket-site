@@ -12,7 +12,9 @@
     "class-transformer": "0.5.1",
     "class-validator": "0.14.0",
     "google-libphonenumber": "3.2.32",
+    "moment": "2.29.4",
     "react": "18.2.0",
+    "react-date-range": "1.4.0",
     "react-dom": "18.2.0",
     "react-hook-form": "7.43.1",
     "react-phone-number-input": "3.2.19",
@@ -52,6 +54,7 @@
   },
   "devDependencies": {
     "@types/google-libphonenumber": "7.4.23",
+    "@types/react-date-range": "1.4.4",
     "@types/react-router-hash-link": "^2.4.5",
     "gh-pages": "^5.0.0"
   }

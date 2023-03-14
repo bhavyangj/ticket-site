@@ -52,3 +52,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.rdrDays {
+  width: 100%;
+}
+
+.rdrMonth {
+  min-width: 100%;
+}
+
+.rdrMonthAndYearWrapper {
+  padding: 0 30px;
+}
+
+.rdrDays {
+  min-height: 600px;
+  /* min-height: fit-content !important; */
+}
+
+.rdrWeekDays {
+  margin-bottom: 30px;
+}
+
+.rdrDayToday .rdrDayNumber span:after {
+  content: none !important;
+  padding: 0 !important;
+  width: auto;
+  height: fit-content;
+}
+
+.rdrDayNumber {
+  min-height: fit-content !important;
+  min-height: 100% !important;
+}
+
+.rdrDay {
+  min-height: 100px;
+}

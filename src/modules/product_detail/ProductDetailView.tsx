@@ -16,7 +16,7 @@ export const ProductDetailView = () => {
       <div className="flex flex-col w-2/3">
         <SpaceY />
         <SpaceY />
-        <div className="w-full font-poppins text-xl font-bold">
+        <div className="w-full font-volkhov text-xl font-bold">
           {productFakeData.name}
         </div>
         <SpaceY />
