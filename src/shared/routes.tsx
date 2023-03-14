@@ -253,7 +253,9 @@ export const router = createHashRouter([
     path: "/show-detail/:id",
     element: (
       <PageLayoutView cover={CoverTypes.NONE}>
-        <ShowDetailView />
+        <ProductDetailLayout>
+          <ShowDetailView />
+        </ProductDetailLayout>
       </PageLayoutView>
     ),
   },
