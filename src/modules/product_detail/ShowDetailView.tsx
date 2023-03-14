@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { staticFiles } from "../../shared";
+import { PUBLIC_URL, staticFiles } from "../../shared";
 import { SpaceY } from "../../shared/components/Utils";
 import { useState } from "react";
 import { Calendar } from "../../shared/components/Calendar";
@@ -70,7 +70,7 @@ export const ShowDetailView = () => {
         <SpaceY />
         <SpaceY />
         <div>
-          <img src={"/fake/fake_seat_disposition.png"} />
+          <img src={`${PUBLIC_URL}/fake/fake_seat_disposition.png`} />
         </div>
         <SpaceY />
         <SpaceY />
