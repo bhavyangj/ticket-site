@@ -79,7 +79,7 @@ export const Top = () => (
     </div>
     <div className="pt-8">
       <div className="flex justify-end font-poppins text-sm">
-        <IconButton route="/" icon={staticFiles.icons.cart} name="Cart" />
+        <IconButton route="/cart" icon={staticFiles.icons.cart} name="Cart" />
         <IconButton
           route="/user/log-in"
           icon={staticFiles.icons.lock}

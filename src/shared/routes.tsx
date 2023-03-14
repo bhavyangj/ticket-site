@@ -27,6 +27,7 @@ import { MusicalsAndShowsView } from "../modules/musicals_and_shows/MusicalsAndS
 import { ProductDetailView } from "../modules/product_detail/ProductDetailView";
 import { ShowDetailView } from "../modules/product_detail/ShowDetailView";
 import { ProductDetailLayout } from "../modules/page_layout/ProductDetailLayout";
+import { CartView } from "../modules/cart/CartView";
 
 export const router = createHashRouter([
   {
@@ -256,6 +257,14 @@ export const router = createHashRouter([
         <ProductDetailLayout>
           <ShowDetailView />
         </ProductDetailLayout>
+      </PageLayoutView>
+    ),
+  },
+  {
+    path: "/cart",
+    element: (
+      <PageLayoutView cover={CoverTypes.NORMAL_WITHOUT_TEXT}>
+        <CartView />
       </PageLayoutView>
     ),
   },
