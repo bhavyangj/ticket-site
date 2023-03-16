@@ -28,6 +28,7 @@ import { ProductDetailView } from "../modules/product_detail/ProductDetailView";
 import { ShowDetailView } from "../modules/product_detail/ShowDetailView";
 import { ProductDetailLayout } from "../modules/page_layout/ProductDetailLayout";
 import { CartView } from "../modules/cart/CartView";
+import { NoAuthCheckoutView } from "../modules/cart/NoAuthCheckoutView";
 
 export const router = createHashRouter([
   {
@@ -265,6 +266,14 @@ export const router = createHashRouter([
     element: (
       <PageLayoutView cover={CoverTypes.NORMAL_WITHOUT_TEXT}>
         <CartView />
+      </PageLayoutView>
+    ),
+  },
+  {
+    path: "/no-auth-checkout",
+    element: (
+      <PageLayoutView cover={CoverTypes.NONE}>
+        <NoAuthCheckoutView />
       </PageLayoutView>
     ),
   },

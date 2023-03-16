@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { staticFiles } from "../../shared";
 import {
   GhostButton,
@@ -14,6 +15,7 @@ export const cartViewRestColClassName = "flex justify-center grow w-2/12";
 
 export const CartView = () => {
   const [edit, setEdit] = useState(true);
+  const navigate = useNavigate();
   const [adultInfo] = useState<PropsCardInfo[]>([
     {
       name: "Big Apple 2",
@@ -219,6 +221,15 @@ export const CartView = () => {
             <div className="w-full flex justify-between font-poppins text-darkGray font-medium">
               <span>Grand Total</span>
               <span>$1444.25</span>
+            </div>
+            <SpaceY />
+            <SpaceY />
+            <SpaceY />
+            <div className="w-full flex justify-center">
+              <MainButton
+                text="Proceed Checkout"
+                onClick={() => navigate("/no-auth-checkout")}
+              />
             </div>
           </div>
           {edit && (
