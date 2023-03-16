@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { staticFiles } from "../../shared";
-import { GhostButton } from "../../shared/components/Buttons";
-import { MainInput } from "../../shared/components/Inputs";
+import {
+  GhostButton,
+  MainButton,
+  SecondaryButton,
+} from "../../shared/components/Buttons";
+import { CheckBox, MainInput } from "../../shared/components/Inputs";
 import { SpaceY } from "../../shared/components/Utils";
 import { CardInfo, MedalEnum, PropsCardInfo } from "./components/CardInfo";
 
@@ -9,7 +13,7 @@ export const cartViewFirstColClassName = "flex justify-center w-3/12";
 export const cartViewRestColClassName = "flex justify-center grow w-2/12";
 
 export const CartView = () => {
-  const [edit, setEdit] = useState(false);
+  const [edit, setEdit] = useState(true);
   const [adultInfo] = useState<PropsCardInfo[]>([
     {
       name: "Big Apple 2",
@@ -218,7 +222,110 @@ export const CartView = () => {
             </div>
           </div>
           {edit && (
-            <div className="flex flex-col w-1/3 bg-white  pb-20">asdasd</div>
+            <div className="flex flex-col w-1/3 pb-20 gap-y-2">
+              <div className="flex flex-col w-full bg-white py-10 px-4">
+                <div className="font-poppins font-medium text-sm text-darkGray">
+                  Billing Address for Payment
+                </div>
+                <SpaceY />
+                <SpaceY />
+                <MainInput
+                  placeholder="Last Name *"
+                  onChange={() => {}}
+                  containerClassName="w-full"
+                  value={""}
+                />
+                <SpaceY />
+                <MainInput
+                  placeholder="First Name *"
+                  onChange={() => {}}
+                  containerClassName="w-full"
+                  value={""}
+                />
+                <SpaceY />
+                <MainInput
+                  placeholder="Email *"
+                  isPassword
+                  onChange={() => {}}
+                  containerClassName="w-full"
+                  value={""}
+                />
+                <SpaceY />
+                <MainInput
+                  placeholder="Retype Email *"
+                  isPassword
+                  onChange={() => {}}
+                  containerClassName="w-full"
+                  value={""}
+                />
+                <SpaceY />
+                <MainInput
+                  placeholder="Phone *"
+                  onChange={() => {}}
+                  containerClassName="w-full"
+                  value={""}
+                />
+                <SpaceY />
+                <MainInput
+                  placeholder="여행 예정일 (optional)"
+                  onChange={() => {}}
+                  containerClassName="w-full"
+                  value={""}
+                />
+              </div>
+              <div className="flex flex-col w-full bg-white py-10 px-4">
+                <div className="font-poppins font-medium text-sm text-darkGray">
+                  Credit Card Information
+                </div>
+                <SpaceY /> <SpaceY />
+                <hr className="border border-gray rounded w-full" /> <SpaceY />
+                <div className="font-poppins font-medium text-sm text-darkGray flex justify-between">
+                  <span>Grand Total</span>
+                  <span>$1444.25</span>
+                </div>
+                <SpaceY />
+                <hr className="border border-gray rounded w-full" />
+                <SpaceY /> <SpaceY />
+                <MainInput
+                  placeholder="영문 이름 * (크레딧 카드)"
+                  onChange={() => {}}
+                  containerClassName="w-full"
+                  value={""}
+                />
+                <SpaceY />
+                <MainInput
+                  placeholder="카드번호 *"
+                  onChange={() => {}}
+                  containerClassName="w-full"
+                  value={""}
+                />
+                <SpaceY />
+                <MainInput
+                  placeholder="MM/YY *"
+                  onChange={() => {}}
+                  containerClassName="w-full"
+                  value={""}
+                />
+                <SpaceY />
+                <SpaceY />
+                <div className="flex justify-center items-center w-full">
+                  <CheckBox
+                    defaultValue={false}
+                    onChange={() => {}}
+                    containerClass="w-1/2"
+                  />
+                  <div className="font-poppins text-xs w-1/2 pl-3">
+                    Terms and Conditions
+                  </div>
+                </div>
+                <SpaceY />
+                <SpaceY />
+                <div className="flex w-full gap-x-1">
+                  <MainButton text="Proceed Checkout" onClick={() => {}} />
+                  <SecondaryButton text="Reset" onClick={() => {}} />
+                </div>
+              </div>
+            </div>
           )}
         </div>
       </div>
