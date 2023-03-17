@@ -97,54 +97,70 @@ const IconButton: React.FC<{
 export const Top = () => {
   const navigate = useNavigate();
   return (
-    <div className="flex justify-between items-center px-[5vw] max-w-[1300px]">
-      <div className="flex justify-center items-center">
-        <Logo />
-      </div>
-      <div className="pt-8">
-        <div className="flex justify-end font-poppins text-sm">
-          <IconButton route="/cart" icon={staticFiles.icons.cart} name="Cart" />
-          <IconButton
-            route="/user/log-in"
-            icon={staticFiles.icons.lock}
-            name="Login"
-          />
-          <IconButton
-            route="/user/sign-up"
-            icon={staticFiles.icons.sign_up}
-            name="Sign Up"
-          />
-          <IconButton isPopup icon={staticFiles.icons.profile}>
-            <>
-              <div className="text-darkGray font-medium text-start">
-                MY ACCOUNT
-              </div>
-              <SpaceY />
-              <button className="flex hover:text-blue py-2 gap-x-3 text-darkGray font-medium font-sm">
-                <img src={staticFiles.icons.disposition} />
-                <span>My Bookins</span>
-              </button>
-              <SpaceY />
-              <button
-                className="flex hover:text-blue py-2 gap-x-3 text-darkGray font-medium font-sm"
-                onClick={() => navigate("/user/my-account")}
-              >
-                <img src={staticFiles.icons.edit} />
-                <span>My Account</span>
-              </button>
-              <SpaceY />
-
-              <hr className="border border-gray rounded w-full" />
-              <SpaceY />
-              <button className="flex hover:text-blue py-2 gap-x-3 text-darkGray font-medium font-sm">
-                <img src={staticFiles.icons.sign_out} />
-                <span>Sign Out</span>
-              </button>
-            </>
-          </IconButton>
+    <>
+      <div className="flex xl:hidden justify-between items-center px-[5vw] max-w-[1300px] w-full">
+        <IconButton isPopup icon={staticFiles.icons.menu}>
+          <NavBar elements={pageLayoutNavBar} isMobile />
+        </IconButton>
+        <div className="flex justify-center items-center">
+          <Logo />
         </div>
-        <NavBar elements={pageLayoutNavBar} />
+        <IconButton route="/cart" icon={staticFiles.icons.cart} />
       </div>
-    </div>
+
+      <div className="hidden xl:flex justify-between items-center px-[5vw] max-w-[1300px]">
+        <div className="flex justify-center items-center">
+          <Logo />
+        </div>
+        <div className="pt-8">
+          <div className="flex justify-end font-poppins text-sm">
+            <IconButton
+              route="/cart"
+              icon={staticFiles.icons.cart}
+              name="Cart"
+            />
+            <IconButton
+              route="/user/log-in"
+              icon={staticFiles.icons.lock}
+              name="Login"
+            />
+            <IconButton
+              route="/user/sign-up"
+              icon={staticFiles.icons.sign_up}
+              name="Sign Up"
+            />
+            <IconButton isPopup icon={staticFiles.icons.profile}>
+              <>
+                <div className="text-darkGray font-medium text-start">
+                  MY ACCOUNT
+                </div>
+                <SpaceY />
+                <button className="flex hover:text-blue py-2 gap-x-3 text-darkGray font-medium font-sm">
+                  <img src={staticFiles.icons.disposition} />
+                  <span>My Bookins</span>
+                </button>
+                <SpaceY />
+                <button
+                  className="flex hover:text-blue py-2 gap-x-3 text-darkGray font-medium font-sm"
+                  onClick={() => navigate("/user/my-account")}
+                >
+                  <img src={staticFiles.icons.edit} />
+                  <span>My Account</span>
+                </button>
+                <SpaceY />
+
+                <hr className="border border-gray rounded w-full" />
+                <SpaceY />
+                <button className="flex hover:text-blue py-2 gap-x-3 text-darkGray font-medium font-sm">
+                  <img src={staticFiles.icons.sign_out} />
+                  <span>Sign Out</span>
+                </button>
+              </>
+            </IconButton>
+          </div>
+          <NavBar elements={pageLayoutNavBar} />
+        </div>
+      </div>
+    </>
   );
 };

@@ -8,21 +8,68 @@ export type NavBarElement = {
   dropdownElements?: { name: string; subPath: string }[];
 };
 
-const containerClass = "flex";
 const itemClass =
   "px-8 py-2 font-poppins font-bold text-xs hover:bg-lightBlue/[.1] rounded-sm text-dark flex justify-center items-center whitespace-nowrap";
 const selectedItemClass = "border-b-2 border-lightBlue rounded-sm";
 
 const dropdownContainer = "group relative inline-block";
 
-export const NavBar: React.FC<{ elements: NavBarElement[] }> = ({
-  elements,
-}) => {
+export const NavBar: React.FC<{
+  elements: NavBarElement[];
+  isMobile?: boolean;
+}> = ({ elements, isMobile }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  if (isMobile) {
+    return (
+      <div className={"flex flex-col"}>
+        {elements.map((el) => (
+          <Fragment key={el.name}>
+            {el.dropdownElements ? (
+              <button
+                className={`${itemClass} ${
+                  location.pathname !== "/" &&
+                  (el.path.includes(location.pathname) ||
+                    location.pathname.includes(el.path))
+                    ? `${selectedItemClass}`
+                    : ""
+                } group/second relative inline-block`}
+              >
+                {el.name}
+                <ul className="absolute hidden group-hover/second:flex group-hover/second:flex-col bg-[#2A353D] top-[100%] z-[100] font-poppins text-white min-w-full">
+                  {el.dropdownElements.map((de) => (
+                    <li
+                      key={de.subPath}
+                      className="px-5 py-4 hover:bg-lightBlue/[.1] cursor-pointer flex"
+                      onClick={() => navigate(el.path + "/" + de.subPath)}
+                    >
+                      {de.name}
+                    </li>
+                  ))}
+                </ul>
+              </button>
+            ) : (
+              <button
+                className={`${itemClass} ${
+                  location.pathname !== "/" &&
+                  el.path.includes(location.pathname)
+                    ? selectedItemClass
+                    : ""
+                }`}
+                onClick={() => navigate(el.path)}
+              >
+                {el.name}
+              </button>
+            )}
+          </Fragment>
+        ))}
+      </div>
+    );
+  }
+
   return (
-    <div className={containerClass}>
+    <div className={"flex"}>
       {elements.map((el) => (
         <Fragment key={el.name}>
           {el.dropdownElements ? (
