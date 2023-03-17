@@ -161,7 +161,7 @@ export const MainView = () => {
         Must See in New York
       </span>
       <SpaceY /> <SpaceY />
-      <div className="flex flex-wrap justify-between w-full gap-y-10 gap-x-5">
+      <div className="flex flex-wrap justify-between w-full gap-y-10 gap-x-5 justify-center">
         {newYorkLocations.map((item) => (
           <LocationCard {...item} />
         ))}

@@ -6,8 +6,8 @@ export const InfoCover = () => (
   <>
     <div className="flex flex-col lg:hidden justify-between px-[5vw] max-w-[1300px]">
       <SpaceY />
-      <div className="flex flex-col justify-between">
-        <div className="flex flex-col w-full">
+      <div className="flex flex-col">
+        <div className="flex flex-col items-center w-full">
           <span className="font-poppins font-medium text-[#DF6951]">
             Best Destinations around the world
           </span>

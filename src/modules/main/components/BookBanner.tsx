@@ -4,8 +4,8 @@ export const BookBanner = () => {
   return (
     <div className="w-full flex flex-col my-20">
       <div className="w-full font-poppins text-darkGray">Easy and Fast</div>
-      <div className="flex">
-        <div className="w-1/2 flex flex-col">
+      <div className="flex flex-col md:flex-row">
+        <div className="w-full md:w-1/2 flex flex-col">
           <span className="font-volkhov font-bold text-2xl text-dark">
             Book your next trip in 3 easy steps
           </span>
@@ -13,7 +13,7 @@ export const BookBanner = () => {
             <Activity {...item} />
           ))}
         </div>
-        <div className="w-1/2 flex justify-center items-center">
+        <div className="w-full md:w-1/2 flex justify-center items-center">
           <div className="bg-white rounded-xl flex h-[300px] w-[400px] drop-shadow-xl overflow-hidden justify-center items-center">
             video here
           </div>

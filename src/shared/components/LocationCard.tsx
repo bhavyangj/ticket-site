@@ -31,7 +31,9 @@ export const LocationCard: React.FC<LocationCardProps> = ({
   showName,
   communityText,
 }) => {
-  const width = large ? "grow max-w-[700px] min-w-[400px]" : "w-[260px]";
+  const width = large
+    ? "grow max-w-[700px] min-w-[350px]"
+    : "grow max-w-[260px] min-w-[250px]";
 
   if (type === CardTypes.SHOW)
     return (
