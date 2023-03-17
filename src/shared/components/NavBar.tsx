@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { staticFiles } from "..";
 
 export type NavBarElement = {
   path: string;
@@ -28,7 +29,7 @@ export const NavBar: React.FC<{
           <Fragment key={el.name}>
             {el.dropdownElements ? (
               <button
-                className={`${itemClass} ${
+                className={`flex flex-col px-2 py-2 font-poppins font-medium text-xs hover:text-blue rounded-sm text-dark justify-center items-center whitespace-nowrap ${
                   location.pathname !== "/" &&
                   (el.path.includes(location.pathname) ||
                     location.pathname.includes(el.path))
@@ -36,8 +37,11 @@ export const NavBar: React.FC<{
                     : ""
                 } group/second relative inline-block`}
               >
-                {el.name}
-                <ul className="absolute hidden group-hover/second:flex group-hover/second:flex-col bg-[#2A353D] top-[100%] z-[100] font-poppins text-white min-w-full">
+                <div className="flex justify-between w-full">
+                  {el.name}
+                  <img src={staticFiles.icons.down_arrow} />
+                </div>
+                <ul className="hidden group-hover/second:flex group-hover/second:flex-col top-[100%] font-poppins text-gray min-w-full">
                   {el.dropdownElements.map((de) => (
                     <li
                       key={de.subPath}
@@ -51,7 +55,7 @@ export const NavBar: React.FC<{
               </button>
             ) : (
               <button
-                className={`${itemClass} ${
+                className={`flex px-2 py-2 font-poppins font-bold text-xs hover:text-blue rounded-sm text-dark items-center whitespace-nowrap ${
                   location.pathname !== "/" &&
                   el.path.includes(location.pathname)
                     ? selectedItemClass
