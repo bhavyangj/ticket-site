@@ -211,11 +211,6 @@ export const CartView = () => {
               <span className="font-medium">Discount Amount</span>
               <span></span>
             </div>
-            <SpaceY />
-            <div className="w-full flex justify-between font-poppins text-darkGray">
-              <span>Tax (9%)</span>
-              <span></span>
-            </div>
             <SpaceY /> <hr className="border border-gray rounded w-full" />
             <SpaceY />
             <div className="w-full flex justify-between font-poppins text-darkGray font-medium">

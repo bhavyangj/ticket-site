@@ -46,6 +46,8 @@ export const staticFiles = {
     refund: `${PUBLIC_URL}/assets/icons/refund.svg`,
     faq: `${PUBLIC_URL}/assets/icons/faq.svg`,
     disposition: `${PUBLIC_URL}/assets/icons/disposition.svg`,
+    sign_out: `${PUBLIC_URL}/assets/icons/sign_out.svg`,
+    edit: `${PUBLIC_URL}/assets/icons/edit.svg`,
   },
   images: {
     logo: `${PUBLIC_URL}/assets/icons/logo.svg`,

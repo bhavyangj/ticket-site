@@ -1,7 +1,9 @@
+import { ReactNode, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { staticFiles } from "../../../shared";
 import { Logo } from "../../../shared/components/Logo";
 import { NavBar, NavBarElement } from "../../../shared/components/NavBar";
+import { SpaceY } from "../../../shared/components/Utils";
 
 const pageLayoutNavBar: NavBarElement[] = [
   {
@@ -55,15 +57,35 @@ const pageLayoutNavBar: NavBarElement[] = [
   },
 ];
 
-const IconButton: React.FC<{ icon: string; route: string; name?: string }> = ({
-  icon,
-  name,
-  route,
-}) => {
+const IconButton: React.FC<{
+  icon: string;
+  route?: string;
+  name?: string;
+  isPopup?: boolean;
+  children?: ReactNode;
+}> = ({ icon, name, route, isPopup, children }) => {
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+
+  if (isPopup && children)
+    return (
+      <div
+        onClick={() => setOpen((prev) => !prev)}
+        className="flex ml-10 justify-center items-center group relative inline-block "
+      >
+        <img className="cursor-pointer" src={icon} width="17" alt={icon} />
+        {name && <span className="ml-1">{name}</span>}
+        {open && (
+          <div className="absolute flex flex-col bg-white border border-gray z-[100] font-poppins min-w-full top-[100%] py-5 px-2 h-[300px] w-[170px] rounded-b">
+            {children}
+          </div>
+        )}
+      </div>
+    );
+
   return (
     <button
-      onClick={() => navigate(route)}
+      onClick={() => route && navigate(route)}
       className="flex ml-10 justify-center items-center"
     >
       <img src={icon} width="17" alt={icon} />
@@ -72,27 +94,57 @@ const IconButton: React.FC<{ icon: string; route: string; name?: string }> = ({
   );
 };
 
-export const Top = () => (
-  <div className="flex justify-between items-center px-[5vw] max-w-[1300px]">
-    <div className="flex justify-center items-center">
-      <Logo />
-    </div>
-    <div className="pt-8">
-      <div className="flex justify-end font-poppins text-sm">
-        <IconButton route="/cart" icon={staticFiles.icons.cart} name="Cart" />
-        <IconButton
-          route="/user/log-in"
-          icon={staticFiles.icons.lock}
-          name="Login"
-        />
-        <IconButton
-          route="/user/sign-up"
-          icon={staticFiles.icons.sign_up}
-          name="Sign Up"
-        />
-        <IconButton route="/user/my-account" icon={staticFiles.icons.profile} />
+export const Top = () => {
+  const navigate = useNavigate();
+  return (
+    <div className="flex justify-between items-center px-[5vw] max-w-[1300px]">
+      <div className="flex justify-center items-center">
+        <Logo />
       </div>
-      <NavBar elements={pageLayoutNavBar} />
+      <div className="pt-8">
+        <div className="flex justify-end font-poppins text-sm">
+          <IconButton route="/cart" icon={staticFiles.icons.cart} name="Cart" />
+          <IconButton
+            route="/user/log-in"
+            icon={staticFiles.icons.lock}
+            name="Login"
+          />
+          <IconButton
+            route="/user/sign-up"
+            icon={staticFiles.icons.sign_up}
+            name="Sign Up"
+          />
+          <IconButton isPopup icon={staticFiles.icons.profile}>
+            <>
+              <div className="text-darkGray font-medium text-start">
+                MY ACCOUNT
+              </div>
+              <SpaceY />
+              <button className="flex hover:text-blue py-2 gap-x-3 text-darkGray font-medium font-sm">
+                <img src={staticFiles.icons.disposition} />
+                <span>My Bookins</span>
+              </button>
+              <SpaceY />
+              <button
+                className="flex hover:text-blue py-2 gap-x-3 text-darkGray font-medium font-sm"
+                onClick={() => navigate("/user/my-account")}
+              >
+                <img src={staticFiles.icons.edit} />
+                <span>My Account</span>
+              </button>
+              <SpaceY />
+
+              <hr className="border border-gray rounded w-full" />
+              <SpaceY />
+              <button className="flex hover:text-blue py-2 gap-x-3 text-darkGray font-medium font-sm">
+                <img src={staticFiles.icons.sign_out} />
+                <span>Sign Out</span>
+              </button>
+            </>
+          </IconButton>
+        </div>
+        <NavBar elements={pageLayoutNavBar} />
+      </div>
     </div>
-  </div>
-);
+  );
+};
