@@ -76,7 +76,7 @@ const IconButton: React.FC<{
         <img className="cursor-pointer" src={icon} width="17" alt={icon} />
         {name && <span className="ml-1">{name}</span>}
         {open && (
-          <div className="absolute flex flex-col bg-white border border-gray z-[100] font-poppins min-w-full top-[100%] py-5 px-2 min-h-[300px] w-[170px] rounded-b">
+          <div className="absolute flex flex-col bg-white border border-gray z-[100] font-poppins min-w-full top-[100%] py-5 px-2 h-[300px] w-[170px] rounded-b">
             {children}
           </div>
         )}
