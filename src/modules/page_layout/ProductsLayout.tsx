@@ -1,3 +1,4 @@
+import Carousel from "better-react-carousel";
 import { ReactNode } from "react";
 import { staticFiles } from "../../shared";
 import { SpaceY } from "../../shared/components/Utils";
@@ -10,11 +11,29 @@ export const ProductsLayout: React.FC<{
 }> = ({ children, sectionDescription, sectionTitle }) => {
   return (
     <div className="flex flex-col items-center ">
-      <div className="py-[5vh] flex w-full justify-center pt-[5vh]">
+      <Carousel
+        cols={1}
+        rows={1}
+        loop
+        containerClassName="py-[5vh] flex md:hidden w-full justify-center pt-[5vh]"
+        arrowLeft={() => null}
+        arrowRight={() => null}
+      >
+        {services.map((s) => (
+          <Carousel.Item key={JSON.stringify(s)}>
+            <div className="max-w-[400px]">
+              <ServiceCard {...s} />
+            </div>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+
+      <div className="py-[5vh] gap-x-5 hidden md:flex w-full justify-center pt-[5vh]">
         {services.map((s) => (
           <ServiceCard key={JSON.stringify(s)} {...s} />
         ))}
       </div>
+
       <SpaceY />
       <div className="bg-[#F2F2F2] w-[99vw] min-h-[600px] pb-[20vh] pt-[10vh] flex justify-center">
         <div className="flex flex-col px-[5vw] max-w-[1300px] w-full">

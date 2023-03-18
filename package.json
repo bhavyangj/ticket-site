@@ -55,7 +55,7 @@
   "devDependencies": {
     "@types/google-libphonenumber": "7.4.23",
     "@types/react-date-range": "1.4.4",
-    "@types/react-router-hash-link": "^2.4.5",
-    "gh-pages": "^5.0.0"
+    "@types/react-router-hash-link": "2.4.5",
+    "gh-pages": "5.0.0"
   }
 }

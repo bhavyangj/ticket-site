@@ -9,7 +9,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
   icon,
   title,
 }) => (
-  <div className="gap-y-3 flex flex-col items-center text-poppins rounded-b-xl px-5 py-5 w-[350px] min-w-[250px] drop-shadow-xl bg-white mx-5">
+  <div className="gap-y-3 flex flex-col items-center text-poppins rounded-b-xl px-5 py-5 w-full min-w-[200px] drop-shadow-xl bg-white">
     <img width="45" src={icon} alt="service icon" />
 
     <span className="font-semibold text-center">{title}</span>
