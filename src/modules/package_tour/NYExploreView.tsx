@@ -4,6 +4,8 @@ import {
   ProductCardProps,
 } from "../../shared/components/ProductCard";
 import { PUBLIC_URL } from "../../shared";
+import { useState } from "react";
+import { MainButton } from "../../shared/components/Buttons";
 
 const fakeCards: ProductCardProps[] = [
   {
@@ -74,14 +76,24 @@ const fakeCards: ProductCardProps[] = [
 ];
 
 export const NYExploreView = () => {
+  const [displayFilter, setDisplayFilter] = useState(false);
   return (
     <div className="flex w-full gap-x-3">
-      <div className="w-2/3 flex flex-col gap-y-4">
-        {fakeCards.map((item) => (
-          <ProductCard key={item.name} {...item} />
-        ))}
+      <div className="w-full md:w-2/3 flex flex-col gap-y-4">
+        {displayFilter ? (
+          <PackageBuyDetail />
+        ) : (
+          fakeCards.map((item) => <ProductCard key={item.name} {...item} />)
+        )}
+        <div className="flex md:hidden w-full">
+          <MainButton
+            text={displayFilter ? "Close filter" : "티켓구입"}
+            containerClassName="w-full"
+            onClick={() => setDisplayFilter((prev) => !prev)}
+          />
+        </div>
       </div>
-      <div className="w-1/3 font-poppins">
+      <div className="w-1/3 hidden md:block font-poppins">
         <PackageBuyDetail />
       </div>
     </div>
