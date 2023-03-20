@@ -278,7 +278,10 @@ export const router = createHashRouter([
   {
     path: "/my-bookings",
     element: (
-      <PageLayout cover={CoverTypes.NORMAL_WITHOUT_TEXT}>
+      <PageLayout
+        cover={CoverTypes.NORMAL_WITHOUT_TEXT}
+        backgroundColor="bg-[#f2f2f2]"
+      >
         <BookingsLayout>bookings view</BookingsLayout>
       </PageLayout>
     ),
