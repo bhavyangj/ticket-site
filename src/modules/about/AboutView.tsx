@@ -57,7 +57,8 @@ const secondRowServices: ServiceCardProps[] = [
 ];
 
 export const AboutView = () => {
-  const rowSectionClass = "flex w-full justify-center";
+  const rowSectionClass =
+    "flex w-full justify-center flex-col md:flex-row gap-2";
   return (
     <div className="min-h-[600px] flex flex-col items-center pt-[5vh] pb-[20vh]">
       <SpaceY />
