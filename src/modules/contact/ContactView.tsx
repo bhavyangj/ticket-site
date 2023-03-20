@@ -2,18 +2,19 @@ import { staticFiles } from "../../shared";
 import { SpaceY } from "../../shared/components/Utils";
 
 export const ContactView = () => {
-  const rowSectionClass = "flex w-full";
+  const rowSectionClass =
+    "flex w-full flex-col md:flex-row items-center md:items-start";
   const infoContainerClass =
     "font-poppins text-darkGray flex flex-col mb-5 h-1/2";
   return (
     <div className="min-h-[600px] flex flex-col items-center pt-[5vh] pb-[20vh]">
       <SpaceY />
       <div className={rowSectionClass}>
-        <div className="flex w-1/3" />
-        <span className="flex w-1/3 justify-center font-volkhov font-bold text-dark text-2xl">
+        <div className="hidden md:flex md:w-1/3" />
+        <span className="flex w-1/2 md:w-1/3 justify-center font-volkhov font-bold text-dark text-2xl">
           Contact Us
         </span>
-        <div className="flex w-1/3 flex-col items-end">
+        <div className="flex w-1/2 md:w-1/3 flex-col items-end">
           <img
             width="40"
             src={staticFiles.icons.messages_bubble}
@@ -67,11 +68,14 @@ export const ContactView = () => {
       <SpaceY />
       <SpaceY />
       <div className={rowSectionClass}>
+        <span className="font-volkhov text-dark block md:hidden font-bold text-xl">
+          타미스 오피스 찾아 오시는 길
+        </span>
         <div className="flex flex-col grow w-1/2 px-10">
           <img src={staticFiles.images.contact_location} />
         </div>
         <div className="flex flex-col grow w-1/2">
-          <span className="font-volkhov text-dark font-bold text-xl">
+          <span className="font-volkhov text-dark hidden md:block font-bold text-xl">
             타미스 오피스 찾아 오시는 길
           </span>
           <SpaceY />
