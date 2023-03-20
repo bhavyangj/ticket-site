@@ -1,9 +1,6 @@
 import { createHashRouter, Outlet } from "react-router-dom";
 import { LogInView } from "../modules/authentication/LogInView";
-import {
-  PageLayoutView,
-  CoverTypes,
-} from "../modules/page_layout/PageLayoutView";
+import { PageLayout, CoverTypes } from "../modules/page_layout/PageLayout";
 import { SignUpView } from "../modules/authentication/SignUpView";
 import { LandingView } from "../modules/landing/LandingView";
 import { MainView } from "../modules/main/MainView";
@@ -29,32 +26,33 @@ import { ShowDetailView } from "../modules/product_detail/ShowDetailView";
 import { ProductDetailLayout } from "../modules/page_layout/ProductDetailLayout";
 import { CartView } from "../modules/cart/CartView";
 import { NoAuthCheckoutView } from "../modules/cart/NoAuthCheckoutView";
+import { BookingsLayout } from "../modules/page_layout/BookingsLayout";
 
 export const router = createHashRouter([
   {
     path: "/",
     element: (
-      <PageLayoutView cover={CoverTypes.INFO}>
+      <PageLayout cover={CoverTypes.INFO}>
         <LandingView />
-      </PageLayoutView>
+      </PageLayout>
     ),
     errorElement: <NotFound />,
   },
   {
     path: "/main",
     element: (
-      <PageLayoutView cover={CoverTypes.INFO}>
+      <PageLayout cover={CoverTypes.INFO}>
         <MainView />
-      </PageLayoutView>
+      </PageLayout>
     ),
     errorElement: <NotFound />,
   },
   {
     path: "/user",
     element: (
-      <PageLayoutView cover={CoverTypes.NORMAL}>
+      <PageLayout cover={CoverTypes.NORMAL}>
         <Outlet />
-      </PageLayoutView>
+      </PageLayout>
     ),
     errorElement: <NotFound />,
     children: [
@@ -107,25 +105,25 @@ export const router = createHashRouter([
   {
     path: "/contact",
     element: (
-      <PageLayoutView cover={CoverTypes.NORMAL}>
+      <PageLayout cover={CoverTypes.NORMAL}>
         <ContactView />
-      </PageLayoutView>
+      </PageLayout>
     ),
   },
   {
     path: "/about",
     element: (
-      <PageLayoutView cover={CoverTypes.NORMAL}>
+      <PageLayout cover={CoverTypes.NORMAL}>
         <AboutView />
-      </PageLayoutView>
+      </PageLayout>
     ),
   },
   {
     path: "/package-tour",
     element: (
-      <PageLayoutView cover={CoverTypes.NORMAL}>
+      <PageLayout cover={CoverTypes.NORMAL}>
         <Outlet />
-      </PageLayoutView>
+      </PageLayout>
     ),
     children: [
       {
@@ -166,9 +164,9 @@ export const router = createHashRouter([
   {
     path: "/city-attractions",
     element: (
-      <PageLayoutView cover={CoverTypes.NORMAL}>
+      <PageLayout cover={CoverTypes.NORMAL}>
         <Outlet />
-      </PageLayoutView>
+      </PageLayout>
     ),
     children: [
       {
@@ -198,9 +196,9 @@ export const router = createHashRouter([
   {
     path: "/guide-tour",
     element: (
-      <PageLayoutView cover={CoverTypes.NORMAL}>
+      <PageLayout cover={CoverTypes.NORMAL}>
         <Outlet />
-      </PageLayoutView>
+      </PageLayout>
     ),
     children: [
       {
@@ -231,50 +229,58 @@ export const router = createHashRouter([
   {
     path: "/musicals-and-shows",
     element: (
-      <PageLayoutView cover={CoverTypes.SHOWS}>
+      <PageLayout cover={CoverTypes.SHOWS}>
         <ProductsLayout
           sectionDescription="뉴욕 빅애플패스(New York Big Apple Pass)는 뉴욕을 방문하는 여행객들과 로컬들이 즐겨 찾는 관광명소 TOP 37을 자유롭게 선택하여 최대 64%까지 할인받을 수 있는 뉴욕 여행의 필수템이에요! 여행 경비를 절반으로 값싸게. 명소마다 일일이 티켓을 구매하는 번거로움이 한방에 해결하고 더 많은 뉴욕의 구석구석을 방문하며 스마트한 뉴욕 여행을 즐겨보세요."
           sectionTitle="Broadway Musicals / Shows"
         >
           <MusicalsAndShowsView />
         </ProductsLayout>
-      </PageLayoutView>
+      </PageLayout>
     ),
   },
   {
     path: "/product-detail/:id",
     element: (
-      <PageLayoutView cover={CoverTypes.NONE}>
+      <PageLayout cover={CoverTypes.NONE}>
         <ProductDetailLayout>
           <ProductDetailView />
         </ProductDetailLayout>
-      </PageLayoutView>
+      </PageLayout>
     ),
   },
   {
     path: "/show-detail/:id",
     element: (
-      <PageLayoutView cover={CoverTypes.NONE}>
+      <PageLayout cover={CoverTypes.NONE}>
         <ProductDetailLayout>
           <ShowDetailView />
         </ProductDetailLayout>
-      </PageLayoutView>
+      </PageLayout>
     ),
   },
   {
     path: "/cart",
     element: (
-      <PageLayoutView cover={CoverTypes.NORMAL_WITHOUT_TEXT}>
+      <PageLayout cover={CoverTypes.NORMAL_WITHOUT_TEXT}>
         <CartView />
-      </PageLayoutView>
+      </PageLayout>
     ),
   },
   {
     path: "/no-auth-checkout",
     element: (
-      <PageLayoutView cover={CoverTypes.NONE}>
+      <PageLayout cover={CoverTypes.NONE}>
         <NoAuthCheckoutView />
-      </PageLayoutView>
+      </PageLayout>
+    ),
+  },
+  {
+    path: "/my-bookings",
+    element: (
+      <PageLayout cover={CoverTypes.NORMAL_WITHOUT_TEXT}>
+        <BookingsLayout>bookings view</BookingsLayout>
+      </PageLayout>
     ),
   },
 ]);

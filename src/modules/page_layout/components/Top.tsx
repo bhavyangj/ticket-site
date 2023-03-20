@@ -135,9 +135,12 @@ export const Top = () => {
                   MY ACCOUNT
                 </div>
                 <SpaceY />
-                <button className="flex hover:text-blue py-2 gap-x-3 text-darkGray font-medium font-sm">
+                <button
+                  className="flex hover:text-blue py-2 gap-x-3 text-darkGray font-medium font-sm"
+                  onClick={() => navigate("/my-bookings")}
+                >
                   <img src={staticFiles.icons.disposition} />
-                  <span>My Bookins</span>
+                  <span>My Bookings</span>
                 </button>
                 <SpaceY />
                 <button

@@ -14,7 +14,7 @@ export enum CoverTypes {
   NONE,
 }
 
-export const PageLayoutView: React.FC<{
+export const PageLayout: React.FC<{
   children: ReactNode;
   cover?: CoverTypes;
 }> = ({ children, cover }) => (
