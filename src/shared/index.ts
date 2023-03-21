@@ -49,6 +49,8 @@ export const staticFiles = {
     sign_out: `${PUBLIC_URL}/assets/icons/sign_out.svg`,
     edit: `${PUBLIC_URL}/assets/icons/edit.svg`,
     menu: `${PUBLIC_URL}/assets/icons/menu.svg`,
+    open_eye: `${PUBLIC_URL}/assets/icons/open_eye.svg`,
+    closed_eye: `${PUBLIC_URL}/assets/icons/closed_eye.svg`,
   },
   images: {
     logo: `${PUBLIC_URL}/assets/icons/logo.svg`,

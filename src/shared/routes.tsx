@@ -27,6 +27,7 @@ import { ProductDetailLayout } from "../modules/page_layout/ProductDetailLayout"
 import { CartView } from "../modules/cart/CartView";
 import { NoAuthCheckoutView } from "../modules/cart/NoAuthCheckoutView";
 import { BookingsLayout } from "../modules/page_layout/BookingsLayout";
+import { BookingsView } from "../modules/bookings/BookingsView";
 
 export const router = createHashRouter([
   {
@@ -282,7 +283,9 @@ export const router = createHashRouter([
         cover={CoverTypes.NORMAL_WITHOUT_TEXT}
         backgroundColor="bg-[#f2f2f2]"
       >
-        <BookingsLayout>bookings view</BookingsLayout>
+        <BookingsLayout>
+          <BookingsView />
+        </BookingsLayout>
       </PageLayout>
     ),
   },

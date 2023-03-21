@@ -30,6 +30,7 @@ export const BookingsLayout: React.FC<{ children: ReactNode }> = ({
         <div>•티켓 확인이 불가능합니다.</div>
       </div>
     </div>
-    {children}
+    <SpaceY />
+    {children} <SpaceY />
   </div>
 );
