@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { staticFiles } from "../../shared";
+import { SplitOrdersModal } from "../../shared/components/Modals";
 import { SpaceY } from "../../shared/components/Utils";
 import { MedalEnum } from "../cart/components/CardInfo";
 import { BookingCard, PropsBookingCard } from "./components/BookingCard";
@@ -94,6 +95,7 @@ const fakeData: {
 
 export const BookingsView = () => {
   const [openAll, setOpenAll] = useState(true);
+  const [showModalSplitOrder, setShowModalSplitOrder] = useState(false);
   return (
     <div className="flex flex-col w-full bg-white p-10">
       <span className="font-poppins text-xl">My Bookings</span>
@@ -139,7 +141,12 @@ export const BookingsView = () => {
                   />
                 ))}
               </div>
-              <div className={`${col8}`}>empty</div>
+              <div
+                className={`text-blue font-medium cursor-pointer justify-start font-poppins ${col8}`}
+                onClick={() => setShowModalSplitOrder(true)}
+              >
+                Split Orders
+              </div>
             </div>
             <SpaceY />
             <SpaceY />
@@ -149,6 +156,12 @@ export const BookingsView = () => {
           </>
         ))}
       </div>
+      {showModalSplitOrder ? (
+        <SplitOrdersModal
+          onAccept={() => setShowModalSplitOrder(false)}
+          onDecline={() => setShowModalSplitOrder(false)}
+        />
+      ) : null}
     </div>
   );
 };
