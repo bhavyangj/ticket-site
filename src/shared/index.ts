@@ -51,6 +51,7 @@ export const staticFiles = {
     menu: `${PUBLIC_URL}/assets/icons/menu.svg`,
     open_eye: `${PUBLIC_URL}/assets/icons/open_eye.svg`,
     closed_eye: `${PUBLIC_URL}/assets/icons/closed_eye.svg`,
+    remove: `${PUBLIC_URL}/assets/icons/remove.svg`,
   },
   images: {
     logo: `${PUBLIC_URL}/assets/icons/logo.svg`,

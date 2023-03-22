@@ -1,6 +1,69 @@
 import { useState } from "react";
 import { staticFiles } from "../../../shared";
+import { CheckBox } from "../../../shared/components/Inputs";
+import { SpaceY } from "../../../shared/components/Utils";
 import { MedalEnum } from "../../cart/components/CardInfo";
+
+export const ScheduleButton: React.FC<{
+  icon: string;
+}> = ({ icon }) => {
+  const [open, setOpen] = useState(false);
+  const [affirmativeSelected, setAffirmativeSelected] = useState(false);
+
+  return (
+    <div className="flex justify-center items-center group relative inline-block">
+      <img
+        onClick={() => setOpen((prev) => !prev)}
+        className="cursor-pointer"
+        src={icon}
+        width={18}
+        alt={icon}
+      />
+
+      {open && (
+        <div className="absolute flex flex-col bg-white z-[100] top-[100%] py-5 px-5 min-h-[200px] min-w-[300px] rounded-b drop-shadow-xl">
+          <div className="flex w-full">
+            <div className="w-1/3" />
+            <span className="w-1/3 flex justify-center font-poppins font-medium items-center">
+              Schedule
+            </span>
+            <div className="w-1/3 flex justify-end items-center">
+              <img
+                onClick={() => setOpen(false)}
+                className="cursor-pointer"
+                src={staticFiles.icons.remove}
+              />
+            </div>
+          </div>
+          <SpaceY />
+          <div className="flex w-full">Ticket Name: Top of The Rock</div>
+          <SpaceY />
+          <div className="flex w-full">
+            You have purchased multiple tickets for Oder Number: TM123456. Would
+            you like to book the same date?
+          </div>
+          <SpaceY />
+          <div className="w-full flex justify-evenly">
+            <div>
+              <CheckBox
+                value={affirmativeSelected}
+                onCheck={() => setAffirmativeSelected((prev) => !prev)}
+              />
+              Yes
+            </div>
+            <div>
+              <CheckBox
+                value={!affirmativeSelected}
+                onCheck={() => setAffirmativeSelected((prev) => !prev)}
+              />
+              No
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
 
 export type PropsBookingCard = {
   name: string;
@@ -10,7 +73,7 @@ export type PropsBookingCard = {
   adult_child: "ADULT" | "CHILD";
 
   includes?: {
-    scheduledDate?: string;
+    scheduledDate: string | undefined;
     name: string;
     medal: MedalEnum;
     addition?: number;
@@ -66,7 +129,16 @@ export const BookingCard: React.FC<PropsBookingCard> = ({
               <span className="w-3/4">{included.name}</span>
             </span>
             <div className={`${col3}`}></div>
-            <div className={`${col4}`}>{included.scheduledDate}</div>
+            <div className={`${col4}`}>
+              {included.scheduledDate ? (
+                included.scheduledDate
+              ) : (
+                <div className="flex gap-x-2 w-full justify-start items-center">
+                  <ScheduleButton icon={staticFiles.icons.calendar} />
+                  Schedule
+                </div>
+              )}
+            </div>
             <div className={`${col5}`}></div>
             <div className={`${col6}`}>{included.downloadStatus}</div>
             <div className={`${col7}`}></div>

@@ -29,13 +29,13 @@ const fakeData: {
         includes: [
           {
             name: "Top of the Rock",
-            scheduledDate: "02/02/2023 (4:00 pm) EST",
+            scheduledDate: undefined,
             downloadStatus: "전송완료(Sent)",
             medal: MedalEnum.NONE,
           },
           {
             name: "Top of the Rock",
-            scheduledDate: "02/02/2023 (4:00 pm) EST",
+            scheduledDate: undefined,
             downloadStatus: "전송완료(Sent)",
             medal: MedalEnum.GOLD,
           },
