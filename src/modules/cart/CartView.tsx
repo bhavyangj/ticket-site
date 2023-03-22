@@ -316,8 +316,8 @@ export const CartView = () => {
                 <SpaceY />
                 <div className="flex justify-center items-center w-full">
                   <CheckBox
-                    defaultValue={false}
-                    onChange={() => {}}
+                    value={false}
+                    onCheck={() => {}}
                     containerClass="w-1/2"
                   />
                   <div className="font-poppins text-xs w-1/2 pl-3">

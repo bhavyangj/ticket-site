@@ -170,8 +170,8 @@ export const RegisterView = () => {
       <SpaceY />
       <div className="flex justify-between items-center w-[300px]">
         <CheckBox
-          defaultValue={termsAndConditions}
-          onChange={(val) => setTermsAndConditions(val)}
+          value={termsAndConditions}
+          onCheck={() => setTermsAndConditions((prev) => !prev)}
           containerClass="w-2/12"
         />
         <div className="font-poppins text-xs w-10/12">

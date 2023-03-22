@@ -82,25 +82,19 @@ export const PhoneInput: React.FC<{
 };
 
 export const CheckBox: React.FC<{
-  onChange: (val: boolean) => void;
+  onCheck: () => void;
   containerClass?: string;
-  defaultValue?: boolean;
-}> = ({ containerClass, onChange, defaultValue }) => {
-  const [checked, setChecked] = useState(defaultValue || false);
-
-  useEffect(() => {
-    onChange(checked);
-  }, [checked]);
-
+  value: boolean;
+}> = ({ containerClass, value, onCheck }) => {
   if (containerClass)
     <div className={containerClass}>
       <input type="checkbox" className="border border-gray " />
     </div>;
   return (
     <input
-      checked={checked}
+      checked={value}
       type="checkbox"
-      onClick={() => setChecked((prev) => !prev)}
+      onClick={() => onCheck()}
       className="border border-gray "
     />
   );
