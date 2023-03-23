@@ -36,7 +36,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <>
       <div className="flex sm:hidden w-full flex-col bg-white flex gap-x-4 py-4 px-4">
-        <div className="w-1/3 flex items-center max-w-[200px]">
+        <div className="flex items-center max-h-[200px]">
           <img className="h-full object-cover" src={image} />
         </div>
         <SpaceY />
