@@ -27,20 +27,13 @@ export const ShowCard: React.FC<ShowCardProps> = ({
 }) => {
   const navigate = useNavigate();
   return (
-    <div className="w-full bg-white flex gap-x-4 py-4">
-      <div className="w-1/3 flex items-center max-w-[200px]">
+    <div className="w-full bg-white flex gap-x-4 py-4 h-[200px]">
+      <div className="w-1/3 flex items-center">
         <img className="h-full object-cover" src={image} />
       </div>
-      <div className="font-poppins w-5/12 flex flex-col gap-y-3">
+      <div className="font-poppins w-5/12 flex flex-col">
         <span className="font-bold text-dark">{title}</span>
         <span className="font-bold text-dark">{subTitle}</span>
-
-        <div className="flex gap-x-3">
-          <img width={18} src={staticFiles.icons.card_calendar} />
-          <span className="text-sm text-darkGray">
-            Availability: {availability}
-          </span>
-        </div>
         <SpaceY />
         <span className="text-sm text-darkGray w-[70%]">{description}</span>
       </div>
