@@ -98,7 +98,7 @@ export const Top = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="flex xl:hidden justify-between items-center px-[5vw] max-w-[1300px] w-full">
+      <div className="z-[110] flex xl:hidden justify-between items-center px-[5vw] max-w-[1300px] w-full">
         <IconButton isPopup icon={staticFiles.icons.menu}>
           <NavBar elements={pageLayoutNavBar} isMobile />
         </IconButton>
