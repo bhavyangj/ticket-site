@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ReactPhoneInput, { Country } from "react-phone-number-input";
 import { staticFiles } from "..";
 import { phoneUtils } from "../utils";
