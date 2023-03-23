@@ -46,12 +46,14 @@ export const CardInfo: React.FC<PropsCardInfo> = ({
         {name}
       </span>
       <div className={cartViewRestColClassName}></div>
-      <div className={cartViewRestColClassName}>${price}</div>
-      <div className={cartViewRestColClassName}>{quantity}</div>
-      <div className={cartViewRestColClassName}>${addition}</div>
-      <div className={cartViewRestColClassName}>${subtotal}</div>
+      <div className={`${cartViewRestColClassName} hidden md:flex`}>
+        ${price}
+      </div>
+      <div className={`${cartViewRestColClassName} `}>{quantity}</div>
+      <div className={`${cartViewRestColClassName}`}>${addition}</div>
+      <div className={`${cartViewRestColClassName}`}>${subtotal}</div>
       <div
-        className={`${cartViewRestColClassName} text-blue underline cursor-pointer`}
+        className={`${`${cartViewRestColClassName}`} text-blue underline cursor-pointer hidden md:flex`}
       >
         edit
       </div>
@@ -69,14 +71,16 @@ export const CardInfo: React.FC<PropsCardInfo> = ({
           </div>
           <span className="w-3/4">{included.name}</span>
         </span>
-        <div className={cartViewRestColClassName}>{included.scheduledDate}</div>
-        <div className={cartViewRestColClassName}></div>
-        <div className={cartViewRestColClassName}></div>
-        <div className={cartViewRestColClassName}>
+        <div className={`${cartViewRestColClassName} hidden md:flex`}>
+          {included.scheduledDate}
+        </div>
+        <div className={`${cartViewRestColClassName}`}></div>
+        <div className={`${cartViewRestColClassName}`}></div>
+        <div className={`${cartViewRestColClassName}`}>
           {included.addition && "$" + included.addition}
         </div>
-        <div className={cartViewRestColClassName}></div>
-        <div className={cartViewRestColClassName}></div>
+        <div className={`${cartViewRestColClassName}`}></div>
+        <div className={`${cartViewRestColClassName} hidden md:flex`}></div>
       </div>
     ))}
   </div>

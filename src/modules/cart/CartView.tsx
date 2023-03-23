@@ -125,16 +125,16 @@ export const CartView = () => {
         <div className="flex gap-x-2 px-[5vw] max-w-[1300px] w-full">
           <div
             className={`flex flex-col ${
-              edit ? "w-2/3" : "w-full"
+              edit ? "w-full md:w-2/3" : "w-full"
             } bg-white px-[30px] pb-20`}
           >
             <SpaceY />
             <SpaceY />
-            <div className="w-full flex items-center justify-between">
+            <div className="w-full flex items-center md:justify-between justify-center">
               <span className="font-poppins font-medium text-darkGray">
                 Shopping Cart
               </span>
-              <div className="flex flex-col gap-y-2">
+              <div className="hidden md:flex flex-col gap-y-2">
                 <div className="flex font-poppins text-darkGray">
                   <img
                     width={23}
@@ -155,8 +155,8 @@ export const CartView = () => {
             </div>
             <SpaceY />
             <SpaceY />
-            <hr className="border border-gray rounded w-full" />
-            <div className="flex font-poppins font-bold text-darkGray my-5">
+            <hr className="hidden md:block border border-gray rounded w-full" />
+            <div className="hidden md:flex font-poppins font-bold text-darkGray my-5">
               <div className={cartViewFirstColClassName}>상품</div>
               <div className={cartViewRestColClassName}>Scheduled Date</div>
               <div className={cartViewRestColClassName}>Price</div>
@@ -164,7 +164,7 @@ export const CartView = () => {
               <div className={cartViewRestColClassName}>Addition</div>
               <div className={cartViewRestColClassName}>Subtotal</div>
             </div>
-            <hr className="border border-gray rounded w-full" />
+            <hr className="hidden md:block border border-gray rounded w-full" />
             <SpaceY />
             <div className="font-poppins text-xl font-medium text-blue">
               Adult
@@ -228,7 +228,7 @@ export const CartView = () => {
             </div>
           </div>
           {edit && (
-            <div className="flex flex-col w-1/3 pb-20 gap-y-2">
+            <div className="hidden md:flex flex-col w-1/3 pb-20 gap-y-2">
               <div className="flex flex-col w-full bg-white py-10 px-4">
                 <div className="font-poppins font-medium text-sm text-darkGray">
                   Billing Address for Payment
