@@ -122,10 +122,13 @@ export type HashNavBarElement = {
   name: string;
 };
 
-const productNavbarContainerClass = "flex h-full";
+const productNavbarContainerClass = "flex h-full flex-wrap md:flex-nowrap";
 const productNavbarItemClass =
-  "px-8 py-2 font-poppins hover:bg-lightBlue/[.1] rounded-sm text-dark flex justify-center items-center whitespace-nowrap";
+  "hidden md:flex px-8 py-2 font-poppins hover:bg-lightBlue/[.1] rounded-sm text-dark justify-center items-center whitespace-nowrap";
 const productNavbarSelectedItemClass = "border-b-2 border-lightBlue rounded-sm";
+
+const productNavbarItemClassMobile =
+  "flex border-r border-blue px-2 h-[25px] md:hidden font-poppins text-dark flex justify-center items-center whitespace-nowrap text-blue underline text-medium";
 
 export const ProductDetailNavBar: React.FC<{
   elements: HashNavBarElement[];
@@ -137,6 +140,14 @@ export const ProductDetailNavBar: React.FC<{
       {elements.map((el) => (
         <Fragment key={el.name}>
           <HashLink
+            key={el.name}
+            className={`${productNavbarItemClassMobile}`}
+            to={location.pathname + "#" + el.hash}
+          >
+            <span className="text-blue font-medium">{el.name}</span>
+          </HashLink>
+          <HashLink
+            key={el.name}
             className={`${productNavbarItemClass} ${
               (location.hash && el.hash?.includes(location.hash)) ||
               location.hash.includes(el.hash as string)

@@ -13,7 +13,7 @@ export const ProductDetailView = () => {
 
   return (
     <div className="w-full pb-[10vw] flex">
-      <div className="flex flex-col w-2/3">
+      <div className="flex flex-col w-full md:w-2/3">
         <SpaceY />
         <SpaceY />
         <div className="w-full font-volkhov text-xl font-bold">
@@ -262,7 +262,7 @@ export const ProductDetailView = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col w-1/3">
+      <div className="hidden md:flex flex-col w-1/3">
         <div className="min-h-[500px]">
           <PackageBuyDetail />
         </div>
