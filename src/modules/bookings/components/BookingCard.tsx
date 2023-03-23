@@ -81,12 +81,12 @@ export type PropsBookingCard = {
   }[];
 };
 
-const col2 = "flex justify-center w-[20%]";
-const col3 = "flex justify-center w-[20%]";
-const col4 = "flex justify-center w-[20%]";
-const col5 = "flex justify-center w-[10%]";
-const col6 = "flex justify-center w-[20%]";
-const col7 = "flex justify-center w-[10%]";
+const col2 = "flex justify-center w-1/3 md:w-[20%]";
+const col3 = "flex justify-center w-1/3 md:w-[20%]";
+const col4 = "hidden md:flex justify-center w-[20%]";
+const col5 = "flex justify-center w-1/3 md:w-[10%]";
+const col6 = "hidden md:flex flex justify-center w-[20%]";
+const col7 = "hidden md:flex justify-center w-1/3 md:w-[10%]";
 
 const medalImages = {
   [MedalEnum.GOLD]: staticFiles.icons.gold_medal,

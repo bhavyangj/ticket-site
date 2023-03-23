@@ -5,14 +5,14 @@ import { SpaceY } from "../../shared/components/Utils";
 import { MedalEnum } from "../cart/components/CardInfo";
 import { BookingCard, PropsBookingCard } from "./components/BookingCard";
 
-const col1 = "flex items-center justify-center w-1/12";
-const col2 = "flex items-center justify-center w-2/12";
-const col3 = "flex items-center justify-center w-2/12";
-const col4 = "flex items-center justify-center w-2/12";
-const col5 = "flex items-center justify-center w-1/12";
-const col6 = "flex items-center justify-center w-2/12";
-const col7 = "flex items-center justify-center w-1/12";
-const col8 = "flex items-center justify-center w-1/12";
+const col1 = "hidden md:flex items-center justify-center w-1/12";
+const col2 = "flex items-center justify-center w-1/4 md:w-2/12";
+const col3 = "flex items-center justify-center w-1/4 md:w-2/12";
+const col4 = "hidden md:flex items-center justify-center w-2/12";
+const col5 = "flex items-center justify-center w-1/4 md:w-1/12";
+const col6 = "hidden md:flex items-center justify-center w-2/12";
+const col7 = "hidden md:flex items-center justify-center w-1/12";
+const col8 = "flex items-center justify-center w-1/4 md:w-1/12";
 
 const fakeData: {
   category: string;
