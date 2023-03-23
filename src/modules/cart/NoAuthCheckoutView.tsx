@@ -10,15 +10,18 @@ export const NoAuthCheckoutView = () => {
       <SpaceY />
       <SpaceY />
       <SpaceY />
-      <div className="w-full flex">
-        <div className="border-r border-darkGray w-1/2 flex flex-col items-center font-poppins gap-y-5 py-10 text-center">
+      <div className="w-full flex md:flex-row flex-col items-center">
+        <div className="w-1/2 flex flex-col items-center font-poppins gap-y-5 py-10 text-center">
           <div className="flex flex-col h-3/4 gap-y-5">
             <div>Check out as a member</div>
             <div>Use your Tamice member sign-in</div>
           </div>
           <MainButton text="Login/Sign Up" onClick={() => {}} />
         </div>
-        <div className="border-l border-darkGray w-1/2 flex flex-col items-center font-poppins gap-y-5 py-10 text-center">
+        <div className="font-volkhov md:hidden font-bold text-dark text-xl lg:text-3xl leading-tight w-full text-center">
+          Or
+        </div>
+        <div className="md:border-l md:border-darkGray w-1/2 flex flex-col items-center font-poppins gap-y-5 py-10 text-center">
           <div className="flex flex-col h-3/4 gap-y-5">
             <div>Check out as a Guest</div>
             <div>
