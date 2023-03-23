@@ -85,13 +85,11 @@ export const NYExploreView = () => {
         ) : (
           fakeCards.map((item) => <ProductCard key={item.name} {...item} />)
         )}
-        <div className="flex md:hidden w-full">
-          <MainButton
-            text={displayFilter ? "Close filter" : "티켓구입"}
-            containerClassName="w-full"
-            onClick={() => setDisplayFilter((prev) => !prev)}
-          />
-        </div>
+        <MainButton
+          text={"티켓구입"}
+          containerClassName="w-full block md:hidden"
+          onClick={() => setDisplayFilter((prev) => !prev)}
+        />
       </div>
       <div className="w-1/3 hidden md:block font-poppins">
         <PackageBuyDetail />
