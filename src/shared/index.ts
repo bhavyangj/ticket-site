@@ -1,5 +1,5 @@
-// export const PUBLIC_URL = "/ticket-site";
-export const PUBLIC_URL = "";
+export const PUBLIC_URL = "/ticket-site";
+// export const PUBLIC_URL = "";
 
 export const staticFiles = {
   icons: {
@@ -62,3 +62,18 @@ export const staticFiles = {
     product_detail_traveler: `${PUBLIC_URL}/images/product_detail_traveler.png`,
   },
 };
+
+export const API = "https://testing.thernloven.com/tickets-api-new/public/api";
+
+export const fetcher =
+  <T, U>(endpoint: string, token: string, map?: (data: T) => U) =>
+  async () => {
+    const res = await fetch(`${API}${endpoint}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const data = await res.json();
+
+    return map ? map(data) : data;
+  };
