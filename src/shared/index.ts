@@ -66,13 +66,9 @@ export const staticFiles = {
 export const API = "https://testing.thernloven.com/tickets-api-new/public/api";
 
 export const fetcher =
-  <T, U>(endpoint: string, token: string, map?: (data: T) => U) =>
+  <T, U>(endpoint: string, map?: (data: T) => U) =>
   async () => {
-    const res = await fetch(`${API}${endpoint}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const res = await fetch(`${API}${endpoint}`);
     const data = await res.json();
 
     return map ? map(data) : data;
