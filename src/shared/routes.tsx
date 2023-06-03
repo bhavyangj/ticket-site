@@ -28,6 +28,8 @@ import { CartView } from "../modules/cart/CartView";
 import { NoAuthCheckoutView } from "../modules/cart/NoAuthCheckoutView";
 import { BookingsLayout } from "../modules/page_layout/BookingsLayout";
 import { BookingsView } from "../modules/bookings/BookingsView";
+import { MuseumAndGallery } from "../modules/city_attractions/MuseumAndGallery";
+import { Activities } from "../modules/city_attractions/Activities";
 
 export const router = createHashRouter([
   {
@@ -182,6 +184,17 @@ export const router = createHashRouter([
         ),
       },
       {
+        path: "museum-gallery",
+        element: (
+          <ProductsLayout
+            sectionDescription="Text Goes here - Scenic, Rids/Cruises, Museum/Gallery page contents/layout are the same"
+            sectionTitle="Scenics"
+          >
+            <MuseumAndGallery />
+          </ProductsLayout>
+        ),
+      },
+      {
         path: "rides-cruises",
         element: (
           <ProductsLayout
@@ -189,6 +202,17 @@ export const router = createHashRouter([
             sectionTitle="Rides/Cruises"
           >
             <RidesAndCruisesView />
+          </ProductsLayout>
+        ),
+      },
+      {
+        path: "activities",
+        element: (
+          <ProductsLayout
+            sectionDescription="Text Goes here - Scenic, Rids/Cruises, Museum/Gallery page contents/layout are the same"
+            sectionTitle="Scenics"
+          >
+            <Activities />
           </ProductsLayout>
         ),
       },
