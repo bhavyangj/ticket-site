@@ -28,8 +28,12 @@ import { CartView } from "../modules/cart/CartView";
 import { NoAuthCheckoutView } from "../modules/cart/NoAuthCheckoutView";
 import { BookingsLayout } from "../modules/page_layout/BookingsLayout";
 import { BookingsView } from "../modules/bookings/BookingsView";
-import { MuseumAndGallery } from "../modules/city_attractions/MuseumAndGallery";
-import { Activities } from "../modules/city_attractions/Activities";
+import { MuseumAndGallery } from "../modules/city_attractions/MuseumAndGalleryView";
+import { Activities } from "../modules/city_attractions/ActivitiesView";
+import { ManhattanDayTourView } from "../modules/guide_tour/ManhattanDayTourView";
+import { ManhattanNightTourView } from "../modules/guide_tour/ManhattanNightTourView";
+import { DosonTourView } from "../modules/guide_tour/DosonTourView";
+import { UNTourView } from "../modules/guide_tour/UNTourView";
 
 export const router = createHashRouter([
   {
@@ -233,7 +237,7 @@ export const router = createHashRouter([
             sectionDescription="Text Goes here - Scenic, Rids/Cruises, Museum/Gallery page contents/layout are the same"
             sectionTitle="Manhattan day"
           >
-            <ObservationsView /> {/* THIS VIEW MUST TO BE ManhattanDayView */}
+            <ManhattanDayTourView />
           </ProductsLayout>
         ),
       },
@@ -244,8 +248,30 @@ export const router = createHashRouter([
             sectionDescription="Text Goes here - Scenic, Rids/Cruises, Museum/Gallery page contents/layout are the same"
             sectionTitle="Manhattan night"
           >
-            <RidesAndCruisesView />{" "}
-            {/* THIS VIEW MUST TO BE ManhattanNightView */}
+            <ManhattanNightTourView />
+          </ProductsLayout>
+        ),
+      },
+      {
+        path: "doson-tour",
+        element: (
+          <ProductsLayout
+            sectionDescription="Text Goes here - Scenic, Rids/Cruises, Museum/Gallery page contents/layout are the same"
+            sectionTitle="Doson Tour"
+          >
+            <DosonTourView />
+          </ProductsLayout>
+        ),
+      },
+
+      {
+        path: "un-tour",
+        element: (
+          <ProductsLayout
+            sectionDescription="Text Goes here - Scenic, Rids/Cruises, Museum/Gallery page contents/layout are the same"
+            sectionTitle="UN Tour"
+          >
+            <UNTourView />
           </ProductsLayout>
         ),
       },

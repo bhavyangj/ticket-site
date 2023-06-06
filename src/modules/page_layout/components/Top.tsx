@@ -35,8 +35,8 @@ const pageLayoutNavBar: NavBarElement[] = [
     dropdownElements: [
       { name: "Manhattan Day Tour", subPath: "manhattan-day" },
       { name: "Manhattan Night Tour", subPath: "manhattan-night" },
-      { name: "Doson Tour", subPath: "doson" },
-      { name: "UN Tour", subPath: "un" },
+      { name: "Doson Tour", subPath: "doson-tour" },
+      { name: "UN Tour", subPath: "un-tour" },
     ],
   },
   {
