@@ -1,4 +1,5 @@
 import { PUBLIC_URL } from "../../shared";
+import { useGetShowTickets, useGetTickets } from "../../shared/hooks";
 import { ShowCard, ShowCardProps } from "./components/ShowCard";
 
 const fakeCards: ShowCardProps[] = [
@@ -59,10 +60,13 @@ const fakeCards: ShowCardProps[] = [
 ];
 
 export const MusicalsAndShowsView = () => {
+  const { tickets } = useGetShowTickets({
+    category: 3,
+  });
   return (
     <div className="flex w-full gap-x-3 justify-center">
       <div className="flex flex-col gap-y-4 w-full max-w-[700px]">
-        {fakeCards.map((item) => (
+        {tickets?.map((item) => (
           <ShowCard key={item.title} {...item} />
         ))}
       </div>

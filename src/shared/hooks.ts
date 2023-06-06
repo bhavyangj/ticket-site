@@ -1,15 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import { fetcher } from ".";
 import { ProductCardProps } from "./components/ProductCard";
+import { ShowCardProps } from "../modules/musicals_and_shows/components/ShowCard";
 
-export const useGetCityAttractions = ({
+export const useGetTickets = ({
   category,
   subCategoryId,
 }: {
   category: number;
   subCategoryId?: number;
-}): { cityAttractions: ProductCardProps[] | undefined } => {
-  const { data: cityAttractions } = useQuery<ProductCardProps[]>({
+}): { tickets: ProductCardProps[] | undefined } => {
+  const { data: tickets } = useQuery<ProductCardProps[]>({
     queryKey: [
       `tickets?category=${category}${
         subCategoryId ? `&sub_category=${subCategoryId}` : ""
@@ -37,5 +38,43 @@ export const useGetCityAttractions = ({
     ),
   });
 
-  return { cityAttractions };
+  return { tickets };
+};
+
+export const useGetShowTickets = ({
+  category,
+  subCategoryId,
+}: {
+  category: number;
+  subCategoryId?: number;
+}): { tickets: ShowCardProps[] | undefined } => {
+  const { data: tickets } = useQuery<ShowCardProps[]>({
+    queryKey: [
+      `tickets?category=${category}${
+        subCategoryId ? `&sub_category=${subCategoryId}` : ""
+      }`,
+    ],
+    queryFn: fetcher(
+      `/tickets?category=${category}${
+        subCategoryId ? `&sub_category=${subCategoryId}` : ""
+      }`,
+      (res: any[]) => {
+        // console.log(res);
+        return res?.map((item) => ({
+          id: item.id.toString(),
+          title: item.title_en,
+          subTitle: item.title_kr,
+          availability: "Sale through Aug 13",
+
+          description:
+            "뉴욕의 명소 브로드웨이. - 연일 매진행렬을 이어오는 가장 인기 있는 뮤지컬",
+
+          image: item?.card_image?.url,
+          priceStart: item?.ticket_prices[0].sale_price,
+        }));
+      }
+    ),
+  });
+
+  return { tickets };
 };
