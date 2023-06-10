@@ -14,7 +14,7 @@ export const NYCityPassView = () => {
     <div className="flex w-full gap-x-3">
       <div className="w-full md:w-2/3 flex flex-col gap-y-4">
         {displayFilter ? (
-          <PackageBuyDetail />
+          <PackageBuyDetail tickets={[]} />
         ) : (
           tickets?.map((item) => <ProductCard key={item.name} {...item} />)
         )}
@@ -25,7 +25,7 @@ export const NYCityPassView = () => {
         />
       </div>
       <div className="w-1/3 hidden md:block font-poppins">
-        <PackageBuyDetail />
+        <PackageBuyDetail tickets={[]} />
       </div>
     </div>
   );

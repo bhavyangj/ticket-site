@@ -1,11 +1,13 @@
 import { useState } from "react";
-import { staticFiles } from "../../../shared";
+import { fetcher, staticFiles } from "../../../shared";
 import {
   MainButton,
   SecondaryButton,
 } from "../../../shared/components/Buttons";
 import { SelectInput } from "../../../shared/components/Inputs";
 import { SpaceY } from "../../../shared/components/Utils";
+import { useQuery } from "@tanstack/react-query";
+import { ProductCardProps } from "../../../shared/components/ProductCard";
 
 const filterFakeData = {
   value: 440,
@@ -50,6 +52,7 @@ type IncludesInfoProps = {
   hasGoldStar?: boolean;
   hasDate?: boolean;
   name: string;
+  onClick: () => void;
 };
 
 const IncludesInfo: React.FC<IncludesInfoProps> = ({
@@ -57,8 +60,12 @@ const IncludesInfo: React.FC<IncludesInfoProps> = ({
   isIncluded,
   name,
   hasGoldStar,
+  onClick,
 }) => (
-  <div className="w-full flex items-center">
+  <div
+    onClick={() => onClick()}
+    className="w-full flex items-center cursor-pointer hover:bg-[rgb(240,240,240)] py-2"
+  >
     <div className="w-1/12 flex items-center">
       <img
         width={20}
@@ -95,8 +102,32 @@ const IncludesInfo: React.FC<IncludesInfoProps> = ({
   </div>
 );
 
-export const PackageBuyDetail = () => {
+export const PackageBuyDetail = ({
+  tickets,
+}: {
+  tickets: ProductCardProps[];
+}) => {
   const [filterCounter, setFilterCounter] = useState(1);
+  const [selectInputOne, setSelectInputOne] = useState("");
+  const [selectInputTwo, setSelectInputTwo] = useState("");
+  const [maxLimit, setMaxLimit] = useState(0);
+
+  const { data } = useQuery({
+    queryKey: ["/price-lists?category_id=1"],
+    queryFn: fetcher("/price-lists?category_id=1", (res: any) =>
+      res.subcategories
+        .map((item: any) => item.prices)
+        .flat()
+        .map((item: any) => ({
+          text: item.product_type,
+          value: item.id,
+          quantity: Number(item.quantity),
+        }))
+    ),
+  });
+
+  const [selectedItems, setSelectedItems] = useState<string[]>([]);
+
   return (
     <div className="flex flex-col bg-white items-center max-h-fit pb-5">
       <div className="bg-white flex flex-col items-center w-full">
@@ -108,14 +139,26 @@ export const PackageBuyDetail = () => {
       </div>
       <div className="w-[90%] flex flex-col items-center">
         <div className="py-5 text-sm w-full">Booking Form</div>
-        <SelectInput options={["option 1", "option 2", "option 3"]} />
+        <SelectInput
+          selected={selectInputOne}
+          setSelected={(val) => {
+            setSelectInputOne(val);
+            setMaxLimit(data.find((item: any) => item.value === val).quantity);
+          }}
+          options={data || []}
+        />
         <SpaceY />
         <hr className="border border-gray rounded w-full" />
         <SpaceY />
         <div className="flex w-full">
           <SelectInput
+            selected={selectInputTwo}
+            setSelected={setSelectInputTwo}
             containerClassName="w-2/3"
-            options={["option 1", "option 2", "option 3"]}
+            options={[
+              { value: "Adult", text: "Adult" },
+              { value: "Child", text: "Child" },
+            ]}
           />
           <div className="flex justify-between items-center px-2 w-1/3">
             <img
@@ -135,14 +178,29 @@ export const PackageBuyDetail = () => {
         </div>
         <SpaceY />
         <div className="w-full flex flex-col gap-y-3">
-          {filterFakeData.includes.map((i) => (
-            <IncludesInfo key={i.name} {...i} />
+          {tickets?.map((i) => (
+            <IncludesInfo
+              onClick={() => {
+                setSelectedItems((prev) =>
+                  prev.length >= maxLimit
+                    ? prev
+                    : prev.includes(i.name)
+                    ? prev.filter((i2) => i2 !== i.name)
+                    : [...prev, i.name]
+                );
+              }}
+              key={i.name}
+              isIncluded={selectedItems.includes(i.name)}
+              name={i.name}
+              hasDate={false}
+              hasGoldStar={false}
+            />
           ))}
         </div>
         <SpaceY />
         <SpaceY />
         <div className="w-full flex gap-x-1">
-          <MainButton onClick={() => {}} text="Submit" />
+          <MainButton onClick={() => {}} text="Add to the cart" />
           <SecondaryButton onClick={() => {}} text="Reset" />
         </div>
       </div>

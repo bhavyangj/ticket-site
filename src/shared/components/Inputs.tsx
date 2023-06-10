@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactPhoneInput, { Country } from "react-phone-number-input";
 import { staticFiles } from "..";
 import { phoneUtils } from "../utils";
@@ -102,10 +102,15 @@ export const CheckBox: React.FC<{
 
 export const SelectInput: React.FC<{
   containerClassName?: string;
-  options: string[];
-}> = ({ containerClassName = "w-full", options }) => {
-  const [selected, setSelected] = useState(options[0]);
+  options: { text: string; value: string }[];
+  selected: string;
+  setSelected: React.Dispatch<React.SetStateAction<string>>;
+}> = ({ containerClassName = "w-full", options, selected, setSelected }) => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    setSelected(options[0]?.value);
+  }, []);
 
   const dropdownClass =
     "flex flex-col bg-white absolute top-[100%] z-[100] font-poppins w-full border border-gray border-t-0";
@@ -117,7 +122,7 @@ export const SelectInput: React.FC<{
         onClick={() => setOpen((prev) => !prev)}
       >
         <div className="flex justify-between px-5 py-3 border border-gray">
-          {selected}
+          {options.find((item) => item.value === selected)?.text}
           <img src={staticFiles.icons.down_arrow} />
         </div>
 
@@ -125,11 +130,11 @@ export const SelectInput: React.FC<{
           <ul className={dropdownClass}>
             {options.map((el) => (
               <li
-                key={el}
+                key={el.value}
                 className="px-5 py-4 hover:bg-lightBlue/[.1] hover:border hover:border-gray border border-white cursor-pointer"
-                onClick={() => setSelected(el)}
+                onClick={() => setSelected(el?.value)}
               >
-                {el}
+                {el.text}
               </li>
             ))}
           </ul>

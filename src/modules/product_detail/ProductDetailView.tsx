@@ -18,7 +18,7 @@ export const ProductDetailView = () => {
     <div className="w-full pb-[10vw] flex">
       <div className="flex flex-col w-full md:w-2/3">
         {displayFilter ? (
-          <PackageBuyDetail />
+          <PackageBuyDetail tickets={[]} />
         ) : (
           <>
             <SpaceY />
@@ -303,7 +303,7 @@ export const ProductDetailView = () => {
       </div>
       <div className="hidden md:flex flex-col w-1/3">
         <div className="min-h-[500px]">
-          <PackageBuyDetail />
+          <PackageBuyDetail tickets={[]} />
         </div>
         <div className="w-[180%]">
           <img

@@ -10,11 +10,12 @@ export const BigApplePassView = () => {
     category: 1,
     subCategoryId: 97,
   });
+
   return (
     <div className="flex w-full gap-x-3">
       <div className="w-full md:w-2/3 flex flex-col gap-y-4">
         {displayFilter ? (
-          <PackageBuyDetail />
+          <PackageBuyDetail tickets={tickets || []} />
         ) : (
           tickets?.map((item) => <ProductCard key={item.name} {...item} />)
         )}
@@ -25,7 +26,7 @@ export const BigApplePassView = () => {
         />
       </div>
       <div className="w-1/3 hidden md:block font-poppins">
-        <PackageBuyDetail />
+        <PackageBuyDetail tickets={tickets || []} />
       </div>
     </div>
   );

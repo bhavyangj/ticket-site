@@ -9,6 +9,7 @@ const filterFakeData = {
 
 export const ShowBuyDetail = () => {
   const [filterCounter, setFilterCounter] = useState(1);
+  const [selectInputOne, setSelectInputOne] = useState("");
   return (
     <div className="flex flex-col bg-white items-center max-h-fit pb-5 border border-gray">
       <div className="bg-white flex justify-center w-full">
@@ -22,7 +23,11 @@ export const ShowBuyDetail = () => {
       <div className="w-[90%] flex flex-col items-center">
         <SpaceY />
         <SpaceY />
-        <SelectInput options={["option 1", "option 2", "option 3"]} />
+        <SelectInput
+          selected={selectInputOne}
+          setSelected={setSelectInputOne}
+          options={[{ value: "1", text: "1" }]}
+        />
         <SpaceY />
         <SpaceY />
       </div>
