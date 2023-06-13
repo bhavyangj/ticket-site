@@ -143,7 +143,9 @@ export const PackageBuyDetail = ({
           selected={selectInputOne}
           setSelected={(val) => {
             setSelectInputOne(val);
-            setMaxLimit(data.find((item: any) => item.value === val).quantity);
+            setMaxLimit(
+              data?.find((item: any) => item.value === val).quantity || 0
+            );
           }}
           options={data || []}
         />
@@ -182,15 +184,15 @@ export const PackageBuyDetail = ({
             <IncludesInfo
               onClick={() => {
                 setSelectedItems((prev) =>
-                  prev.length >= maxLimit
+                  prev.includes(i.id)
+                    ? prev.filter((i2) => i2 !== i.id)
+                    : prev.length >= maxLimit
                     ? prev
-                    : prev.includes(i.name)
-                    ? prev.filter((i2) => i2 !== i.name)
-                    : [...prev, i.name]
+                    : [...prev, i.id]
                 );
               }}
-              key={i.name}
-              isIncluded={selectedItems.includes(i.name)}
+              key={i.id}
+              isIncluded={selectedItems.includes(i.id)}
               name={i.name}
               hasDate={false}
               hasGoldStar={false}
