@@ -4,6 +4,7 @@ import { staticFiles } from "../../../shared";
 import { Logo } from "../../../shared/components/Logo";
 import { NavBar, NavBarElement } from "../../../shared/components/NavBar";
 import { SpaceY } from "../../../shared/components/Utils";
+import { cartState } from "../../../App";
 
 const pageLayoutNavBar: NavBarElement[] = [
   {
@@ -63,7 +64,8 @@ const IconButton: React.FC<{
   name?: string;
   isPopup?: boolean;
   children?: ReactNode;
-}> = ({ icon, name, route, isPopup, children }) => {
+  badge?: number;
+}> = ({ icon, name, route, isPopup, children, badge }) => {
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
 
@@ -86,16 +88,23 @@ const IconButton: React.FC<{
   return (
     <button
       onClick={() => route && navigate(route)}
-      className="flex ml-10 justify-center items-center"
+      className="flex ml-10 justify-center items-center  relative inline-flex p-2 rounded-lg"
     >
       <img src={icon} width="17" alt={icon} />
       {name && <span className="ml-1">{name}</span>}
+
+      {Boolean(badge) && (
+        <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red rounded-full -top-2 -right-2 dark:border-gray-900">
+          {badge}
+        </div>
+      )}
     </button>
   );
 };
 
 export const Top = () => {
   const navigate = useNavigate();
+  const [cart] = cartState.useState();
   return (
     <>
       <div className="z-[110] flex xl:hidden justify-between items-center px-[5vw] max-w-[1300px] w-full">
@@ -105,7 +114,11 @@ export const Top = () => {
         <div className="flex justify-center items-center">
           <Logo />
         </div>
-        <IconButton route="/cart" icon={staticFiles.icons.cart} />
+        <IconButton
+          badge={cart.adultInfo.length + cart.childInfo.length}
+          route="/cart"
+          icon={staticFiles.icons.cart}
+        />
       </div>
 
       <div className="hidden xl:flex justify-between items-center px-[5vw] max-w-[1300px]">
@@ -115,6 +128,7 @@ export const Top = () => {
         <div className="pt-8">
           <div className="flex justify-end font-poppins text-sm">
             <IconButton
+              badge={cart.adultInfo.length + cart.childInfo.length}
               route="/cart"
               icon={staticFiles.icons.cart}
               name="Cart"
