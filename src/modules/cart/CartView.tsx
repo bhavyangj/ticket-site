@@ -9,116 +9,16 @@ import {
 import { CheckBox, MainInput } from "../../shared/components/Inputs";
 import { SpaceY } from "../../shared/components/Utils";
 import { CardInfo, MedalEnum, PropsCardInfo } from "./components/CardInfo";
+import { cartState } from "../../App";
 
 export const cartViewFirstColClassName = "flex justify-center w-3/12";
 export const cartViewRestColClassName = "flex justify-center grow w-2/12";
 
 export const CartView = () => {
+  const [cart] = cartState.useState();
   const [edit, setEdit] = useState(true);
   const navigate = useNavigate();
-  const [adultInfo] = useState<PropsCardInfo[]>([
-    {
-      name: "Big Apple 2",
-      price: 100,
-      quantity: 1,
-      addition: 27,
-      subtotal: 137,
-      includes: [
-        {
-          medal: MedalEnum.GOLD,
-          name: "Summit Observation Deck",
-          addition: 18,
-        },
-        {
-          medal: MedalEnum.SILVER,
-          name: "Moma Museum Doson Tour",
-          scheduledDate: "01/25/2023 (10:30 AM)",
-          addition: 9,
-        },
-      ],
-    },
-    {
-      name: "Big Apple 3",
-      price: 100,
-      quantity: 1,
-      addition: 27,
-      subtotal: 137,
-    },
-    {
-      name: "Big Apple 4",
-      price: 100,
-      quantity: 1,
-      addition: 27,
-      subtotal: 137,
-      includes: [
-        {
-          medal: MedalEnum.NONE,
-          name: "Top of The Rock",
-        },
-        {
-          medal: MedalEnum.GOLD,
-          name: "Summit Observation Deck",
-          addition: 18,
-        },
-        {
-          medal: MedalEnum.NONE,
-          name: "Edge NYC",
-        },
-        {
-          medal: MedalEnum.SILVER,
-          name: "마담투소 + 마블 4D",
 
-          addition: 9,
-        },
-      ],
-    },
-    {
-      name: "Big Apple 4",
-      price: 100,
-      quantity: 1,
-      addition: 27,
-      subtotal: 137,
-      includes: [
-        {
-          medal: MedalEnum.GOLD,
-          name: "Summit Observation Deck",
-          addition: 18,
-        },
-        {
-          medal: MedalEnum.NONE,
-          name: "Edge NYC",
-        },
-        {
-          medal: MedalEnum.SILVER,
-          name: "마담투소 + 마블 4D",
-
-          addition: 9,
-        },
-      ],
-    },
-  ]);
-  const [childInfo] = useState<PropsCardInfo[]>([
-    {
-      name: "Big Apple 2",
-      price: 100,
-      quantity: 1,
-      addition: 27,
-      subtotal: 137,
-      includes: [
-        {
-          medal: MedalEnum.GOLD,
-          name: "Summit Observation Deck",
-          addition: 18,
-        },
-        {
-          medal: MedalEnum.SILVER,
-          name: "Moma Museum Doson Tour",
-          scheduledDate: "01/25/2023 (10:30 AM)",
-          addition: 9,
-        },
-      ],
-    },
-  ]);
   return (
     <div className="flex flex-col items-center ">
       <div className="bg-[#F2F2F2] w-[99vw] min-h-[600px] pb-[20vh] pt-[10vh] flex justify-center">
@@ -170,7 +70,7 @@ export const CartView = () => {
               Adult
             </div>
             <SpaceY />
-            {adultInfo.map((ai) => (
+            {cart.adultInfo.map((ai) => (
               <CardInfo {...ai} key={JSON.stringify(ai)} />
             ))}
             <SpaceY />
@@ -180,7 +80,7 @@ export const CartView = () => {
               Child 1 (Age: 12)
             </div>
             <SpaceY />
-            {childInfo.map((ai) => (
+            {cart.childInfo.map((ai) => (
               <CardInfo {...ai} key={JSON.stringify(ai)} />
             ))}
             <SpaceY /> <hr className="border border-gray rounded w-full" />

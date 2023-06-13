@@ -8,44 +8,7 @@ import { SelectInput } from "../../../shared/components/Inputs";
 import { SpaceY } from "../../../shared/components/Utils";
 import { useQuery } from "@tanstack/react-query";
 import { ProductCardProps } from "../../../shared/components/ProductCard";
-
-const filterFakeData = {
-  value: 440,
-  includes: [
-    {
-      name: "엠파이어 스테이트 빌딩 전망대",
-      isIncluded: true,
-    },
-    {
-      name: "서밋 전망대 야간 ",
-      isIncluded: true,
-      hasGoldStar: true,
-    },
-    {
-      name: "자유의 여신상 스카이라인 데이크루즈",
-      isIncluded: true,
-    },
-    {
-      name: "모마 현대 미술관 ",
-      isIncluded: false,
-      hasGoldStar: true,
-    },
-    {
-      name: "모마 현대 미술관 도슨트  ",
-      isIncluded: true,
-      hasDate: true,
-    },
-    {
-      name: "마담투소 + 마블 4D ",
-      isIncluded: false,
-    },
-    {
-      name: "메트로포리탄 도슨트트",
-      isIncluded: false,
-      hasDate: true,
-    },
-  ],
-};
+import { CartItem, cartState } from "../../../App";
 
 type IncludesInfoProps = {
   isIncluded: boolean;
@@ -112,6 +75,8 @@ export const PackageBuyDetail = ({
   const [selectInputTwo, setSelectInputTwo] = useState("");
   const [maxLimit, setMaxLimit] = useState(0);
 
+  const [, setCart] = cartState.useState();
+
   const { data } = useQuery({
     queryKey: ["/price-lists?category_id=1"],
     queryFn: fetcher("/price-lists?category_id=1", (res: any) =>
@@ -128,6 +93,35 @@ export const PackageBuyDetail = ({
 
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
+  const handleAddToTheCart = () => {
+    const childInfo: CartItem[] = [];
+    const adultInfo: CartItem[] = [];
+
+    for (const el of selectedItems) {
+      const ticketData = tickets.find((item) => item.id === el);
+
+      childInfo.push({
+        name: ticketData?.name || "",
+        price: ticketData?.childPrice || 0,
+        quantity: 0,
+        subtotal: 0,
+        addition: 0,
+      });
+      adultInfo.push({
+        name: ticketData?.name || "",
+        price: ticketData?.adultPrice || 0,
+        quantity: 0,
+        subtotal: 0,
+        addition: 0,
+      });
+    }
+
+    setCart({
+      adultInfo,
+      childInfo,
+    });
+  };
+
   return (
     <div className="flex flex-col bg-white items-center max-h-fit pb-5">
       <div className="bg-white flex flex-col items-center w-full">
@@ -135,7 +129,7 @@ export const PackageBuyDetail = ({
       </div>
       <div className="p-5 bg-blue flex justify-center items-center text-white  font-medium text-xl w-full">
         <img width={18} className="mr-5" src={staticFiles.icons.tag_white} />$
-        {filterFakeData.value}
+        432
       </div>
       <div className="w-[90%] flex flex-col items-center">
         <div className="py-5 text-sm w-full">Booking Form</div>
@@ -202,7 +196,10 @@ export const PackageBuyDetail = ({
         <SpaceY />
         <SpaceY />
         <div className="w-full flex gap-x-1">
-          <MainButton onClick={() => {}} text="Add to the cart" />
+          <MainButton
+            onClick={() => handleAddToTheCart()}
+            text="Add to the cart"
+          />
           <SecondaryButton onClick={() => {}} text="Reset" />
         </div>
       </div>
