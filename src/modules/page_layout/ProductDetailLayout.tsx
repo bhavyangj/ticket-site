@@ -5,6 +5,7 @@ import {
   HashNavBarElement,
   ProductDetailNavBar,
 } from "../../shared/components/NavBar";
+import { useGetTicket } from "../../shared/hooks";
 
 const navbarElements: HashNavBarElement[] = [
   {
@@ -32,12 +33,9 @@ const navbarElements: HashNavBarElement[] = [
 export const ProductDetailLayout: React.FC<{
   children: ReactNode;
 }> = ({ children }) => {
-  const fakeImages = [
-    "https://picsum.photos/800/600?random=1",
-    "https://picsum.photos/800/600?random=2",
-    "https://picsum.photos/800/600?random=3",
-    "https://picsum.photos/800/600?random=4",
-  ];
+  const { ticket } = useGetTicket();
+
+  const fakeImages = ticket?.gallery_images?.map((item: any) => item.url) || [];
 
   return (
     <div className="flex flex-col items-center">
@@ -58,7 +56,7 @@ export const ProductDetailLayout: React.FC<{
             </div>
           }
         >
-          {fakeImages.map((img) => (
+          {fakeImages.map((img: string) => (
             <Carousel.Item key={img}>
               <div className="min-h-full flex justify-center">
                 <img className="object-contain" src={img} />

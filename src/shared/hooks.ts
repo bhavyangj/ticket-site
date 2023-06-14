@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { fetcher } from ".";
 import { ProductCardProps } from "./components/ProductCard";
 import { ShowCardProps } from "../modules/musicals_and_shows/components/ShowCard";
+import { useParams } from "react-router-dom";
 
 export const useGetTickets = ({
   category,
@@ -77,4 +78,17 @@ export const useGetShowTickets = ({
   });
 
   return { tickets };
+};
+
+export const useGetTicket = () => {
+  const { id: ticketId } = useParams();
+  const { data: ticket } = useQuery({
+    queryKey: [`tickets/${ticketId}`],
+    queryFn: fetcher(`/tickets/${ticketId}`, (res: any[]) => {
+      console.log(res);
+      return res;
+    }),
+  });
+
+  return { ticket };
 };
