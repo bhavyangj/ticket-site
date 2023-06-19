@@ -7,19 +7,20 @@ import {
 } from "../../shared/components/NavBar";
 import { useGetTicket } from "../../shared/hooks";
 
-const navbarElements: HashNavBarElement[] = [
+export const ProductDetailLayout: React.FC<{
+  children: ReactNode;
+}> = ({ children }) => {
+  const { ticket } = useGetTicket();
+
+  const images = ticket?.gallery_images?.map((item: any) => item.url) || [];
+
+  const navbarElements: HashNavBarElement[] = [
   {
     name: "Detail",
     hash: "detail",
   },
-  {
-    name: "Price",
-    hash: "price",
-  },
-  {
-    name: "How to",
-    hash: "how-to",
-  },
+  ...(ticket?.ticket_contents?.map((item:any)=>
+    ({name:item.name,hash:(item.name as string)?.toLowerCase()})) || []),
   {
     name: "Refund",
     hash: "refund",
@@ -29,13 +30,6 @@ const navbarElements: HashNavBarElement[] = [
     hash: "faq",
   },
 ];
-
-export const ProductDetailLayout: React.FC<{
-  children: ReactNode;
-}> = ({ children }) => {
-  const { ticket } = useGetTicket();
-
-  const fakeImages = ticket?.gallery_images?.map((item: any) => item.url) || [];
 
   return (
     <div className="flex flex-col items-center">
@@ -56,7 +50,7 @@ export const ProductDetailLayout: React.FC<{
             </div>
           }
         >
-          {fakeImages.map((img: string) => (
+          {images.map((img: string) => (
             <Carousel.Item key={img}>
               <div className="min-h-full flex justify-center">
                 <img className="object-contain" src={img} />
@@ -65,14 +59,14 @@ export const ProductDetailLayout: React.FC<{
           ))}
         </Carousel>
         <div className="w-1/4 hidden lg:flex border-[3px] border-transparent flex-col gap-y-1">
-          <img className="object-contain h-1/2" src={fakeImages[0]} />
+          <img className="object-contain h-1/2" src={images[0]} />
 
-          <img className="object-contain h-1/2" src={fakeImages[1]} />
+          <img className="object-contain h-1/2" src={images[1]} />
         </div>
         <div className="w-1/4 hidden lg:flex border-[3px] border-transparent flex-col gap-y-1">
-          <img className="object-contain h-1/2" src={fakeImages[2]} />
+          <img className="object-contain h-1/2" src={images[2]} />
 
-          <img className="object-contain h-1/2" src={fakeImages[3]} />
+          <img className="object-contain h-1/2" src={images[3]} />
         </div>
       </div>
       <div className="bg-[#F2F2F2] w-[99vw] min-h-[100px] flex justify-center">
