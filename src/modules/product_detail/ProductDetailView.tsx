@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { staticFiles } from "../../shared";
 import { MainButton } from "../../shared/components/Buttons";
 import { SpaceY } from "../../shared/components/Utils";
-import { PackageBuyDetail } from "../package_tour/components/PackageBuyDetail";
+import { TicketSelector } from "../package_tour/components/PackageBuyDetail";
 import { useGetTicket } from "../../shared/hooks";
 
 export const ProductDetailView = () => {
@@ -22,7 +22,7 @@ export const ProductDetailView = () => {
     <div className="w-full pb-[10vw] flex">
       <div className="flex flex-col w-full md:w-2/3">
         {displayFilter ? (
-          <PackageBuyDetail tickets={[]} />
+          <TicketSelector ticket={ticket} />
         ) : (
           <div dangerouslySetInnerHTML= { { __html: ticket?.ticket_content?.content }}>
               
@@ -38,7 +38,7 @@ export const ProductDetailView = () => {
       </div>
       <div className="hidden md:flex flex-col w-1/3">
         <div className="min-h-[500px]">
-          <PackageBuyDetail tickets={[]} />
+          <TicketSelector ticket={ticket}/>
         </div>
         <div className="w-[180%]">
           <img
