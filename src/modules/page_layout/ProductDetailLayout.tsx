@@ -69,11 +69,11 @@ export const ProductDetailLayout: React.FC<{
           <img className="object-contain h-1/2" src={images[3]} />
         </div>
       </div>
-      <div className="bg-[#F2F2F2] w-[99vw] min-h-[100px] flex justify-center">
+    {/*  <div className="bg-[#F2F2F2] w-[99vw] min-h-[100px] flex justify-center">
         <div className="flex flex-col px-[5vw] max-w-[1300px] w-full">
           <ProductDetailNavBar elements={navbarElements} />
         </div>
-      </div>
+      </div>*/}
       {children}
     </div>
   );
