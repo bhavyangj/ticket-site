@@ -19,6 +19,10 @@ export const CartView = () => {
   const [edit, setEdit] = useState(true);
   const navigate = useNavigate();
 
+  console.log(cart)
+
+  const subTotal = cart.adultInfo.reduce((acc,cur)=>acc+cur.subtotal,0) + cart.childInfo.reduce((acc,cur)=>acc+cur.subtotal,0)
+
   return (
     <div className="flex flex-col items-center ">
       <div className="bg-[#F2F2F2] w-[99vw] min-h-[600px] pb-[20vh] pt-[10vh] flex justify-center">
@@ -87,7 +91,7 @@ export const CartView = () => {
             <SpaceY />
             <div className="w-full flex justify-between font-poppins text-darkGray">
               <span>Subtotal</span>
-              <span>$1444.25</span>
+              <span>${subTotal}</span>
             </div>
             <SpaceY />
             <div className="w-full flex justify-between font-poppins text-darkGray">
@@ -115,7 +119,7 @@ export const CartView = () => {
             <SpaceY />
             <div className="w-full flex justify-between font-poppins text-darkGray font-medium">
               <span>Grand Total</span>
-              <span>$1444.25</span>
+              <span>${subTotal}</span>
             </div>
             <SpaceY />
             <SpaceY />
@@ -187,7 +191,7 @@ export const CartView = () => {
                 <hr className="border border-gray rounded w-full" /> <SpaceY />
                 <div className="font-poppins font-medium text-sm text-darkGray flex justify-between">
                   <span>Grand Total</span>
-                  <span>$1444.25</span>
+                  <span>${subTotal}</span>
                 </div>
                 <SpaceY />
                 <hr className="border border-gray rounded w-full" />

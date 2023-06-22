@@ -52,11 +52,11 @@ export const CardInfo: React.FC<PropsCardInfo> = ({
       <div className={`${cartViewRestColClassName} `}>{quantity}</div>
       <div className={`${cartViewRestColClassName}`}>${addition}</div>
       <div className={`${cartViewRestColClassName}`}>${subtotal}</div>
-      <div
+     {/* <div
         className={`${`${cartViewRestColClassName}`} text-blue underline cursor-pointer hidden md:flex`}
       >
         edit
-      </div>
+      </div>*/}
     </div>
 
     {includes?.map((included) => (

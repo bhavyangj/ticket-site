@@ -100,20 +100,26 @@ export const PackageBuyDetail = ({
     for (const el of selectedItems) {
       const ticketData = tickets.find((item) => item.id === el);
 
-      childInfo.push({
-        name: ticketData?.name || "",
-        price: ticketData?.childPrice || 0,
-        quantity: 0,
-        subtotal: 0,
-        addition: 0,
-      });
-      adultInfo.push({
+      if (selectInputTwo === "Adult") {
+         adultInfo.push({
         name: ticketData?.name || "",
         price: ticketData?.adultPrice || 0,
-        quantity: 0,
-        subtotal: 0,
+        quantity: filterCounter,
+        subtotal:( ticketData?.adultPrice || 0)*filterCounter,
         addition: 0,
       });
+       } else if (selectInputTwo === "Child"){
+        childInfo.push({
+        name: ticketData?.name || "",
+        price: ticketData?.childPrice || 0,
+        quantity: filterCounter,
+        subtotal:( ticketData?.childPrice || 0)*filterCounter,
+        addition: 0,
+      });
+       }
+
+      
+     
     }
 
     setCart({
