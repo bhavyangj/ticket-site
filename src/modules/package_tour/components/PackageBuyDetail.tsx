@@ -213,7 +213,7 @@ export const PackageBuyDetail = ({
   );
 };
 
-export const TicketSelector = ({ticket}:{ticket:ProductCardProps}) => {
+export const TicketSelector = ({ticket}:{ticket:any}) => {
   const [filterCounter, setFilterCounter] = useState(1);
   const [selectInputOne, setSelectInputOne] = useState("");
   const [selectInputTwo, setSelectInputTwo] = useState("");
@@ -222,6 +222,8 @@ export const TicketSelector = ({ticket}:{ticket:ProductCardProps}) => {
   const [cart, setCart] = cartState.useState();
 
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
+
+  console.log(ticket)
 
   return (
     <div className="flex flex-col bg-white items-center max-h-fit pb-5">
@@ -270,20 +272,23 @@ export const TicketSelector = ({ticket}:{ticket:ProductCardProps}) => {
             const childInfo: CartItem[] = [...cart.childInfo];
     const adultInfo: CartItem[] = [...cart.adultInfo];
 
-             childInfo.push({
-        name: ticket?.name || "",
-        price: ticket?.childPrice || 0,
-        quantity: 0,
-        subtotal: 0,
+    if (selectInputTwo === "Adult") {
+         adultInfo.push({
+        name: ticket?.title_en || "",
+        price: ticket?.ticket_prices[0].sale_price || 0,
+        quantity: filterCounter,
+        subtotal:( ticket?.ticket_prices[0].sale_price || 0)*filterCounter,
         addition: 0,
       });
-      adultInfo.push({
-        name: ticket?.name || "",
-        price: ticket?.adultPrice || 0,
-        quantity: 0,
-        subtotal: 0,
+       } else if (selectInputTwo === "Child"){
+        childInfo.push({
+        name: ticket?.title_en || "",
+        price: ticket?.ticket_prices[1].sale_price || 0,
+        quantity: filterCounter,
+        subtotal:( ticket?.ticket_prices[1].sale_price || 0)*filterCounter,
         addition: 0,
       });
+       }
 
             setCart({
       adultInfo,

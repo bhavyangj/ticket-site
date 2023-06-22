@@ -19,8 +19,6 @@ export const CartView = () => {
   const [edit, setEdit] = useState(true);
   const navigate = useNavigate();
 
-  console.log(cart)
-
   const subTotal = cart.adultInfo.reduce((acc,cur)=>acc+cur.subtotal,0) + cart.childInfo.reduce((acc,cur)=>acc+cur.subtotal,0)
 
   return (
