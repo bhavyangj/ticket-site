@@ -1,8 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
+import {useEffect} from "react"
 import { fetcher } from ".";
 import { ProductCardProps } from "./components/ProductCard";
 import { ShowCardProps } from "../modules/musicals_and_shows/components/ShowCard";
 import { useParams } from "react-router-dom";
+import { cartState } from "../App";
 
 export const useGetTickets = ({
   category,
@@ -92,3 +94,16 @@ export const useGetTicket = () => {
 
   return { ticket };
 };
+
+let firstRenderDone = false
+export const useCacheCart = () => {
+  const [cart,setCart] = cartState.useState();
+  
+  useEffect(()=>{
+    const stringData = localStorage.getItem("CART_DATA");
+    if(!stringData) return
+    const cachedCart = JSON.parse(stringData);
+    setCart(cachedCart)
+    firstRenderDone = true
+  },[])
+}

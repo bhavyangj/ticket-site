@@ -87,7 +87,7 @@ export const CartView = () => {
             ))}
             <SpaceY /> <hr className="border border-gray rounded w-full" />
             <SpaceY />
-            <div className="w-full flex justify-between font-poppins text-darkGray">
+            {/*<div className="w-full flex justify-between font-poppins text-darkGray">
               <span>Subtotal</span>
               <span>${subTotal}</span>
             </div>
@@ -113,7 +113,7 @@ export const CartView = () => {
               <span className="font-medium">Discount Amount</span>
               <span></span>
             </div>
-            <SpaceY /> <hr className="border border-gray rounded w-full" />
+            <SpaceY /> <hr className="border border-gray rounded w-full" />*/}
             <SpaceY />
             <div className="w-full flex justify-between font-poppins text-darkGray font-medium">
               <span>Grand Total</span>

@@ -121,7 +121,10 @@ export const PackageBuyDetail = ({
       
      
     }
-
+  localStorage.setItem("CART_DATA", JSON.stringify({
+      adultInfo,
+      childInfo,
+    }));
     setCart({
       adultInfo,
       childInfo,
@@ -289,6 +292,11 @@ export const TicketSelector = ({ticket}:{ticket:any}) => {
         addition: 0,
       });
        }
+           localStorage.setItem("CART_DATA", JSON.stringify({
+      adultInfo,
+      childInfo,
+    }));
+
 
             setCart({
       adultInfo,

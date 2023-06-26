@@ -7,6 +7,7 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css";
 import { createState } from "state-pool";
 import { MedalEnum } from "./modules/cart/components/CardInfo";
+import {useCacheCart} from "./shared/hooks"
 
 const queryClient = new QueryClient();
 
@@ -132,6 +133,7 @@ export const cartState = createState<{
 });
 
 function App() {
+  useCacheCart()
   return (
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
