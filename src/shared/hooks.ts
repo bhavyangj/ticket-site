@@ -9,9 +9,11 @@ import { cartState } from "../App";
 export const useGetTickets = ({
   category,
   subCategoryId,
+  guideFilter = false
 }: {
   category: number;
   subCategoryId?: number;
+  guideFilter?:boolean
 }): { tickets: ProductCardProps[] | undefined } => {
   const { data: tickets } = useQuery<ProductCardProps[]>({
     queryKey: [
@@ -25,10 +27,22 @@ export const useGetTickets = ({
       }`,
       (res: any[]) => {
         // console.log(res);
+        if(guideFilter) return res?.filter(item=>item.ticket_type==="Guide Tour")?.map((item) => ({
+          id: item.id.toString(),
+          name: item.title_en,
+          availability: item.announcement,
+          adultPrice: item.ticket_prices[0].sale_price,
+          adultSitePrice: item.ticket_prices[0].sale_price,
+          childPrice: item.ticket_prices[1].sale_price,
+          childSitePrice: item.ticket_prices[1].sale_price,
+          childNote: "만 4 세-12 세 기준, 만 3 세 이하 무료",
+          image: item?.card_image?.url,
+          isPremium: false,
+        }))
         return res?.map((item) => ({
           id: item.id.toString(),
           name: item.title_en,
-          availability: "Jan 16 to Dec 16",
+          availability: item.announcement,
           adultPrice: item.ticket_prices[0].sale_price,
           adultSitePrice: item.ticket_prices[0].sale_price,
           childPrice: item.ticket_prices[1].sale_price,

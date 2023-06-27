@@ -9,6 +9,7 @@ export const BigApplePassView = () => {
   const { tickets } = useGetTickets({
     category: 1,
     subCategoryId: 97,
+    guideFilter:true
   });
 
   return (

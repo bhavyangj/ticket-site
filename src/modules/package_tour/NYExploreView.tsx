@@ -8,7 +8,8 @@ export const NYExploreView = () => {
   const [displayFilter, setDisplayFilter] = useState(false);
   const { tickets } = useGetTickets({
     category: 1,
-    subCategoryId: 99,
+    subCategoryId: 97,
+    guideFilter:true
   });
   return (
     <div className="flex w-full gap-x-3">

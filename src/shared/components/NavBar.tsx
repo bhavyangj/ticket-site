@@ -10,7 +10,7 @@ export type NavBarElement = {
 };
 
 const itemClass =
-  "px-8 py-2 font-poppins font-bold text-xs hover:bg-lightBlue/[.1] rounded-sm text-dark flex justify-center items-center whitespace-nowrap";
+  "px-8 py-2 font-poppins text-sm hover:bg-lightBlue/[.1] rounded-sm text-dark flex justify-center items-center whitespace-nowrap";
 const selectedItemClass = "border-b-2 border-lightBlue rounded-sm";
 
 const dropdownContainer = "group relative inline-block";
@@ -29,7 +29,7 @@ export const NavBar: React.FC<{
           <Fragment key={el.name}>
             {el.dropdownElements ? (
               <button
-                className={`flex flex-col px-2 py-2 font-poppins font-medium text-xs hover:text-blue rounded-sm text-dark justify-center items-center whitespace-nowrap ${
+                className={`flex flex-col px-2 py-2 font-poppins font-medium text-sm hover:text-blue rounded-sm text-dark justify-center items-center whitespace-nowrap ${
                   location.pathname !== "/" &&
                   (el.path.includes(location.pathname) ||
                     location.pathname.includes(el.path))
@@ -55,7 +55,7 @@ export const NavBar: React.FC<{
               </button>
             ) : (
               <button
-                className={`flex px-2 py-2 font-poppins font-bold text-xs hover:text-blue rounded-sm text-dark items-center whitespace-nowrap ${
+                className={`flex px-2 py-2 font-poppins text-sm hover:text-blue rounded-sm text-dark items-center whitespace-nowrap ${
                   location.pathname !== "/" &&
                   el.path.includes(location.pathname)
                     ? selectedItemClass

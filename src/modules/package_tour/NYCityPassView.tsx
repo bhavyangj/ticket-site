@@ -6,9 +6,10 @@ import { useGetTickets } from "../../shared/hooks";
 
 export const NYCityPassView = () => {
   const [displayFilter, setDisplayFilter] = useState(false);
-  const { tickets } = useGetTickets({
+   const { tickets } = useGetTickets({
     category: 1,
-    subCategoryId: 98,
+    subCategoryId: 97,
+    guideFilter:true
   });
   return (
     <div className="flex w-full gap-x-3">

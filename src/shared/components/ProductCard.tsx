@@ -61,7 +61,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <div className="flex gap-x-3">
             <img width={18} src={staticFiles.icons.card_calendar} />
             <span className="text-sm text-darkGray">
-              Availability: {availability}
+              {availability}
             </span>
           </div>
           <div className="flex gap-x-3">
@@ -107,15 +107,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <div className="flex gap-x-3">
             <img width={18} src={staticFiles.icons.card_calendar} />
             <span className="text-sm text-darkGray">
-              Availability: {availability}
+              {availability}
             </span>
           </div>
           <div className="flex gap-x-3">
             <img width={18} src={staticFiles.icons.card_adult} />
             <div className="flex flex-col">
-              <span className="text-sm text-darkGray">
-                성인 가격: ${adultSitePrice}
-              </span>
               <span className="text-sm text-darkGray">
                 현장 판매가: ${adultPrice}
               </span>
@@ -124,10 +121,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
           <div className="flex gap-x-3">
             <img width={18} src={staticFiles.icons.card_baby} />
             <div className="flex flex-col">
-              <span className="text-sm text-darkGray">
-                어린이 가격: ${childSitePrice}
-              </span>
-              <span className="text-sm text-darkGray">
+                          <span className="text-sm text-darkGray">
                 현장 판매가: ${childPrice}
               </span>
               <span className="text-sm text-darkGray">{childNote}</span>
