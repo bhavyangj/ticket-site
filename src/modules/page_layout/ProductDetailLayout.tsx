@@ -1,10 +1,6 @@
 import Carousel from "better-react-carousel";
 import { ReactNode } from "react";
 import { staticFiles } from "../../shared";
-import {
-  HashNavBarElement,
-  ProductDetailNavBar,
-} from "../../shared/components/NavBar";
 import { useGetTicket } from "../../shared/hooks";
 
 export const ProductDetailLayout: React.FC<{
@@ -13,23 +9,6 @@ export const ProductDetailLayout: React.FC<{
   const { ticket } = useGetTicket();
 
   const images = ticket?.gallery_images?.map((item: any) => item.url) || [];
-
-  const navbarElements: HashNavBarElement[] = [
-  {
-    name: "Detail",
-    hash: "detail",
-  },
-  ...(ticket?.ticket_contents?.map((item:any)=>
-    ({name:item.name,hash:(item.name as string)?.toLowerCase()})) || []),
-  {
-    name: "Refund",
-    hash: "refund",
-  },
-  {
-    name: "FAQ",
-    hash: "faq",
-  },
-];
 
   return (
     <div className="flex flex-col items-center">
@@ -69,11 +48,6 @@ export const ProductDetailLayout: React.FC<{
           <img className="object-contain h-1/2" src={images[3]} />
         </div>
       </div>
-    {/*  <div className="bg-[#F2F2F2] w-[99vw] min-h-[100px] flex justify-center">
-        <div className="flex flex-col px-[5vw] max-w-[1300px] w-full">
-          <ProductDetailNavBar elements={navbarElements} />
-        </div>
-      </div>*/}
       {children}
     </div>
   );
