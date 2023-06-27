@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ReactPhoneInput, { Country } from "react-phone-number-input";
 import { staticFiles } from "..";
 import { phoneUtils } from "../utils";
+import { useClickOutside } from "../hooks";
 
 export const MainInput: React.FC<{
   placeholder: string;
@@ -107,6 +108,8 @@ export const SelectInput: React.FC<{
   setSelected: React.Dispatch<React.SetStateAction<string>>;
 }> = ({ containerClassName = "w-full", options, selected, setSelected }) => {
   const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  useClickOutside(ref, () => setOpen(false));
 
   useEffect(() => {
     setSelected(options[0]?.value);
@@ -127,7 +130,7 @@ export const SelectInput: React.FC<{
         </div>
 
         {open && (
-          <ul className={dropdownClass}>
+          <ul ref={ref} className={dropdownClass}>
             {options.map((el) => (
               <li
                 key={el.value}

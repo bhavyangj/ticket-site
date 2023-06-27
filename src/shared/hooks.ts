@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import {useEffect} from "react"
+import { MutableRefObject, useEffect } from "react";
 import { fetcher } from ".";
 import { ProductCardProps } from "./components/ProductCard";
 import { ShowCardProps } from "../modules/musicals_and_shows/components/ShowCard";
@@ -9,11 +9,11 @@ import { cartState } from "../App";
 export const useGetTickets = ({
   category,
   subCategoryId,
-  guideFilter = false
+  guideFilter = false,
 }: {
   category: number;
   subCategoryId?: number;
-  guideFilter?:boolean
+  guideFilter?: boolean;
 }): { tickets: ProductCardProps[] | undefined } => {
   const { data: tickets } = useQuery<ProductCardProps[]>({
     queryKey: [
@@ -27,18 +27,21 @@ export const useGetTickets = ({
       }`,
       (res: any[]) => {
         // console.log(res);
-        if(guideFilter) return res?.filter(item=>item.ticket_type==="Guide Tour")?.map((item) => ({
-          id: item.id.toString(),
-          name: item.title_en,
-          availability: item.announcement,
-          adultPrice: item.ticket_prices[0].sale_price,
-          adultSitePrice: item.ticket_prices[0].sale_price,
-          childPrice: item.ticket_prices[1].sale_price,
-          childSitePrice: item.ticket_prices[1].sale_price,
-          childNote: "만 4 세-12 세 기준, 만 3 세 이하 무료",
-          image: item?.card_image?.url,
-          isPremium: false,
-        }))
+        if (guideFilter)
+          return res
+            ?.filter((item) => item.ticket_type === "Guide Tour")
+            ?.map((item) => ({
+              id: item.id.toString(),
+              name: item.title_en,
+              availability: item.announcement,
+              adultPrice: item.ticket_prices[0].sale_price,
+              adultSitePrice: item.ticket_prices[0].sale_price,
+              childPrice: item.ticket_prices[1].sale_price,
+              childSitePrice: item.ticket_prices[1].sale_price,
+              childNote: "만 4 세-12 세 기준, 만 3 세 이하 무료",
+              image: item?.card_image?.url,
+              isPremium: false,
+            }));
         return res?.map((item) => ({
           id: item.id.toString(),
           name: item.title_en,
@@ -109,15 +112,34 @@ export const useGetTicket = () => {
   return { ticket };
 };
 
-let firstRenderDone = false
+let firstRenderDone = false;
 export const useCacheCart = () => {
-  const [cart,setCart] = cartState.useState();
-  
-  useEffect(()=>{
+  const [cart, setCart] = cartState.useState();
+
+  useEffect(() => {
     const stringData = localStorage.getItem("CART_DATA");
-    if(!stringData) return
+    if (!stringData) return;
     const cachedCart = JSON.parse(stringData);
-    setCart(cachedCart)
-    firstRenderDone = true
-  },[])
+    setCart(cachedCart);
+    firstRenderDone = true;
+  }, []);
+};
+
+export function useClickOutside(
+  ref: MutableRefObject<HTMLElement | null>,
+  action: () => void
+) {
+  useEffect(() => {
+    function handleClickOutside(event: any) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        action();
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [ref]);
 }
