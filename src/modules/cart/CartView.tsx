@@ -36,7 +36,7 @@ export const CartView = () => {
               <span className="font-poppins font-medium text-darkGray">
                 Shopping Cart
               </span>
-              <div className="hidden md:flex flex-col gap-y-2">
+              {/*<div className="hidden md:flex flex-col gap-y-2">
                 <div className="flex font-poppins text-darkGray">
                   <img
                     width={23}
@@ -53,7 +53,7 @@ export const CartView = () => {
                   />
                   Premium S: $9 추가
                 </div>
-              </div>
+              </div>*/}
             </div>
             <SpaceY />
             <SpaceY />
