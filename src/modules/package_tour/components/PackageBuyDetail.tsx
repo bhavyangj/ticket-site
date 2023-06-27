@@ -101,35 +101,37 @@ export const PackageBuyDetail = ({
       const ticketData = tickets.find((item) => item.id === el);
 
       if (selectInputTwo === "Adult") {
-         adultInfo.push({
-        name: ticketData?.name || "",
-        price: ticketData?.adultPrice || 0,
-        quantity: filterCounter,
-        subtotal:( ticketData?.adultPrice || 0)*filterCounter,
-        addition: 0,
-      });
-       } else if (selectInputTwo === "Child"){
+        adultInfo.push({
+          name: ticketData?.name || "",
+          price: ticketData?.adultPrice || 0,
+          quantity: filterCounter,
+          subtotal: (ticketData?.adultPrice || 0) * filterCounter,
+          addition: 0,
+        });
+      } else if (selectInputTwo === "Child") {
         childInfo.push({
-        name: ticketData?.name || "",
-        price: ticketData?.childPrice || 0,
-        quantity: filterCounter,
-        subtotal:( ticketData?.childPrice || 0)*filterCounter,
-        addition: 0,
-      });
-       }
-
-      
-     
+          name: ticketData?.name || "",
+          price: ticketData?.childPrice || 0,
+          quantity: filterCounter,
+          subtotal: (ticketData?.childPrice || 0) * filterCounter,
+          addition: 0,
+        });
+      }
     }
-  localStorage.setItem("CART_DATA", JSON.stringify({
-      adultInfo,
-      childInfo,
-    }));
+    localStorage.setItem(
+      "CART_DATA",
+      JSON.stringify({
+        adultInfo,
+        childInfo,
+      })
+    );
     setCart({
       adultInfo,
       childInfo,
     });
   };
+
+  console.log(tickets);
 
   return (
     <div className="flex flex-col bg-white items-center max-h-fit pb-5">
@@ -198,7 +200,7 @@ export const PackageBuyDetail = ({
               isIncluded={selectedItems.includes(i.id)}
               name={i.name}
               hasDate={false}
-              hasGoldStar={false}
+              hasGoldStar={i.isPremium}
             />
           ))}
         </div>
@@ -216,7 +218,7 @@ export const PackageBuyDetail = ({
   );
 };
 
-export const TicketSelector = ({ticket}:{ticket:any}) => {
+export const TicketSelector = ({ ticket }: { ticket: any }) => {
   const [filterCounter, setFilterCounter] = useState(1);
   const [selectInputOne, setSelectInputOne] = useState("");
   const [selectInputTwo, setSelectInputTwo] = useState("");
@@ -226,7 +228,7 @@ export const TicketSelector = ({ticket}:{ticket:any}) => {
 
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
-  console.log(ticket)
+  console.log(ticket);
 
   return (
     <div className="flex flex-col bg-white items-center max-h-fit pb-5">
@@ -271,41 +273,45 @@ export const TicketSelector = ({ticket}:{ticket:any}) => {
         <SpaceY />
         <div className="w-full flex gap-x-1">
           <MainButton
-            onClick={() =>  {
-            const childInfo: CartItem[] = [...cart.childInfo];
-    const adultInfo: CartItem[] = [...cart.adultInfo];
+            onClick={() => {
+              const childInfo: CartItem[] = [...cart.childInfo];
+              const adultInfo: CartItem[] = [...cart.adultInfo];
 
-    if (selectInputTwo === "Adult") {
-         adultInfo.push({
-        name: ticket?.title_en || "",
-        price: ticket?.ticket_prices[0].sale_price || 0,
-        quantity: filterCounter,
-        subtotal:( ticket?.ticket_prices[0].sale_price || 0)*filterCounter,
-        addition: 0,
-      });
-       } else if (selectInputTwo === "Child"){
-        childInfo.push({
-        name: ticket?.title_en || "",
-        price: ticket?.ticket_prices[1].sale_price || 0,
-        quantity: filterCounter,
-        subtotal:( ticket?.ticket_prices[1].sale_price || 0)*filterCounter,
-        addition: 0,
-      });
-       }
-           localStorage.setItem("CART_DATA", JSON.stringify({
-      adultInfo,
-      childInfo,
-    }));
+              if (selectInputTwo === "Adult") {
+                adultInfo.push({
+                  name: ticket?.title_en || "",
+                  price: ticket?.ticket_prices[0].sale_price || 0,
+                  quantity: filterCounter,
+                  subtotal:
+                    (ticket?.ticket_prices[0].sale_price || 0) * filterCounter,
+                  addition: 0,
+                });
+              } else if (selectInputTwo === "Child") {
+                childInfo.push({
+                  name: ticket?.title_en || "",
+                  price: ticket?.ticket_prices[1].sale_price || 0,
+                  quantity: filterCounter,
+                  subtotal:
+                    (ticket?.ticket_prices[1].sale_price || 0) * filterCounter,
+                  addition: 0,
+                });
+              }
+              localStorage.setItem(
+                "CART_DATA",
+                JSON.stringify({
+                  adultInfo,
+                  childInfo,
+                })
+              );
 
-
-            setCart({
-      adultInfo,
-      childInfo,
-    });
-          }}
+              setCart({
+                adultInfo,
+                childInfo,
+              });
+            }}
             text="Add to the cart"
           />
-          <SecondaryButton onClick={() =>{}} text="Reset" />
+          <SecondaryButton onClick={() => {}} text="Reset" />
         </div>
       </div>
     </div>
