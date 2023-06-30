@@ -7,7 +7,7 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css";
 import { createState } from "state-pool";
 import { MedalEnum } from "./modules/cart/components/CardInfo";
-import {useCacheCart} from "./shared/hooks"
+import { useCacheCart } from "./shared/hooks";
 
 const queryClient = new QueryClient();
 
@@ -51,89 +51,11 @@ export const cartState = createState<{
     //   ],
     // },
   ],
-  adultInfo: [
-    // {
-    //   name: "Big Apple 2",
-    //   price: 100,
-    //   quantity: 1,
-    //   addition: 27,
-    //   subtotal: 137,
-    //   includes: [
-    //     {
-    //       medal: MedalEnum.GOLD,
-    //       name: "Summit Observation Deck",
-    //       addition: 18,
-    //     },
-    //     {
-    //       medal: MedalEnum.SILVER,
-    //       name: "Moma Museum Doson Tour",
-    //       scheduledDate: "01/25/2023 (10:30 AM)",
-    //       addition: 9,
-    //     },
-    //   ],
-    // },
-    // {
-    //   name: "Big Apple 3",
-    //   price: 100,
-    //   quantity: 1,
-    //   addition: 27,
-    //   subtotal: 137,
-    // },
-    // {
-    //   name: "Big Apple 4",
-    //   price: 100,
-    //   quantity: 1,
-    //   addition: 27,
-    //   subtotal: 137,
-    //   includes: [
-    //     {
-    //       medal: MedalEnum.NONE,
-    //       name: "Top of The Rock",
-    //     },
-    //     {
-    //       medal: MedalEnum.GOLD,
-    //       name: "Summit Observation Deck",
-    //       addition: 18,
-    //     },
-    //     {
-    //       medal: MedalEnum.NONE,
-    //       name: "Edge NYC",
-    //     },
-    //     {
-    //       medal: MedalEnum.SILVER,
-    //       name: "마담투소 + 마블 4D",
-    //       addition: 9,
-    //     },
-    //   ],
-    // },
-    // {
-    //   name: "Big Apple 4",
-    //   price: 100,
-    //   quantity: 1,
-    //   addition: 27,
-    //   subtotal: 137,
-    //   includes: [
-    //     {
-    //       medal: MedalEnum.GOLD,
-    //       name: "Summit Observation Deck",
-    //       addition: 18,
-    //     },
-    //     {
-    //       medal: MedalEnum.NONE,
-    //       name: "Edge NYC",
-    //     },
-    //     {
-    //       medal: MedalEnum.SILVER,
-    //       name: "마담투소 + 마블 4D",
-    //       addition: 9,
-    //     },
-    //   ],
-    // },
-  ],
+  adultInfo: [],
 });
 
 function App() {
-  useCacheCart()
+  useCacheCart();
   return (
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />

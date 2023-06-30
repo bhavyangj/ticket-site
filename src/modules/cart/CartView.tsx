@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { staticFiles } from "../../shared";
 import {
@@ -10,6 +10,7 @@ import { CheckBox, MainInput } from "../../shared/components/Inputs";
 import { SpaceY } from "../../shared/components/Utils";
 import { CardInfo, MedalEnum, PropsCardInfo } from "./components/CardInfo";
 import { cartState } from "../../App";
+import { useForm, Controller } from "react-hook-form";
 
 export const cartViewFirstColClassName = "flex justify-center w-3/12";
 export const cartViewRestColClassName = "flex justify-center grow w-2/12";
@@ -18,8 +19,82 @@ export const CartView = () => {
   const [cart] = cartState.useState();
   const [edit, setEdit] = useState(true);
   const navigate = useNavigate();
+  const {
+    control,
+    watch,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      lastName: "",
+      firstName: "",
+      email: "",
+      confirmEmail: "",
+      phone: "",
+    },
+  });
+  const [error, setError] = useState<string | null>(null);
 
-  const subTotal = cart.adultInfo.reduce((acc,cur)=>acc+cur.subtotal,0) + cart.childInfo.reduce((acc,cur)=>acc+cur.subtotal,0)
+  const subTotal =
+    cart.adultInfo.reduce((acc, cur) => acc + cur.subtotal, 0) +
+    cart.childInfo.reduce((acc, cur) => acc + cur.subtotal, 0);
+
+  const handleSaveData = (token: string) => {
+    const data = {
+      token_stripe: token,
+      first_name: watch("firstName"),
+      last_name: watch("lastName"),
+      email: watch("email"),
+      email_confirmation: watch("confirmEmail"),
+      phone: watch("phone"),
+      discount_amount: 0,
+      departure_date: null,
+      items: [
+        {
+          category_id: 1,
+          subcategory_id: 98,
+          price_list_id: 51,
+          adult_child_type: "Child",
+          child_age: 12,
+          price: 109,
+          addition: 0,
+          quantity: 1,
+          total: 109,
+          sub_items: [
+            {
+              addition: 0,
+              ticket_id: 85,
+            },
+          ],
+        },
+      ],
+    };
+    const arrErrors = Object.values(errors).map((item) => item.message);
+    console.log(arrErrors, errors);
+    if (arrErrors.length !== 0) return setError(arrErrors.join(", "));
+    setError(null);
+    console.log(data);
+  };
+
+  useEffect(() => {
+    // @ts-ignore
+    var stripe = Stripe(
+      "pk_test_51MpCKJACe4fzyuYTJ7dhX6C5O2cMlxTseYRQlWL74jeAvYTg1TL9nU9shH0tNydkvLh4YRomOb4eG11M08SI9yCI00qCMUvVDY"
+    );
+
+    const elements = stripe.elements();
+
+    const card = elements.create("card", {});
+    card.mount("#card-element");
+
+    const form = document.getElementById("payment-form");
+    form?.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      stripe
+        .createToken(card)
+        .then((res: any) => handleSaveData(res?.token?.id))
+        .catch((err: any) => setError(err.message));
+    });
+  }, []);
 
   return (
     <div className="flex flex-col items-center ">
@@ -137,101 +212,98 @@ export const CartView = () => {
                 </div>
                 <SpaceY />
                 <SpaceY />
-                <MainInput
-                  placeholder="Last Name *"
-                  onChange={() => {}}
-                  containerClassName="w-full"
-                  value={""}
+                <Controller
+                  name="lastName"
+                  rules={{ required: true }}
+                  control={control}
+                  render={({ field: { onChange, value } }) => (
+                    <MainInput
+                      placeholder="Last Name *"
+                      onChange={onChange}
+                      containerClassName="w-full"
+                      value={value}
+                    />
+                  )}
                 />
                 <SpaceY />
-                <MainInput
-                  placeholder="First Name *"
-                  onChange={() => {}}
-                  containerClassName="w-full"
-                  value={""}
+                <Controller
+                  name="firstName"
+                  rules={{ required: true }}
+                  control={control}
+                  render={({ field: { onChange, value } }) => (
+                    <MainInput
+                      placeholder="First Name *"
+                      onChange={onChange}
+                      containerClassName="w-full"
+                      value={value}
+                    />
+                  )}
                 />
                 <SpaceY />
-                <MainInput
-                  placeholder="Email *"
-                  isPassword
-                  onChange={() => {}}
-                  containerClassName="w-full"
-                  value={""}
+                <Controller
+                  name="email"
+                  rules={{ required: true }}
+                  control={control}
+                  render={({ field: { onChange, value } }) => (
+                    <MainInput
+                      placeholder="Email *"
+                      onChange={onChange}
+                      containerClassName="w-full"
+                      value={value}
+                    />
+                  )}
                 />
                 <SpaceY />
-                <MainInput
-                  placeholder="Retype Email *"
-                  isPassword
-                  onChange={() => {}}
-                  containerClassName="w-full"
-                  value={""}
+                <Controller
+                  name="confirmEmail"
+                  rules={{ required: true }}
+                  control={control}
+                  render={({ field: { onChange, value } }) => (
+                    <MainInput
+                      placeholder="Retype Email *"
+                      onChange={onChange}
+                      containerClassName="w-full"
+                      value={value}
+                    />
+                  )}
                 />
                 <SpaceY />
-                <MainInput
-                  placeholder="Phone *"
-                  onChange={() => {}}
-                  containerClassName="w-full"
-                  value={""}
+                <Controller
+                  name="phone"
+                  rules={{ required: true }}
+                  control={control}
+                  render={({ field: { onChange, value } }) => (
+                    <MainInput
+                      placeholder="Phone *"
+                      onChange={onChange}
+                      containerClassName="w-full"
+                      value={value}
+                    />
+                  )}
                 />
                 <SpaceY />
-                <MainInput
-                  placeholder="여행 예정일 (optional)"
-                  onChange={() => {}}
-                  containerClassName="w-full"
-                  value={""}
-                />
               </div>
               <div className="flex flex-col w-full bg-white py-10 px-4">
                 <div className="font-poppins font-medium text-sm text-darkGray">
                   Credit Card Information
                 </div>
                 <SpaceY /> <SpaceY />
-                <hr className="border border-gray rounded w-full" /> <SpaceY />
-                <div className="font-poppins font-medium text-sm text-darkGray flex justify-between">
-                  <span>Grand Total</span>
-                  <span>${subTotal}</span>
-                </div>
-                <SpaceY />
-                <hr className="border border-gray rounded w-full" />
-                <SpaceY /> <SpaceY />
-                <MainInput
-                  placeholder="영문 이름 * (크레딧 카드)"
-                  onChange={() => {}}
-                  containerClassName="w-full"
-                  value={""}
-                />
-                <SpaceY />
-                <MainInput
-                  placeholder="카드번호 *"
-                  onChange={() => {}}
-                  containerClassName="w-full"
-                  value={""}
-                />
-                <SpaceY />
-                <MainInput
-                  placeholder="MM/YY *"
-                  onChange={() => {}}
-                  containerClassName="w-full"
-                  value={""}
-                />
-                <SpaceY />
-                <SpaceY />
-                <div className="flex justify-center items-center w-full">
-                  <CheckBox
-                    value={false}
-                    onCheck={() => {}}
-                    containerClass="w-1/2"
-                  />
-                  <div className="font-poppins text-xs w-1/2 pl-3">
-                    Terms and Conditions
+                <form action="#" method="post" id="payment-form">
+                  <div className="form-row">
+                    <div id="card-element"></div>
+                    <div id="card-errors" role="alert"></div>
                   </div>
-                </div>
-                <SpaceY />
-                <SpaceY />
-                <div className="flex w-full gap-x-1">
-                  <MainButton text="Proceed Checkout" onClick={() => {}} />
-                  <SecondaryButton text="Reset" onClick={() => {}} />
-                </div>
+
+                  <SpaceY />
+                  <SpaceY />
+                  <div className="text-red">{error && error}</div>
+                  <div className="flex w-full gap-x-1 mt-4">
+                    <button className="font-poppins font-medium text-white bg-blue py-2 px-4">
+                      Proceed Checkout
+                    </button>
+                    <SecondaryButton text="Reset" onClick={() => {}} />
+                  </div>
+                </form>
               </div>
             </div>
           )}
